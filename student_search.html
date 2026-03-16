@@ -29,13 +29,13 @@
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #d4af37; /* 金色主题色 */
+            border-bottom: 2px solid #d4af37;
         }
         .header h1 {
             color: #333;
             font-size: clamp(20px, 5vw, 28px);
         }
-        /* 胶囊形搜索容器 - 右侧文字搜索按钮 */
+        /* 胶囊形搜索容器 */
         .search-container {
             display: flex;
             align-items: center;
@@ -58,7 +58,7 @@
             box-shadow: 0 0 8px rgba(212,175,55,0.4);
             border-color: #d4af37;
         }
-        /* 胶囊形金色文字搜索按钮 */
+        /* 金色胶囊搜索按钮 */
         .search-btn {
             position: absolute;
             right: 4px;
@@ -88,13 +88,14 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* 多结果容器 - 垂直分隔，单人一个大框 */
+        /* 多结果容器-单人一大框 */
         .result-list {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* 大框之间的间距，分隔清晰 */
+            gap: 25px;
+            margin-bottom: 30px;
         }
-        /* 单人信息独立大圆角框 */
+        /* 单人信息大框 */
         .student-card {
             background: #fffdf5;
             padding: 30px;
@@ -102,14 +103,14 @@
             border: 1px solid #f5efd9;
             width: 100%;
         }
-        /* 信息项容器 - 横向自适应 */
+        /* 信息项网格 */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 20px 15px;
             align-items: center;
         }
-        /* 每个信息项独立白色小圆角框（核心还原） */
+        /* 单个信息白色小框 */
         .info-item {
             display: flex;
             flex-direction: column;
@@ -128,6 +129,36 @@
             color: #333;
             font-size: 17px;
             word-break: break-all;
+        }
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .page-btn {
+            padding: 8px 20px;
+            background: #d4af37;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        .page-btn:disabled {
+            background: #e6e6e6;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .page-btn:hover:not(:disabled) {
+            background: #b8860b;
+        }
+        .page-info {
+            color: #666;
+            font-size: 16px;
         }
         /* 提示信息 */
         .tip-message {
@@ -153,10 +184,18 @@
             .student-card {
                 padding: 20px;
             }
+            .page-btn {
+                padding: 6px 15px;
+                font-size: 14px;
+            }
         }
         @media (max-width: 480px) {
             .info-grid {
                 grid-template-columns: 1fr;
+            }
+            .pagination {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -167,7 +206,7 @@
             <h1>学生信息查询系统</h1>
         </div>
 
-        <!-- 胶囊形搜索框+金色文字搜索按钮 -->
+        <!-- 胶囊搜索框+文字搜索按钮 -->
         <div class="search-container">
             <input type="text" class="search-input" id="searchInput" placeholder="请输入查询关键词（姓名/学号/班级/学院等）">
             <button class="search-btn" id="searchBtn">搜索</button>
@@ -177,11 +216,15 @@
         <div class="tip-message tip-error" id="errorMsg">请输入有效的查询关键词</div>
         <div class="tip-message tip-empty" id="emptyMsg">未找到匹配的学生信息，请更换关键词重试</div>
 
-        <!-- 多结果展示：单人一个大框，内部每个信息一个白色小框 -->
+        <!-- 结果展示：分页+单人一大框+白色小框 -->
         <div class="result-container" id="resultContainer">
-            <div class="result-title" id="resultCount">查询结果（共<span id="countNum">0</span>条）</div>
-            <div class="result-list" id="resultList">
-                <!-- 动态生成：单人一个student-card大框，内部info-item白色小框 -->
+            <div class="result-title" id="resultCount">查询结果（共<span id="totalNum">0</span>条）</div>
+            <div class="result-list" id="resultList"></div>
+            <!-- 分页控件 -->
+            <div class="pagination" id="pagination">
+                <button class="page-btn" id="prevPage" disabled>上一页</button>
+                <div class="page-info" id="pageInfo">第<span id="currentPage">1</span>页 / 共<span id="totalPage">1</span>页</div>
+                <button class="page-btn" id="nextPage" disabled>下一页</button>
             </div>
         </div>
     </div>
@@ -193,16 +236,24 @@
             searchBtn: document.getElementById('searchBtn'),
             resultContainer: document.getElementById('resultContainer'),
             resultList: document.getElementById('resultList'),
-            countNum: document.getElementById('countNum'),
+            totalNum: document.getElementById('totalNum'),
+            currentPage: document.getElementById('currentPage'),
+            totalPage: document.getElementById('totalPage'),
+            prevPage: document.getElementById('prevPage'),
+            nextPage: document.getElementById('nextPage'),
+            pageInfo: document.getElementById('pageInfo'),
             errorMsg: document.getElementById('errorMsg'),
             emptyMsg: document.getElementById('emptyMsg')
         };
 
-        // 学生数据
-        let studentData = [];
+        // 全局变量：分页配置+搜索结果缓存
+        let studentData = []; // 原始JSON数据
+        let searchResult = []; // 搜索匹配的结果缓存
+        const PAGE_SIZE = 10; // 每页展示10条，可自定义
+        let currentPageNum = 1; // 当前页码
         const JSON_FILE_NAME = 'studentInfo.json';
 
-        // 初始化读取本地JSON
+        // 初始化：读取本地JSON文件
         function init() {
             fetch(JSON_FILE_NAME)
                 .then(res => {
@@ -224,15 +275,17 @@
                 });
         }
 
-        // 重置显示状态
+        // 重置所有显示状态（搜索/翻页时调用）
         function resetDisplay() {
             el.resultContainer.style.display = 'none';
             el.errorMsg.style.display = 'none';
             el.emptyMsg.style.display = 'none';
             el.resultList.innerHTML = '';
+            currentPageNum = 1; // 每次搜索重置为第1页
+            updatePaginationBtn(); // 重置分页按钮状态
         }
 
-        // 多结果模糊搜索逻辑
+        // 搜索逻辑：模糊匹配+缓存结果+渲染第一页
         function searchStudent() {
             resetDisplay();
             const keyword = el.searchInput.value.trim().toLowerCase();
@@ -240,24 +293,36 @@
                 el.errorMsg.style.display = 'block';
                 return;
             }
-            // 匹配所有字段，模糊搜索
-            const matchStudents = studentData.filter(student => {
+
+            // 模糊匹配所有字段，缓存结果到searchResult
+            searchResult = studentData.filter(student => {
                 return Object.values(student).some(val => {
                     return String(val).toLowerCase().includes(keyword);
                 });
             });
-            if (matchStudents.length === 0) {
+
+            // 无匹配结果
+            if (searchResult.length === 0) {
                 el.emptyMsg.style.display = 'block';
                 return;
             }
-            // 渲染结果
-            renderStudentCards(matchStudents);
+
+            // 更新总条数和总页数
+            el.totalNum.textContent = searchResult.length;
+            el.totalPage.textContent = Math.ceil(searchResult.length / PAGE_SIZE);
+            // 渲染当前页（第1页）
+            renderCurrentPage();
             el.resultContainer.style.display = 'block';
-            el.countNum.textContent = matchStudents.length;
+            updatePaginationBtn(); // 更新分页按钮状态
         }
 
-        // 渲染：单人一个大框+内部每个信息白色小框，严格按指定顺序
-        function renderStudentCards(students) {
+        // 渲染当前页数据：截取对应分页的10条数据
+        function renderCurrentPage() {
+            // 计算截取起始和结束索引
+            const startIndex = (currentPageNum - 1) * PAGE_SIZE;
+            const endIndex = startIndex + PAGE_SIZE;
+            const currentData = searchResult.slice(startIndex, endIndex);
+
             // 固定信息显示顺序：班级、学号、姓名、性别、学院、专业、专业方向
             const infoMap = [
                 { label: '班级', key: 'adminclass_name' },
@@ -269,8 +334,8 @@
                 { label: '专业方向', key: 'direction_name' }
             ];
 
-            students.forEach(student => {
-                // 生成每个信息项的白色小框
+            // 渲染当前页的每条数据
+            currentData.forEach(student => {
                 let infoHtml = '';
                 infoMap.forEach(item => {
                     const value = student[item.key] || '无';
@@ -281,7 +346,7 @@
                         </div>
                     `;
                 });
-                // 单人一个大圆角框，内部包含所有白色小框
+                // 单人一个大框，内部包含白色小框
                 const cardHtml = `
                     <div class="student-card">
                         <div class="info-grid">${infoHtml}</div>
@@ -289,13 +354,50 @@
                 `;
                 el.resultList.innerHTML += cardHtml;
             });
+
+            // 更新当前页码显示
+            el.currentPage.textContent = currentPageNum;
         }
 
-        // 事件绑定：点击搜索+回车搜索
+        // 更新分页按钮禁用/启用状态
+        function updatePaginationBtn() {
+            const totalPageNum = Math.ceil(searchResult.length / PAGE_SIZE);
+            // 上一页：第1页时禁用
+            el.prevPage.disabled = currentPageNum === 1;
+            // 下一页：最后一页时禁用
+            el.nextPage.disabled = currentPageNum === totalPageNum;
+        }
+
+        // 上一页逻辑
+        function toPrevPage() {
+            if (currentPageNum > 1) {
+                currentPageNum--;
+                el.resultList.innerHTML = ''; // 清空当前页
+                renderCurrentPage();
+                updatePaginationBtn();
+            }
+        }
+
+        // 下一页逻辑
+        function toNextPage() {
+            const totalPageNum = Math.ceil(searchResult.length / PAGE_SIZE);
+            if (currentPageNum < totalPageNum) {
+                currentPageNum++;
+                el.resultList.innerHTML = ''; // 清空当前页
+                renderCurrentPage();
+                updatePaginationBtn();
+            }
+        }
+
+        // 事件绑定
+        // 搜索按钮+回车搜索
         el.searchBtn.addEventListener('click', searchStudent);
         el.searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') searchStudent();
         });
+        // 分页按钮
+        el.prevPage.addEventListener('click', toPrevPage);
+        el.nextPage.addEventListener('click', toNextPage);
 
         // 页面加载初始化
         window.onload = init;
