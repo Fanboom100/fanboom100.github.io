@@ -12,125 +12,136 @@
             font-family: "Microsoft YaHei", sans-serif;
         }
         body {
-            background-color: #f5f5f5;
+            background-color: #f9f9f9;
             padding: 20px;
             overflow-x: hidden;
         }
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
             min-width: 300px;
         }
         .header {
             text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #d4af37;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e6d39f; /* 浅金色主题色 */
         }
         .header h1 {
             color: #333;
-            font-size: clamp(18px, 5vw, 26px);
-            margin-bottom: 8px;
+            font-size: clamp(20px, 5vw, 28px);
         }
-        .header p {
-            color: #666;
-            font-size: clamp(12px, 3vw, 15px);
-        }
-        /* 胶囊形搜索容器 */
+        /* 胶囊形搜索容器 - 按钮嵌入右侧 */
         .search-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 30px 0;
+            margin: 0 auto 40px;
             position: relative;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 600px;
         }
         .search-input {
             width: 100%;
-            padding: 12px 20px;
-            padding-right: 70px;
-            border: 2px solid #d4af37;
+            padding: 14px 22px;
+            padding-right: 100px; /* 为搜索按钮留空间 */
+            border: 2px solid #e6d39f;
             border-radius: 50px;
             font-size: 16px;
             outline: none;
             transition: all 0.2s ease;
         }
         .search-input:focus {
-            box-shadow: 0 0 8px rgba(212,175,55,0.3);
+            box-shadow: 0 0 8px rgba(230,211,159,0.4);
+            border-color: #e6d39f;
         }
-        /* 胶囊形搜索按钮 */
+        /* 胶囊形搜索按钮 - 文字版 */
         .search-btn {
             position: absolute;
             right: 4px;
             height: calc(100% - 8px);
-            width: 60px;
-            background: #d4af37;
-            color: white;
+            width: 90px;
+            background: #e6d39f; /* 浅金色主色 */
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .search-btn:hover {
-            background: #b8860b;
+            background: #d9c78c; /* hover浅金色加深一点 */
         }
         /* 结果展示区域 */
         .result-container {
+            display: none;
             margin-top: 20px;
-            display: none; /* 默认隐藏 */
         }
         .result-title {
-            color: #d4af37;
+            color: #e6d39f;
             font-weight: bold;
             font-size: 18px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: center;
         }
-        .info-card {
-            background: #fff8e1;
-            padding: 22px;
-            border-radius: 8px;
-            margin-bottom: 18px;
+        /* 多结果卡片容器 - 横向排列，自动换行 */
+        .result-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
+        /* 单结果圆角卡片 */
+        .info-card {
+            background: #fffdf5;
+            padding: 24px;
+            border-radius: 10px;
+            border: 1px solid #f5efd9;
+            min-width: 280px;
+            flex: 1;
+            max-width: 380px;
+        }
+        /* 信息项横向/自适应排列 */
         .info-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
         }
         .info-item {
             display: flex;
             flex-direction: column;
-            padding: 12px 15px;
-            background: #f9f9f9;
-            border-radius: 6px;
-            border: 1px solid #eee;
+            padding: 10px 12px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #f1ebd0;
         }
         .info-label {
             color: #666;
             font-size: 14px;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
         .info-value {
             color: #333;
             font-size: 16px;
             font-weight: 500;
+            word-break: break-all;
         }
-        /* 错误提示样式 */
-        .error-message {
+        /* 空结果/错误提示 */
+        .tip-message {
             text-align: center;
-            color: #f44336;
+            padding: 30px 0;
             font-size: 16px;
-            padding: 20px 0;
             display: none;
+        }
+        .tip-error {
+            color: #f44336;
+        }
+        .tip-empty {
+            color: #999;
         }
         /* 移动端适配 */
         @media (max-width: 768px) {
@@ -138,7 +149,10 @@
                 grid-template-columns: 1fr;
             }
             .search-container {
-                max-width: 90%;
+                max-width: 95%;
+            }
+            .info-card {
+                max-width: 100%;
             }
         }
     </style>
@@ -147,125 +161,142 @@
     <div class="container">
         <div class="header">
             <h1>学生信息查询系统</h1>
-            <p>本地JSON文件信息检索</p>
         </div>
 
-        <!-- 胶囊形搜索框 -->
+        <!-- 胶囊形搜索框+文字搜索按钮 -->
         <div class="search-container">
-            <input type="text" class="search-input" id="searchInput" placeholder="请输入查询关键词（姓名/学号/班级等）">
-            <button class="search-btn" id="searchBtn">🔍</button>
+            <input type="text" class="search-input" id="searchInput" placeholder="请输入查询关键词（姓名/学号/班级/学院等）">
+            <button class="search-btn" id="searchBtn">搜索</button>
         </div>
 
-        <!-- 错误提示 -->
-        <div class="error-message" id="errorMsg">未找到匹配的信息，请检查关键词或JSON文件</div>
+        <!-- 提示信息：空关键词/无结果/加载失败 -->
+        <div class="tip-message tip-error" id="errorMsg">请输入有效的查询关键词</div>
+        <div class="tip-message tip-empty" id="emptyMsg">未找到匹配的学生信息，请更换关键词重试</div>
 
-        <!-- 结果展示区域 -->
+        <!-- 多结果展示区域 -->
         <div class="result-container" id="resultContainer">
-            <div class="result-title">查询结果</div>
-            <div class="info-card">
-                <div class="info-list" id="infoList">
-                    <!-- 动态生成信息项 -->
-                </div>
+            <div class="result-title" id="resultCount">查询结果（共<span id="countNum">0</span>条）</div>
+            <div class="result-cards" id="resultCards">
+                <!-- 动态生成多结果卡片 -->
             </div>
         </div>
     </div>
 
     <script>
-        // DOM元素
+        // DOM元素获取
         const el = {
             searchInput: document.getElementById('searchInput'),
             searchBtn: document.getElementById('searchBtn'),
             resultContainer: document.getElementById('resultContainer'),
-            infoList: document.getElementById('infoList'),
-            errorMsg: document.getElementById('errorMsg')
+            resultCards: document.getElementById('resultCards'),
+            countNum: document.getElementById('countNum'),
+            errorMsg: document.getElementById('errorMsg'),
+            emptyMsg: document.getElementById('emptyMsg')
         };
 
-        // 学生信息数据（实际使用时读取本地JSON文件，这里先定义结构）
+        // 学生数据（本地JSON加载，支持数组格式）
         let studentData = [];
+        // 本地JSON文件名称（需和HTML同目录）
+        const JSON_FILE_NAME = 'studentInfo.json';
 
-        // 初始化：读取本地JSON文件
+        // 初始化：读取本地JSON（兼容静态文件，处理本地访问）
         function init() {
-            // 读取本地JSON文件（需确保studentInfo.json与当前HTML同目录）
-            fetch('studentInfo.json')
+            // 若本地直接打开报跨域错，可将JSON内容直接赋值给studentData（下方有备用方案）
+            fetch(JSON_FILE_NAME)
                 .then(res => {
-                    if (!res.ok) throw new Error('JSON文件加载失败');
+                    if (!res.ok) throw new Error('文件加载失败');
                     return res.json();
                 })
                 .then(data => {
-                    // 支持单个对象或数组格式
                     studentData = Array.isArray(data) ? data : [data];
-                    console.log(`JSON文件加载成功，共 ${studentData.length} 条学生信息`);
+                    console.log(`本地JSON加载成功，共${studentData.length}条学生信息`);
                 })
                 .catch(err => {
-                    el.errorMsg.textContent = `文件加载错误：${err.message}，请检查studentInfo.json文件是否存在`;
+                    el.errorMsg.textContent = `本地JSON文件加载失败：请检查${JSON_FILE_NAME}是否与HTML同目录`;
                     el.errorMsg.style.display = 'block';
                     console.error('JSON加载错误：', err);
+                    // 【本地跨域备用方案】注释上方fetch，取消下方注释，直接粘贴JSON数据
+                    // studentData = [
+                    //     {"adminclass_name":"临床22-11","code":"2022306117","depart_name":"医学院","direction_name":"","gender":"女","major_name":"临床医学","name":"左倩"},
+                    //     {"adminclass_name":"临床22-11","code":"20223061118","depart_name":"医学院","direction_name":"心血管","gender":"男","major_name":"临床医学","name":"张三"}
+                    // ];
                 });
         }
 
-        // 搜索逻辑
-        function searchStudent() {
-            // 重置显示状态
+        // 重置所有提示和结果显示
+        function resetDisplay() {
             el.resultContainer.style.display = 'none';
             el.errorMsg.style.display = 'none';
-            
+            el.emptyMsg.style.display = 'none';
+            el.resultCards.innerHTML = '';
+        }
+
+        // 搜索逻辑：多结果模糊匹配
+        function searchStudent() {
+            resetDisplay();
             const keyword = el.searchInput.value.trim().toLowerCase();
+
+            // 空关键词判断
             if (!keyword) {
-                el.errorMsg.textContent = '请输入查询关键词';
                 el.errorMsg.style.display = 'block';
                 return;
             }
 
-            // 匹配学生信息（模糊匹配）
-            const matchStudent = studentData.find(student => {
-                return (
-                    student.name.toLowerCase().includes(keyword) ||
-                    student.code.toLowerCase().includes(keyword) ||
-                    student.adminclass_name.toLowerCase().includes(keyword) ||
-                    student.depart_name.toLowerCase().includes(keyword) ||
-                    student.major_name.toLowerCase().includes(keyword) ||
-                    student.gender.toLowerCase().includes(keyword) ||
-                    (student.direction_name && student.direction_name.toLowerCase().includes(keyword))
-                );
+            // 多结果模糊匹配（匹配所有字段）
+            const matchStudents = studentData.filter(student => {
+                return Object.values(student).some(val => {
+                    return String(val).toLowerCase().includes(keyword);
+                });
             });
 
-            if (matchStudent) {
-                renderStudentInfo(matchStudent);
-                el.resultContainer.style.display = 'block';
-            } else {
-                el.errorMsg.textContent = '未找到匹配的学生信息，请更换关键词重试';
-                el.errorMsg.style.display = 'block';
+            // 无匹配结果
+            if (matchStudents.length === 0) {
+                el.emptyMsg.style.display = 'block';
+                return;
             }
+
+            // 渲染多结果
+            renderMultipleResults(matchStudents);
+            el.resultContainer.style.display = 'block';
+            el.countNum.textContent = matchStudents.length;
         }
 
-        // 渲染学生信息
-        function renderStudentInfo(student) {
-            // 信息映射（对应JSON字段和显示名称）
-            const infoMap = [
-                { label: '班级', key: 'adminclass_name' },
-                { label: '学号', key: 'code' },
-                { label: '学院', key: 'depart_name' },
-                { label: '专业方向', key: 'direction_name' },
-                { label: '性别', key: 'gender' },
-                { label: '专业', key: 'major_name' },
-                { label: '姓名', key: 'name' }
-            ];
+        // 渲染多结果卡片：每个结果一个独立圆角卡片
+        function renderMultipleResults(students) {
+            students.forEach(student => {
+                const infoMap = [
+                    { label: '班级', key: 'adminclass_name' },
+                    { label: '学号', key: 'code' },
+                    { label: '学院', key: 'depart_name' },
+                    { label: '专业方向', key: 'direction_name' },
+                    { label: '性别', key: 'gender' },
+                    { label: '专业', key: 'major_name' },
+                    { label: '姓名', key: 'name' }
+                ];
 
-            // 生成信息项HTML
-            let html = '';
-            infoMap.forEach(item => {
-                const value = student[item.key] || '无';
-                html += `
-                    <div class="info-item">
-                        <span class="info-label">${item.label}</span>
-                        <span class="info-value">${value}</span>
+                // 生成单卡片HTML
+                let infoHtml = '';
+                infoMap.forEach(item => {
+                    const value = student[item.key] || '无';
+                    infoHtml += `
+                        <div class="info-item">
+                            <span class="info-label">${item.label}</span>
+                            <span class="info-value">${value}</span>
+                        </div>
+                    `;
+                });
+
+                // 拼接单结果卡片到容器
+                const cardHtml = `
+                    <div class="info-card">
+                        <div class="info-list">${infoHtml}</div>
                     </div>
                 `;
+                el.resultCards.innerHTML += cardHtml;
             });
-            el.infoList.innerHTML = html;
         }
 
-        // 事件绑定
+        // 事件绑定：点击搜索+回车搜索
         el.searchBtn.addEventListener('click', searchStudent);
         el.searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') searchStudent();
