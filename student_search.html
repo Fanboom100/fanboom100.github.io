@@ -104,14 +104,14 @@
             width: 100%;
             position: relative; /* 新增：为序号做定位父容器 */
         }
-        /* 新增：学生卡片左上角深色实心序号小圆 */
+        /* 新增：学生卡片左上角深色实心序号小圆 - 改为深金色 */
         .student-index {
             position: absolute;
             top: 15px;
             left: 15px;
             width: 24px;
             height: 24px;
-            background-color: #333; /* 深色实心 */
+            background-color: #b8860b; /* 深金色，与按钮hover色一致 */
             color: #fff; /* 白色序号 */
             border-radius: 50%; /* 圆形 */
             display: flex;
@@ -327,15 +327,14 @@
             const startIndex = (currentPageNum - 1) * PAGE_SIZE;
             const endIndex = startIndex + PAGE_SIZE;
             const currentData = searchResult.slice(startIndex, endIndex);
-            // 固定信息显示顺序：班级、学号、姓名、性别、学院、专业、专业方向
+            // 固定信息显示顺序：移除专业方向
             const infoMap = [
                 { label: '班级', key: 'adminclass_name' },
                 { label: '学号', key: 'code' },
                 { label: '姓名', key: 'name' },
                 { label: '性别', key: 'gender' },
                 { label: '学院', key: 'depart_name' },
-                { label: '专业', key: 'major_name' },
-                { label: '专业方向', key: 'direction_name' }
+                { label: '专业', key: 'major_name' }
             ];
             // 渲染当前页的每条数据（新增index计算全局序号）
             currentData.forEach((student, index) => {
