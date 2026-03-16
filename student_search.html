@@ -35,6 +35,13 @@
             color: #333;
             font-size: clamp(20px, 5vw, 28px);
         }
+        /* 新增：数据更新时间小字 */
+        .update-time {
+            color: #666;
+            font-size: clamp(12px, 3vw, 15px);
+            margin-top: 8px;
+            margin-bottom: 0px;
+        }
         /* 胶囊形搜索容器 */
         .search-container {
             display: flex;
@@ -221,6 +228,8 @@
     <div class="container">
         <div class="header">
             <h1>学生信息查询系统</h1>
+            <!-- 新增：数据更新时间小字，参考ck.html中.header p的样式 -->
+            <p class="update-time">数据更新时间：2026.3.16 23:10</p>
         </div>
         <!-- 胶囊搜索框+文字搜索按钮 - 缩短占位符 -->
         <div class="search-container">
