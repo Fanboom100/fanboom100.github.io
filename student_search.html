@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息查询系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            min-width: 300px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #d4af37;
+        }
+        .header h1 {
+            color: #333;
+            font-size: clamp(18px, 5vw, 26px);
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: #666;
+            font-size: clamp(12px, 3vw, 15px);
+        }
+        /* 胶囊形搜索容器 */
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            padding-right: 70px;
+            border: 2px solid #d4af37;
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        .search-input:focus {
+            box-shadow: 0 0 8px rgba(212,175,55,0.3);
+        }
+        /* 胶囊形搜索按钮 */
+        .search-btn {
+            position: absolute;
+            right: 4px;
+            height: calc(100% - 8px);
+            width: 60px;
+            background: #d4af37;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-btn:hover {
+            background: #b8860b;
+        }
+        /* 结果展示区域 */
+        .result-container {
+            margin-top: 20px;
+            display: none; /* 默认隐藏 */
+        }
+        .result-title {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .info-card {
+            background: #fff8e1;
+            padding: 22px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+        .info-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            padding: 12px 15px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+        .info-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .info-value {
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        /* 错误提示样式 */
+        .error-message {
+            text-align: center;
+            color: #f44336;
+            font-size: 16px;
+            padding: 20px 0;
+            display: none;
+        }
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .info-list {
+                grid-template-columns: 1fr;
+            }
+            .search-container {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>学生信息查询系统</h1>
+            <p>本地JSON文件信息检索</p>
+        </div>
+
+        <!-- 胶囊形搜索框 -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="请输入查询关键词（姓名/学号/班级等）">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+
+        <!-- 错误提示 -->
+        <div class="error-message" id="errorMsg">未找到匹配的信息，请检查关键词或JSON文件</div>
+
+        <!-- 结果展示区域 -->
+        <div class="result-container" id="resultContainer">
+            <div class="result-title">查询结果</div>
+            <div class="info-card">
+                <div class="info-list" id="infoList">
+                    <!-- 动态生成信息项 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM元素
+        const el = {
+            searchInput: document.getElementById('searchInput'),
+            searchBtn: document.getElementById('searchBtn'),
+            resultContainer: document.getElementById('resultContainer'),
+            infoList: document.getElementById('infoList'),
+            errorMsg: document.getElementById('errorMsg')
+        };
+
+        // 学生信息数据（实际使用时读取本地JSON文件，这里先定义结构）
+        let studentData = [];
+
+        // 初始化：读取本地JSON文件
+        function init() {
+            // 读取本地JSON文件（需确保studentInfo.json与当前HTML同目录）
+            fetch('studentInfo.json')
+                .then(res => {
+                    if (!res.ok) throw new Error('JSON文件加载失败');
+                    return res.json();
+                })
+                .then(data => {
+                    // 支持单个对象或数组格式
+                    studentData = Array.isArray(data) ? data : [data];
+                    console.log(`JSON文件加载成功，共 ${studentData.length} 条学生信息`);
+                })
+                .catch(err => {
+                    el.errorMsg.textContent = `文件加载错误：${err.message}，请检查studentInfo.json文件是否存在`;
+                    el.errorMsg.style.display = 'block';
+                    console.error('JSON加载错误：', err);
+                });
+        }
+
+        // 搜索逻辑
+        function searchStudent() {
+            // 重置显示状态
+            el.resultContainer.style.display = 'none';
+            el.errorMsg.style.display = 'none';
+            
+            const keyword = el.searchInput.value.trim().toLowerCase();
+            if (!keyword) {
+                el.errorMsg.textContent = '请输入查询关键词';
+                el.errorMsg.style.display = 'block';
+                return;
+            }
+
+            // 匹配学生信息（模糊匹配）
+            const matchStudent = studentData.find(student => {
+                return (
+                    student.name.toLowerCase().includes(keyword) ||
+                    student.code.toLowerCase().includes(keyword) ||
+                    student.adminclass_name.toLowerCase().includes(keyword) ||
+                    student.depart_name.toLowerCase().includes(keyword) ||
+                    student.major_name.toLowerCase().includes(keyword) ||
+                    student.gender.toLowerCase().includes(keyword) ||
+                    (student.direction_name && student.direction_name.toLowerCase().includes(keyword))
+                );
+            });
+
+            if (matchStudent) {
+                renderStudentInfo(matchStudent);
+                el.resultContainer.style.display = 'block';
+            } else {
+                el.errorMsg.textContent = '未找到匹配的学生信息，请更换关键词重试';
+                el.errorMsg.style.display = 'block';
+            }
+        }
+
+        // 渲染学生信息
+        function renderStudentInfo(student) {
+            // 信息映射（对应JSON字段和显示名称）
+            const infoMap = [
+                { label: '班级', key: 'adminclass_name' },
+                { label: '学号', key: 'code' },
+                { label: '学院', key: 'depart_name' },
+                { label: '专业方向', key: 'direction_name' },
+                { label: '性别', key: 'gender' },
+                { label: '专业', key: 'major_name' },
+                { label: '姓名', key: 'name' }
+            ];
+
+            // 生成信息项HTML
+            let html = '';
+            infoMap.forEach(item => {
+                const value = student[item.key] || '无';
+                html += `
+                    <div class="info-item">
+                        <span class="info-label">${item.label}</span>
+                        <span class="info-value">${value}</span>
+                    </div>
+                `;
+            });
+            el.infoList.innerHTML = html;
+        }
+
+        // 事件绑定
+        el.searchBtn.addEventListener('click', searchStudent);
+        el.searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchStudent();
+        });
+
+        // 页面加载初始化
+        window.onload = init;
+    </script>
+</body>
+</html>
