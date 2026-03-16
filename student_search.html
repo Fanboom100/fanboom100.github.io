@@ -102,6 +102,24 @@
             border-radius: 12px;
             border: 1px solid #f5efd9;
             width: 100%;
+            position: relative; /* 新增：为序号做定位父容器 */
+        }
+        /* 新增：学生卡片左上角深色实心序号小圆 */
+        .student-index {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 24px;
+            height: 24px;
+            background-color: #333; /* 深色实心 */
+            color: #fff; /* 白色序号 */
+            border-radius: 50%; /* 圆形 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 1; /* 防止被遮挡 */
         }
         /* 信息项网格 */
         .info-grid {
@@ -109,6 +127,7 @@
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 20px 15px;
             align-items: center;
+            padding-left: 40px; /* 新增：预留序号空间，不偏移原有文字 */
         }
         /* 单个信息 - 移除小框样式 */
         .info-item {
@@ -173,6 +192,7 @@
         @media (max-width: 768px) {
             .info-grid {
                 grid-template-columns: 1fr 1fr;
+                padding-left: 40px; /* 新增：移动端保留序号空间 */
             }
             .search-container {
                 max-width: 95%;
@@ -188,6 +208,7 @@
         @media (max-width: 480px) {
             .info-grid {
                 grid-template-columns: 1fr;
+                padding-left: 40px; /* 新增：小屏保留序号空间 */
             }
             .pagination {
                 flex-direction: column;
@@ -316,8 +337,10 @@
                 { label: '专业', key: 'major_name' },
                 { label: '专业方向', key: 'direction_name' }
             ];
-            // 渲染当前页的每条数据
-            currentData.forEach(student => {
+            // 渲染当前页的每条数据（新增index计算全局序号）
+            currentData.forEach((student, index) => {
+                // 计算全局连续序号：第一页1-10，第二页11-20，以此类推
+                const globalIndex = (currentPageNum - 1) * PAGE_SIZE + index + 1;
                 let infoHtml = '';
                 infoMap.forEach(item => {
                     const value = student[item.key] || '无';
@@ -328,9 +351,10 @@
                         </div>
                     `;
                 });
-                // 单人一个大框，内部无白色小框
+                // 单人一个大框，新增左上角序号小圆
                 const cardHtml = `
                     <div class="student-card">
+                        <div class="student-index">${globalIndex}</div>
                         <div class="info-grid">${infoHtml}</div>
                     </div>
                 `;
