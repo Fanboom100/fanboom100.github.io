@@ -29,13 +29,13 @@
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #d4af37; /* 还原原金色主题色 */
+            border-bottom: 2px solid #d4af37; /* 金色主题色 */
         }
         .header h1 {
             color: #333;
             font-size: clamp(20px, 5vw, 28px);
         }
-        /* 胶囊形搜索容器 - 按钮嵌入右侧 */
+        /* 胶囊形搜索容器 - 右侧文字搜索按钮 */
         .search-container {
             display: flex;
             align-items: center;
@@ -48,7 +48,7 @@
             width: 100%;
             padding: 14px 22px;
             padding-right: 100px;
-            border: 2px solid #d4af37; /* 还原金色 */
+            border: 2px solid #d4af37;
             border-radius: 50px;
             font-size: 16px;
             outline: none;
@@ -58,14 +58,14 @@
             box-shadow: 0 0 8px rgba(212,175,55,0.4);
             border-color: #d4af37;
         }
-        /* 胶囊形文字搜索按钮 - 还原金色 */
+        /* 胶囊形金色文字搜索按钮 */
         .search-btn {
             position: absolute;
             right: 4px;
             height: calc(100% - 8px);
             width: 90px;
             background: #d4af37;
-            color: #fff; /* 白色文字更醒目 */
+            color: #fff;
             font-size: 16px;
             font-weight: 500;
             border: none;
@@ -74,7 +74,7 @@
             transition: all 0.2s ease;
         }
         .search-btn:hover {
-            background: #b8860b; /* 金色加深hover */
+            background: #b8860b;
         }
         /* 结果展示区域 */
         .result-container {
@@ -92,9 +92,9 @@
         .result-list {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* 大框之间的间距，分隔更明显 */
+            gap: 25px; /* 大框之间的间距，分隔清晰 */
         }
-        /* 单人信息独立大圆角框 - 核心样式 */
+        /* 单人信息独立大圆角框 */
         .student-card {
             background: #fffdf5;
             padding: 30px;
@@ -102,17 +102,22 @@
             border: 1px solid #f5efd9;
             width: 100%;
         }
-        /* 信息项排版 - 横向自适应，紧凑美观 */
+        /* 信息项容器 - 横向自适应 */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 20px 15px;
             align-items: center;
         }
+        /* 每个信息项独立白色小圆角框（核心还原） */
         .info-item {
             display: flex;
             flex-direction: column;
             gap: 6px;
+            padding: 12px 15px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #eee;
         }
         .info-label {
             color: #666;
@@ -172,11 +177,11 @@
         <div class="tip-message tip-error" id="errorMsg">请输入有效的查询关键词</div>
         <div class="tip-message tip-empty" id="emptyMsg">未找到匹配的学生信息，请更换关键词重试</div>
 
-        <!-- 多结果展示：单人一个大框 -->
+        <!-- 多结果展示：单人一个大框，内部每个信息一个白色小框 -->
         <div class="result-container" id="resultContainer">
             <div class="result-title" id="resultCount">查询结果（共<span id="countNum">0</span>条）</div>
             <div class="result-list" id="resultList">
-                <!-- 动态生成：单人一个student-card大框 -->
+                <!-- 动态生成：单人一个student-card大框，内部info-item白色小框 -->
             </div>
         </div>
     </div>
@@ -235,7 +240,7 @@
                 el.errorMsg.style.display = 'block';
                 return;
             }
-            // 匹配所有字段
+            // 匹配所有字段，模糊搜索
             const matchStudents = studentData.filter(student => {
                 return Object.values(student).some(val => {
                     return String(val).toLowerCase().includes(keyword);
@@ -251,9 +256,9 @@
             el.countNum.textContent = matchStudents.length;
         }
 
-        // 渲染单人一个大框，严格按指定顺序：班级、学号、姓名、性别、学院、专业、专业方向
+        // 渲染：单人一个大框+内部每个信息白色小框，严格按指定顺序
         function renderStudentCards(students) {
-            // 固定信息显示顺序（核心修改）
+            // 固定信息显示顺序：班级、学号、姓名、性别、学院、专业、专业方向
             const infoMap = [
                 { label: '班级', key: 'adminclass_name' },
                 { label: '学号', key: 'code' },
@@ -265,7 +270,7 @@
             ];
 
             students.forEach(student => {
-                // 生成单条信息项
+                // 生成每个信息项的白色小框
                 let infoHtml = '';
                 infoMap.forEach(item => {
                     const value = student[item.key] || '无';
@@ -276,7 +281,7 @@
                         </div>
                     `;
                 });
-                // 单人一个大圆角框，拼接到结果容器
+                // 单人一个大圆角框，内部包含所有白色小框
                 const cardHtml = `
                     <div class="student-card">
                         <div class="info-grid">${infoHtml}</div>
@@ -286,7 +291,7 @@
             });
         }
 
-        // 事件绑定
+        // 事件绑定：点击搜索+回车搜索
         el.searchBtn.addEventListener('click', searchStudent);
         el.searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') searchStudent();
