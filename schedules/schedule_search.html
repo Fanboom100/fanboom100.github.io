@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级课程表 · 自动加载</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background: #f2f5f9;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            padding: 24px;
+        }
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+            align-items: center;
+            margin-bottom: 28px;
+            background: #f8fafd;
+            padding: 18px 20px;
+            border-radius: 20px;
+        }
+        .control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .control select, .control input {
+            padding: 8px 16px;
+            border-radius: 40px;
+            border: 1px solid #ccdaea;
+            background: white;
+            font-size: 1rem;
+            min-width: 160px;
+        }
+        .control button {
+            background: #1e3a6f;
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+        .control button:hover {
+            background: #2b4a8a;
+        }
+        .status {
+            margin-left: auto;
+            color: #2e6b9e;
+            font-size: 0.95rem;
+            background: #e3f0ff;
+            padding: 6px 18px;
+            border-radius: 40px;
+        }
+        .week-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 20px 0 12px 0;
+            color: #0b2b4a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .week-title span {
+            background: #1e3a6f;
+            color: white;
+            padding: 4px 18px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        th {
+            background: #eef3fc;
+            color: #1e3a6f;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 16px 8px;
+            border: 1px solid #d0e0f0;
+        }
+        td {
+            border: 1px solid #dae5f0;
+            vertical-align: top;
+            padding: 10px;
+            height: 140px;
+            width: 13%;
+            background-color: #ffffff;
+        }
+        .time-col {
+            background: #f4f9ff;
+            font-weight: 500;
+            color: #153e6f;
+            width: 80px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1rem;
+            border-right: 2px solid #c9d9eb;
+        }
+        .course-item {
+            background: #ebf3ff;
+            border-left: 4px solid #1e3a6f;
+            border-radius: 8px;
+            padding: 8px 6px;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .course-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0b2b4a;
+        }
+        .course-item .meta {
+            color: #3b5f8a;
+            font-size: 0.85rem;
+            margin-top: 3px;
+            word-break: break-word;
+        }
+        .empty-cell {
+            color: #b3c7e0;
+            font-style: italic;
+            text-align: center;
+            padding-top: 20px;
+        }
+        footer {
+            margin-top: 24px;
+            color: #7c94b0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="toolbar">
+        <div class="control">
+            <select id="classSelector" disabled>
+                <option>—— 加载中 ——</option>
+            </select>
+            <input type="number" id="weekInput" min="1" max="26" value="3" step="1" style="width:90px;">
+            <button id="refreshBtn">刷新课表</button>
+        </div>
+        <div class="status" id="status">正在加载数据...</div>
+    </div>
+
+    <div class="week-title">
+        <span id="weekDisplay">第 3 周</span>
+        <span style="font-size:1rem; font-weight:normal; color:#356a9c;" id="dateHint">(根据周数显示)</span>
+    </div>
+
+    <table id="timetable">
+        <thead>
+        <tr id="weekHeaders">
+            <th>节次 / 星期</th>
+            <th>周一</th>
+            <th>周二</th>
+            <th>周三</th>
+            <th>周四</th>
+            <th>周五</th>
+            <th>周六</th>
+            <th>周日</th>
+        </tr>
+        </thead>
+        <tbody id="timetableBody">
+        <!-- 动态生成5行（节次） -->
+        </tbody>
+    </table>
+    <footer>课程数据完全本地处理 · 有效周根据 vaildWeeks 字符串过滤</footer>
+</div>
+
+<script>
+    (function() {
+        let coursesData = [];
+        let scheduleData = [];
+        let courseNameMap = new Map();
+
+        const classSelector = document.getElementById('classSelector');
+        const weekInput = document.getElementById('weekInput');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const statusDiv = document.getElementById('status');
+        const weekDisplay = document.getElementById('weekDisplay');
+        const dateHint = document.getElementById('dateHint');
+        const tbody = document.getElementById('timetableBody');
+
+        // 节次定义 (包含第10-11节)
+        const SESSIONS = [
+            { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40" },
+            { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40" },
+            { name: "5-6", start: 5, end: 6, time: "14:00 - 15:40" },
+            { name: "7-8", start: 7, end: 8, time: "16:00 - 17:40" },
+            { name: "10-11", start: 10, end: 11, time: "19:00 - 20:40" }
+        ];
+        const WEEKDAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+
+        function updateStatus(msg, isError = false) {
+            statusDiv.textContent = msg;
+            statusDiv.style.background = isError ? '#ffe8e8' : '#e3f0ff';
+            statusDiv.style.color = isError ? '#b02b2b' : '#2e6b9e';
+        }
+
+        function extractClasses() {
+            const classSet = new Set();
+            coursesData.forEach(item => {
+                if (item.class && typeof item.class === 'string') {
+                    const cls = item.class.trim();
+                    if (cls) classSet.add(cls);
+                }
+            });
+            return Array.from(classSet).sort((a,b) => a.localeCompare(b, 'zh'));
+        }
+
+        function populateClassSelector() {
+            const classes = extractClasses();
+            classSelector.innerHTML = '';
+            if (classes.length === 0) {
+                classSelector.innerHTML = '<option value="">无班级数据</option>';
+                classSelector.disabled = true;
+                return;
+            }
+            classes.forEach(cls => {
+                const option = document.createElement('option');
+                option.value = cls;
+                option.textContent = cls;
+                classSelector.appendChild(option);
+            });
+            classSelector.disabled = false;
+            classSelector.selectedIndex = 0;
+        }
+
+        function buildCourseNameMap() {
+            courseNameMap.clear();
+            coursesData.forEach(item => {
+                if (item.lessonid && item.name) {
+                    courseNameMap.set(String(item.lessonid), item.name);
+                }
+            });
+            console.log('课程名映射构建完成，共', courseNameMap.size, '个课程');
+        }
+
+        function isValidForWeek(scheduleItem, weekNum) {
+            if (!scheduleItem.vaildWeeks) return false;
+            const weeksStr = String(scheduleItem.vaildWeeks);
+            if (weeksStr.length < weekNum) return false;
+            return weeksStr.charAt(weekNum - 1) === '1';
+        }
+
+        function coversSessionBlock(schedule, blockStart, blockEnd) {
+            const s = schedule.startSession;
+            const e = schedule.endSession;
+            return !(e < blockStart || s > blockEnd);
+        }
+
+        function buildTimetableData(className, weekNum) {
+            console.log(`开始构建课表：班级="${className}", 周数=${weekNum}`);
+            const grid = Array.from({ length: 7 }, () => Array.from({ length: SESSIONS.length }, () => []));
+
+            const courseIdsInClass = new Set();
+            coursesData.forEach(c => {
+                if (c.class && c.class.trim() === className && c.lessonid) {
+                    courseIdsInClass.add(String(c.lessonid));
+                }
+            });
+            console.log(`班级 ${className} 包含的课程ID：`, Array.from(courseIdsInClass));
+
+            if (courseIdsInClass.size === 0) {
+                console.warn('该班级没有对应的课程信息');
+                return grid;
+            }
+
+            scheduleData.forEach((sch, idx) => {
+                const courseId = String(sch.courseId);
+                if (!courseIdsInClass.has(courseId)) return;
+
+                if (!isValidForWeek(sch, weekNum)) {
+                    console.log(`排课[${idx}] 课程ID=${courseId} 在第${weekNum}周无效（vaildWeeks: ${sch.vaildWeeks}）`);
+                    return;
+                }
+
+                const weekday = sch.weekday;
+                if (weekday < 1 || weekday > 7) {
+                    console.warn(`排课[${idx}] weekday=${weekday} 无效，跳过`);
+                    return;
+                }
+
+                const courseName = courseNameMap.get(courseId) || '未知课程';
+                const teacher = sch.teacherName || '';
+                const room = sch.roomName || '';
+
+                const courseInfo = { name: courseName, teacher, room };
+
+                console.log(`✅ 匹配成功：课程=${courseName}，星期${weekday}，节次${sch.startSession}-${sch.endSession}`);
+
+                for (let sIdx = 0; sIdx < SESSIONS.length; sIdx++) {
+                    const block = SESSIONS[sIdx];
+                    if (coversSessionBlock(sch, block.start, block.end)) {
+                        grid[weekday-1][sIdx].push(courseInfo);
+                    }
+                }
+            });
+
+            for (let d = 0; d < 7; d++) {
+                for (let s = 0; s < SESSIONS.length; s++) {
+                    if (grid[d][s].length > 0) {
+                        console.log(`星期${d+1} 时段${SESSIONS[s].name} 有 ${grid[d][s].length} 门课`);
+                    }
+                }
+            }
+            return grid;
+        }
+
+        function renderTimetable(className, weekNum) {
+            if (!className) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:40px;">请选择一个班级</td></tr>';
+                return;
+            }
+            console.clear();
+            const grid = buildTimetableData(className, weekNum);
+
+            weekDisplay.textContent = `第 ${weekNum} 周`;
+            const baseDate = new Date(2026, 2, 2);
+            const monday = new Date(baseDate);
+            monday.setDate(baseDate.getDate() + (weekNum-1)*7);
+            const dates = [];
+            for (let i = 0; i < 7; i++) {
+                const d = new Date(monday);
+                d.setDate(monday.getDate() + i);
+                const month = (d.getMonth()+1).toString().padStart(2,'0');
+                const day = d.getDate().toString().padStart(2,'0');
+                dates.push(`${month}.${day}`);
+            }
+            const headers = document.querySelectorAll('#weekHeaders th');
+            for (let i = 1; i <= 7; i++) {
+                if (headers[i]) {
+                    headers[i].innerHTML = `${WEEKDAYS[i-1]}<br><span style="font-size:0.8rem; font-weight:normal;">${dates[i-1]}</span>`;
+                }
+            }
+
+            let html = '';
+            for (let row = 0; row < SESSIONS.length; row++) {
+                const session = SESSIONS[row];
+                html += '<tr>';
+                html += `<td class="time-col">${session.name}<br><span style="font-size:0.8rem;">${session.time}</span></td>`;
+                for (let day = 0; day < 7; day++) {
+                    const courses = grid[day][row];
+                    html += '<td>';
+                    if (courses.length === 0) {
+                        html += '<div class="empty-cell">—</div>';
+                    } else {
+                        courses.forEach(c => {
+                            html += `<div class="course-item">`;
+                            html += `<strong>${c.name}</strong>`;
+                            html += `<div class="meta">🏫 ${c.room || '未定'} · 👩‍🏫 ${c.teacher || '未知'}</div>`;
+                            html += `</div>`;
+                        });
+                    }
+                    html += '</td>';
+                }
+                html += '</tr>';
+            }
+            tbody.innerHTML = html;
+        }
+
+        function refreshTimetable() {
+            const className = classSelector.value;
+            let weekNum = parseInt(weekInput.value, 10);
+            if (isNaN(weekNum) || weekNum < 1) weekNum = 1;
+            if (weekNum > 26) weekNum = 26;
+            weekInput.value = weekNum;
+
+            if (!className || coursesData.length === 0 || scheduleData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:40px;">请等待数据加载完成</td></tr>';
+                return;
+            }
+
+            renderTimetable(className, weekNum);
+        }
+
+        // 自动加载两个JSON文件
+        async function loadAllFiles() {
+            updateStatus('正在加载课程信息...');
+            try {
+                const [coursesResp, scheduleResp] = await Promise.all([
+                    fetch('lessons.json'),
+                    fetch('schedules.json')
+                ]);
+
+                if (!coursesResp.ok) throw new Error(`课程文件加载失败: ${coursesResp.status}`);
+                if (!scheduleResp.ok) throw new Error(`排课文件加载失败: ${scheduleResp.status}`);
+
+                const coursesJson = await coursesResp.json();
+                const scheduleJson = await scheduleResp.json();
+
+                coursesData = Array.isArray(coursesJson) ? coursesJson : [];
+                if (coursesData.length === 0) throw new Error('课程信息为空数组');
+
+                scheduleData = Array.isArray(scheduleJson) ? scheduleJson : [];
+                if (scheduleData.length === 0) throw new Error('排课信息为空数组');
+
+                buildCourseNameMap();
+                updateStatus(`✅ 课程 ${coursesData.length} 条 · 排课 ${scheduleData.length} 条`);
+
+                populateClassSelector();
+                refreshTimetable();
+            } catch (err) {
+                updateStatus(`❌ 加载失败: ${err.message}`, true);
+                console.error(err);
+                classSelector.innerHTML = '<option value="">加载失败</option>';
+                classSelector.disabled = true;
+            }
+        }
+
+        // 初始化表头
+        const headers = document.querySelectorAll('#weekHeaders th');
+        for (let i = 1; i <= 7; i++) {
+            if (headers[i]) {
+                headers[i].innerHTML = `${WEEKDAYS[i-1]}`;
+            }
+        }
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:40px;">正在加载数据...</td></tr>';
+
+        // 绑定事件
+        refreshBtn.addEventListener('click', refreshTimetable);
+        classSelector.addEventListener('change', refreshTimetable);
+        weekInput.addEventListener('input', refreshTimetable);
+
+        // 开始自动加载
+        loadAllFiles();
+    })();
+</script>
+</body>
+</html>
