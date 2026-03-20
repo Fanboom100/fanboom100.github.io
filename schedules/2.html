@@ -108,7 +108,7 @@
             width: 24px;
             height: 24px;
             display: block;
-            filter: brightness(0) invert(1); /* 确保白色，以防SVG本身不是白色 */
+            filter: brightness(0) invert(1); /* 确保白色 */
         }
         /* 下拉列表 */
         .combo-dropdown {
@@ -155,6 +155,7 @@
             border-radius: 40px;
             white-space: nowrap;
             flex-shrink: 0;
+            transition: all 0.2s;
         }
         /* 周控制区 */
         .week-control-center {
@@ -329,9 +330,15 @@
                 width: 22px;
                 height: 22px;
             }
+            /* 手机端状态居中：换行后单独一行，居中显示 */
             .status {
-                font-size: 0.85rem;
-                padding: 4px 14px;
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                white-space: normal;  /* 允许文字换行以防万一 */
+                background: #f8f0dd;
+                padding: 6px 20px;
+                border-radius: 40px;
             }
             .week-nav-btn {
                 width: 38px;
@@ -381,7 +388,7 @@
         <!-- 组合框：输入框 + 清空按钮 + SVG下拉按钮 -->
         <div class="combo-box" id="classComboContainer">
             <input type="text" id="classComboInput" placeholder="班级" autocomplete="off" value="">
-            <div class="clear-btn" id="clearInputBtn" style="display: none;">×</div>
+            <div class="clear-btn" id="clearInputBtn">×</div> <!-- 初始隐藏由js控制 -->
             <button class="combo-btn" id="comboToggleBtn">
                 <img src="Expand.svg" alt="expand">
             </button>
@@ -625,6 +632,8 @@
                     if (cls) {
                         selectedClass = cls;
                         comboInput.value = cls;
+                        // 修复：选择班级后立即更新清空按钮显示
+                        toggleClearBtn();
                         hideDropdown();
                         refreshTimetable();
                     }
@@ -697,7 +706,7 @@
             if (allClasses.length > 0) {
                 selectedClass = allClasses[0];
                 comboInput.value = selectedClass;
-                toggleClearBtn();
+                toggleClearBtn();   // 确保清空按钮显示
                 renderDropdown('');
                 refreshTimetable();
             } else {
