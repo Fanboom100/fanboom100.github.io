@@ -341,7 +341,6 @@
             border-right: 2px solid #d4af37;
             transition: background 0.2s, border-color 0.2s;
         }
-        /* 高亮当前时间对应的表头 */
         th.current-highlight,
         .time-col.current-highlight {
             background: #ffecb3 !important;
@@ -385,16 +384,6 @@
             margin-bottom: 6px;
             border-bottom: 1px dashed #e9d7b5;
             padding-bottom: 4px;
-        }
-        .course-date-info {
-            color: #999;
-            font-size: 0.8rem;
-            margin: 6px 0 4px 0;
-            line-height: 1.4;
-        }
-        .course-dash-line {
-            border-bottom: 1px dashed #e9d7b5;
-            margin: 6px 0 0 0;
         }
         .course-detail {
             color: #5f4c2e;
@@ -464,6 +453,15 @@
             color: #2c1e0e;
             border-left: 3px solid #d4af37;
             padding-left: 10px;
+        }
+        .floating-date {
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        .floating-dash-line {
+            border-bottom: 1px dashed #e9d7b5;
+            margin: 8px 0 12px 0;
         }
         .floating-btn {
             background: #d4af37;
@@ -814,7 +812,7 @@
             closeFloatingCard();
             if (!selectedClass) return;
 
-            // 获取当前课程对应的日期和节次信息（用于显示）
+            // 获取当前课程对应的日期和节次信息（用于悬浮框显示）
             const baseDate = new Date(SEMESTER_START);
             const monday = new Date(baseDate);
             monday.setDate(baseDate.getDate() + (weekNum - 1) * 7);
@@ -823,7 +821,8 @@
             const month = targetDate.getMonth() + 1;
             const day = targetDate.getDate();
             const sessionDisplay = SESSIONS[sessionIndex].display;
-            const dateSessionStr = `${month}.${day}  ${sessionDisplay}`;
+            // 使用6个空格分隔（使用 &nbsp; 实现）
+            const dateSessionStr = `${month}.${day}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${sessionDisplay}`;
 
             let allClassesForLesson = [];
             if (lessonToClasses.has(lessonId)) {
@@ -858,7 +857,8 @@
             div.className = 'floating-card';
             div.innerHTML = `
                 <div class="floating-title">${escapeHtml(courseName)}</div>
-                <div style="font-size:0.75rem; color:#999; margin-bottom:8px;">${dateSessionStr}</div>
+                <div class="floating-date">${dateSessionStr}</div>
+                <div class="floating-dash-line"></div>
                 <button class="floating-btn" id="queryStudentBtn">查询该班学生</button>
                 <button class="floating-btn" id="queryScheduleBtn">查询该班课程表</button>
                 <div class="same-class-info">
@@ -896,7 +896,6 @@
                             if (cls && cls !== currentSelectedLessonClass) {
                                 currentSelectedLessonClass = cls;
                                 refreshClassGrid(); // 重新渲染以更新选中样式
-                                // 同时更新按钮的目标班级（按钮事件会在下面重新绑定）
                                 attachButtonEvents();
                             }
                         });
@@ -972,18 +971,12 @@
                     if (courses.length === 0) {
                         html += '<div class="empty-cell">—</div>';
                     } else {
-                        // 获取当天日期
-                        const currentDate = new Date(monday);
-                        currentDate.setDate(monday.getDate() + day);
-                        const monthDay = `${currentDate.getMonth()+1}.${currentDate.getDate()}`;
                         courses.forEach(c => {
                             let details = '';
                             if (c.room && c.room !== '') details += `<div class="course-detail">教室：${c.room}</div>`;
                             if (c.teacher && c.teacher !== '') details += `<div class="course-detail">教师：${c.teacher}</div>`;
                             html += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}" data-weekday="${day}" data-session="${row}" data-week="${weekNum}">`;
                             html += `<div class="course-name">${escapeHtml(c.name)}</div>`;
-                            html += `<div class="course-date-info">${monthDay}  ${session.display}</div>`;
-                            html += `<div class="course-dash-line"></div>`;
                             html += details;
                             html += `</div>`;
                         });
