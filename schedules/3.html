@@ -663,13 +663,13 @@
             closeFloatingCard();
             if (!selectedClass) return;
 
-            // 获取同课程班级
-            let sameClasses = [];
-            if (lessonToClasses.has(lessonId)) {
-                sameClasses = Array.from(lessonToClasses.get(lessonId)).filter(c => c !== selectedClass);
-            }
-            const sameClassText = sameClasses.length ? `同课程班级: ${sameClasses.join('、')}` : '同课程班级: 无其他班级';
-
+            
+        // 获取该课程的所有班级（包含当前班级）
+let allClassesForLesson = [];
+if (lessonToClasses.has(lessonId)) {
+    allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort((a, b) => a.localeCompare(b, 'zh'));
+}
+const classText = allClassesForLesson.length ? `该课程班级: ${allClassesForLesson.join('、')}` : '该课程班级: 无';
             const rect = cardElement.getBoundingClientRect();
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
             const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
