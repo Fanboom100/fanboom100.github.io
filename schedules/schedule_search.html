@@ -382,9 +382,19 @@
             font-weight: 700;
             color: #2c1e0e;
             font-size: 1rem;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             border-bottom: 1px dashed #e9d7b5;
             padding-bottom: 4px;
+        }
+        .course-date-info {
+            color: #999;
+            font-size: 0.8rem;
+            margin: 6px 0 4px 0;
+            line-height: 1.4;
+        }
+        .course-dash-line {
+            border-bottom: 1px dashed #e9d7b5;
+            margin: 6px 0 0 0;
         }
         .course-detail {
             color: #5f4c2e;
@@ -394,6 +404,7 @@
             display: flex;
             align-items: baseline;
             gap: 5px;
+            margin-top: 6px;
         }
         .course-detail::before {
             content: "•";
@@ -416,7 +427,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
             padding: 16px 20px;
-            min-width: 260px;
+            min-width: 280px;
             z-index: 1000;
             border: 1px solid #d4af37;
             backdrop-filter: blur(2px);
@@ -454,7 +465,7 @@
             border-left: 3px solid #d4af37;
             padding-left: 10px;
         }
-        .query-student-btn {
+        .floating-btn {
             background: #d4af37;
             color: white;
             border: none;
@@ -463,11 +474,11 @@
             border-radius: 40px;
             font-size: 0.9rem;
             font-weight: 500;
-            margin: 10px 0;
+            margin: 8px 0;
             cursor: pointer;
             transition: background 0.2s;
         }
-        .query-student-btn:hover {
+        .floating-btn:hover {
             background: #b8860b;
         }
         .same-class-info {
@@ -477,6 +488,34 @@
             font-size: 0.85rem;
             color: #5f4c2e;
             word-break: break-word;
+            margin-top: 8px;
+        }
+        .class-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            margin-top: 4px;
+        }
+        .class-item {
+            cursor: pointer;
+            color: #5f4c2e;
+            text-decoration: none;
+            transition: all 0.1s;
+            white-space: nowrap;
+            padding: 2px 6px;
+            border-radius: 20px;
+        }
+        .class-item:hover {
+            background: #e9dccd;
+            text-decoration: none;
+        }
+        .class-item.selected {
+            background: #d4af37;
+            color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .class-item strong {
+            font-weight: 700;
         }
         @media (max-width: 768px) {
             .settings-btn {
@@ -495,6 +534,13 @@
             .week-display-box { padding: 2px 10px 2px 14px; }
             .week-display-box span { font-size: 1.3rem; }
             .week-display-box input { width: 65px; font-size: 1.3rem; }
+            .class-grid {
+                gap: 4px 10px;
+            }
+            .class-item {
+                font-size: 0.8rem;
+                padding: 2px 4px;
+            }
         }
     </style>
 </head>
@@ -588,11 +634,11 @@
         const queryToggle = document.getElementById('queryToggle');
 
         const SESSIONS = [
-            { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40", startHour: 8, startMin: 0, endHour: 9, endMin: 40 },
-            { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40", startHour: 10, startMin: 0, endHour: 11, endMin: 40 },
-            { name: "5-6", start: 5, end: 6, time: "14:00 - 15:40", startHour: 14, startMin: 0, endHour: 15, endMin: 40 },
-            { name: "7-8", start: 7, end: 8, time: "16:00 - 17:40", startHour: 16, startMin: 0, endHour: 17, endMin: 40 },
-            { name: "10-11", start: 10, end: 11, time: "19:20 - 21:00", startHour: 19, startMin: 20, endHour: 21, endMin: 0 }
+            { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40", startHour: 8, startMin: 0, endHour: 9, endMin: 40, display: "1-2节" },
+            { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40", startHour: 10, startMin: 0, endHour: 11, endMin: 40, display: "3-4节" },
+            { name: "5-6", start: 5, end: 6, time: "14:00 - 15:40", startHour: 14, startMin: 0, endHour: 15, endMin: 40, display: "5-6节" },
+            { name: "7-8", start: 7, end: 8, time: "16:00 - 17:40", startHour: 16, startMin: 0, endHour: 17, endMin: 40, display: "7-8节" },
+            { name: "10-11", start: 10, end: 11, time: "19:20 - 21:00", startHour: 19, startMin: 20, endHour: 21, endMin: 0, display: "10-11节" }
         ];
         const WEEKDAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
 
@@ -747,25 +793,61 @@
             }
         }
 
-        function showFloatingCard(cardElement, lessonId, courseName) {
+        // 跳转学生查询（新标签页）
+        function jumpToStudentSearch(className) {
+            if (!className) return;
+            const url = `/student_search.html?s=${encodeURIComponent(className)}`;
+            window.open(url, '_blank');
+        }
+
+        // 切换课表班级（本页面）
+        function switchToClass(className) {
+            if (!className || !allClasses.includes(className)) return;
+            selectedClass = className;
+            comboInput.value = className;
+            refreshTimetable();
+            // 更新下拉框选中样式
+            renderDropdown(comboInput.value);
+        }
+
+        function showFloatingCard(cardElement, lessonId, courseName, sessionIndex, weekdayIndex, weekNum) {
             closeFloatingCard();
             if (!selectedClass) return;
+
+            // 获取当前课程对应的日期和节次信息（用于显示）
+            const baseDate = new Date(SEMESTER_START);
+            const monday = new Date(baseDate);
+            monday.setDate(baseDate.getDate() + (weekNum - 1) * 7);
+            const targetDate = new Date(monday);
+            targetDate.setDate(monday.getDate() + weekdayIndex);
+            const month = targetDate.getMonth() + 1;
+            const day = targetDate.getDate();
+            const sessionDisplay = SESSIONS[sessionIndex].display;
+            const dateSessionStr = `${month}.${day}  ${sessionDisplay}`;
 
             let allClassesForLesson = [];
             if (lessonToClasses.has(lessonId)) {
                 allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort((a, b) => a.localeCompare(b, 'zh'));
             }
-            let classTextHtml = '';
-            if (allClassesForLesson.length) {
-                const classItems = allClassesForLesson.map(cls => {
-                    if (cls === selectedClass) {
-                        return `<strong>${escapeHtml(cls)}</strong>`;
-                    }
-                    return escapeHtml(cls);
+
+            // 当前浮窗选中的班级（初始为当前课表班级）
+            let currentSelectedLessonClass = selectedClass;
+
+            // 生成班级网格 HTML，每个班级可点击切换
+            function renderClassGrid() {
+                if (!allClassesForLesson.length) return '<div class="class-grid">无</div>';
+                const items = allClassesForLesson.map(cls => {
+                    const isSelected = (cls === currentSelectedLessonClass);
+                    const displayClass = isSelected ? `<strong>${escapeHtml(cls)}</strong>` : escapeHtml(cls);
+                    return `<span class="class-item ${isSelected ? 'selected' : ''}" data-class="${escapeHtml(cls)}">${displayClass}</span>`;
                 });
-                classTextHtml = `该课程班级: ${classItems.join('、')}`;
-            } else {
-                classTextHtml = '该课程班级: 无';
+                const chunkSize = 4;
+                let gridHtml = '';
+                for (let i = 0; i < items.length; i += chunkSize) {
+                    const chunk = items.slice(i, i + chunkSize);
+                    gridHtml += `<div class="class-grid">${chunk.join('')}</div>`;
+                }
+                return gridHtml;
             }
 
             const rect = cardElement.getBoundingClientRect();
@@ -776,12 +858,18 @@
             div.className = 'floating-card';
             div.innerHTML = `
                 <div class="floating-title">${escapeHtml(courseName)}</div>
-                <button class="query-student-btn">查询该班学生</button>
-                <div class="same-class-info">${classTextHtml}</div>
+                <div style="font-size:0.75rem; color:#999; margin-bottom:8px;">${dateSessionStr}</div>
+                <button class="floating-btn" id="queryStudentBtn">查询该班学生</button>
+                <button class="floating-btn" id="queryScheduleBtn">查询该班课程表</button>
+                <div class="same-class-info">
+                    <div style="margin-bottom: 6px;">该课程班级：</div>
+                    <div id="classGridContainer">${renderClassGrid()}</div>
+                </div>
             `;
             document.body.appendChild(div);
             currentFloatingCard = div;
 
+            // 定位
             let left = rect.right + 8 + scrollLeft;
             let top = rect.top + scrollTop;
             const cardWidth = div.offsetWidth;
@@ -795,12 +883,48 @@
             div.style.left = left + 'px';
             div.style.top = top + 'px';
 
-            const queryBtn = div.querySelector('.query-student-btn');
-            queryBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const url = `/student_search.html?s=${encodeURIComponent(selectedClass)}`;
-                window.open(url, '_blank');
-            });
+            // 刷新班级网格并重新绑定事件
+            function refreshClassGrid() {
+                const container = div.querySelector('#classGridContainer');
+                if (container) {
+                    container.innerHTML = renderClassGrid();
+                    // 重新绑定班级点击事件
+                    container.querySelectorAll('.class-item').forEach(el => {
+                        el.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            const cls = el.dataset.class;
+                            if (cls && cls !== currentSelectedLessonClass) {
+                                currentSelectedLessonClass = cls;
+                                refreshClassGrid(); // 重新渲染以更新选中样式
+                                // 同时更新按钮的目标班级（按钮事件会在下面重新绑定）
+                                attachButtonEvents();
+                            }
+                        });
+                    });
+                }
+            }
+
+            function attachButtonEvents() {
+                const queryStudentBtn = div.querySelector('#queryStudentBtn');
+                const queryScheduleBtn = div.querySelector('#queryScheduleBtn');
+                const newQueryStudentBtn = queryStudentBtn.cloneNode(true);
+                const newQueryScheduleBtn = queryScheduleBtn.cloneNode(true);
+                queryStudentBtn.parentNode.replaceChild(newQueryStudentBtn, queryStudentBtn);
+                queryScheduleBtn.parentNode.replaceChild(newQueryScheduleBtn, queryScheduleBtn);
+                
+                newQueryStudentBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    jumpToStudentSearch(currentSelectedLessonClass);
+                });
+                newQueryScheduleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeFloatingCard();
+                    switchToClass(currentSelectedLessonClass);
+                });
+            }
+
+            refreshClassGrid();
+            attachButtonEvents();
             div.addEventListener('click', (e) => e.stopPropagation());
         }
 
@@ -848,12 +972,18 @@
                     if (courses.length === 0) {
                         html += '<div class="empty-cell">—</div>';
                     } else {
+                        // 获取当天日期
+                        const currentDate = new Date(monday);
+                        currentDate.setDate(monday.getDate() + day);
+                        const monthDay = `${currentDate.getMonth()+1}.${currentDate.getDate()}`;
                         courses.forEach(c => {
                             let details = '';
                             if (c.room && c.room !== '') details += `<div class="course-detail">教室：${c.room}</div>`;
                             if (c.teacher && c.teacher !== '') details += `<div class="course-detail">教师：${c.teacher}</div>`;
-                            html += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}">`;
+                            html += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}" data-weekday="${day}" data-session="${row}" data-week="${weekNum}">`;
                             html += `<div class="course-name">${escapeHtml(c.name)}</div>`;
+                            html += `<div class="course-date-info">${monthDay}  ${session.display}</div>`;
+                            html += `<div class="course-dash-line"></div>`;
                             html += details;
                             html += `</div>`;
                         });
@@ -881,11 +1011,14 @@
                 card.parentNode.replaceChild(newCard, card);
                 const lessonId = newCard.dataset.lessonid;
                 const courseName = newCard.dataset.coursename;
+                const weekday = parseInt(newCard.dataset.weekday, 10);
+                const sessionIdx = parseInt(newCard.dataset.session, 10);
+                const weekNum = parseInt(newCard.dataset.week, 10);
                 if (!lessonId) return;
                 if (enableQuery) {
                     newCard.addEventListener('click', (e) => {
                         e.stopPropagation();
-                        showFloatingCard(newCard, lessonId, courseName);
+                        showFloatingCard(newCard, lessonId, courseName, sessionIdx, weekday, weekNum);
                     });
                 } else {
                     newCard.addEventListener('click', (e) => {
