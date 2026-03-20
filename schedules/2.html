@@ -41,10 +41,11 @@
             flex: 1 1 240px;
             min-width: 200px;
         }
+        /* 胶囊输入框 */
         .combo-box input {
             width: 100%;
-            padding: 10px 100px 10px 18px;
-            border-radius: 20px;
+            padding: 10px 100px 10px 22px;   /* 右侧预留两个按钮空间 */
+            border-radius: 40px;               /* 完全胶囊 */
             border: 1.5px solid #d4af37;
             background: white;
             font-size: 1rem;
@@ -59,15 +60,15 @@
         /* 清空按钮 (浅色圆形) */
         .clear-btn {
             position: absolute;
-            right: 60px;
+            right: 60px;                       /* 与下拉按钮保持距离 */
             top: 50%;
             transform: translateY(-50%);
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
             background: #e6ded0;
             border-radius: 50%;
             color: #5f4c2e;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 400;
             display: flex;
             align-items: center;
@@ -82,14 +83,14 @@
         .clear-btn:hover {
             background: #d5caba;
         }
-        /* 下拉按钮 (使用本地SVG图标) */
+        /* 下拉按钮 (金色圆形，嵌入输入框) */
         .combo-btn {
             position: absolute;
-            right: 8px;
+            right: 8px;                         /* 留白 */
             top: 50%;
             transform: translateY(-50%);
-            width: 44px;
-            height: 44px;
+            width: 38px;                         /* 略小，更精致 */
+            height: 38px;
             border-radius: 50%;
             background: #d4af37;
             border: none;
@@ -105,8 +106,8 @@
             background: #b8860b;
         }
         .combo-btn img {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             display: block;
             filter: brightness(0) invert(1); /* 确保白色 */
         }
@@ -118,7 +119,7 @@
             right: 0;
             background: white;
             border: 1px solid #d4af37;
-            border-radius: 20px;
+            border-radius: 24px;
             max-height: 260px;
             overflow-y: auto;
             z-index: 20;
@@ -218,7 +219,7 @@
             box-shadow: 0 0 0 3px rgba(212,175,55,0.25);
         }
 
-        /* 表格滚动 */
+        /* 表格滚动 — 最小宽度加大到720px，手机更舒适 */
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
@@ -231,7 +232,7 @@
             width: 100%;
             border-collapse: collapse;
             background: white;
-            min-width: 680px;
+            min-width: 720px;                   /* 从680提升至720 */
         }
         th {
             background: #fcf3e1;
@@ -317,25 +318,25 @@
             }
             .clear-btn {
                 right: 54px;
-                width: 30px;
-                height: 30px;
-                font-size: 24px;
+                width: 28px;
+                height: 28px;
+                font-size: 22px;
             }
             .combo-btn {
-                width: 38px;
-                height: 38px;
+                width: 34px;
+                height: 34px;
                 right: 6px;
             }
             .combo-btn img {
-                width: 22px;
-                height: 22px;
+                width: 20px;
+                height: 20px;
             }
-            /* 手机端状态居中：换行后单独一行，居中显示 */
+            /* 手机端状态居中 */
             .status {
                 margin-left: 0;
                 width: 100%;
                 text-align: center;
-                white-space: normal;  /* 允许文字换行以防万一 */
+                white-space: normal;
                 background: #f8f0dd;
                 padding: 6px 20px;
                 border-radius: 40px;
@@ -364,17 +365,18 @@
             }
             .clear-btn {
                 right: 48px;
-                width: 28px;
-                height: 28px;
-                font-size: 22px;
+                width: 26px;
+                height: 26px;
+                font-size: 20px;
             }
             .combo-btn {
-                width: 34px;
-                height: 34px;
+                width: 32px;
+                height: 32px;
+                right: 5px;
             }
             .combo-btn img {
-                width: 20px;
-                height: 20px;
+                width: 18px;
+                height: 18px;
             }
             .week-display-box input {
                 width: 55px;
@@ -388,7 +390,7 @@
         <!-- 组合框：输入框 + 清空按钮 + SVG下拉按钮 -->
         <div class="combo-box" id="classComboContainer">
             <input type="text" id="classComboInput" placeholder="班级" autocomplete="off" value="">
-            <div class="clear-btn" id="clearInputBtn">×</div> <!-- 初始隐藏由js控制 -->
+            <div class="clear-btn" id="clearInputBtn">×</div>
             <button class="combo-btn" id="comboToggleBtn">
                 <img src="Expand.svg" alt="expand">
             </button>
@@ -538,6 +540,7 @@
         }
 
         function renderTimetable(className, weekNum) {
+            // 如果没有选中班级，显示提示
             if (!className || allClasses.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:40px;">请选择一个班级</td></tr>';
                 return;
@@ -595,10 +598,6 @@
         }
 
         function refreshTimetable() {
-            if (!selectedClass || allClasses.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:40px;">请选择班级</td></tr>';
-                return;
-            }
             let weekNum = parseInt(weekDisplayInput.value, 10);
             if (isNaN(weekNum) || weekNum < 1) weekNum = 1;
             if (weekNum > 26) weekNum = 26;
@@ -632,7 +631,6 @@
                     if (cls) {
                         selectedClass = cls;
                         comboInput.value = cls;
-                        // 修复：选择班级后立即更新清空按钮显示
                         toggleClearBtn();
                         hideDropdown();
                         refreshTimetable();
@@ -667,6 +665,10 @@
             e.stopPropagation();
             comboInput.value = '';
             toggleClearBtn();
+            // 清空输入后不清除选中班级，但为了体验，不清空课表，只清输入框
+            // 但用户希望输入框与选中班级解耦？这里保持选中班级不变，让用户重新选择
+            // 如果想完全重置选中，可以设置 selectedClass = ''，但通常不清除已选课表。
+            // 为符合直觉，不清除已选班级，只清输入过滤。
             if (comboDropdown.style.display === 'block') {
                 renderDropdown('');
             }
@@ -704,16 +706,18 @@
 
         function initCombo() {
             if (allClasses.length > 0) {
-                selectedClass = allClasses[0];
-                comboInput.value = selectedClass;
-                toggleClearBtn();   // 确保清空按钮显示
+                // 默认不选中任何班级，输入框为空
+                selectedClass = '';
+                comboInput.value = '';
+                toggleClearBtn();               // 隐藏清空按钮
                 renderDropdown('');
-                refreshTimetable();
+                refreshTimetable();              // 显示“请选择一个班级”
             } else {
                 comboInput.value = '';
                 selectedClass = '';
                 toggleClearBtn();
                 comboDropdown.innerHTML = '<li style="color:#999;">无班级</li>';
+                refreshTimetable();
             }
         }
 
