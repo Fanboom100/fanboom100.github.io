@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学生信息查询系统</title>
+    <title>学生信息查询系统 - 支持链接参数搜索</title>
     <style>
         * {
             margin: 0;
@@ -35,14 +35,12 @@
             color: #333;
             font-size: clamp(20px, 5vw, 28px);
         }
-        /* 新增：数据更新时间小字 */
         .update-time {
             color: #666;
             font-size: clamp(12px, 3vw, 15px);
             margin-top: 8px;
             margin-bottom: 0px;
         }
-        /* 胶囊形搜索容器 */
         .search-container {
             display: flex;
             align-items: center;
@@ -65,7 +63,6 @@
             box-shadow: 0 0 8px rgba(212,175,55,0.4);
             border-color: #d4af37;
         }
-        /* 金色胶囊搜索按钮 */
         .search-btn {
             position: absolute;
             right: 4px;
@@ -83,7 +80,6 @@
         .search-btn:hover {
             background: #b8860b;
         }
-        /* 结果展示区域 */
         .result-container {
             display: none;
             margin-top: 20px;
@@ -95,48 +91,43 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* 多结果容器-单人一大框 */
         .result-list {
             display: flex;
             flex-direction: column;
             gap: 25px;
             margin-bottom: 30px;
         }
-        /* 单人信息大框 */
         .student-card {
             background: #fffdf5;
             padding: 30px;
             border-radius: 12px;
             border: 1px solid #f5efd9;
             width: 100%;
-            position: relative; /* 新增：为序号做定位父容器 */
+            position: relative;
         }
-        /* 新增：学生卡片左上角深色实心序号小圆 - 改为深金色 */
         .student-index {
             position: absolute;
             top: 15px;
             left: 15px;
             width: 24px;
             height: 24px;
-            background-color: #b8860b; /* 深金色，与按钮hover色一致 */
-            color: #fff; /* 白色序号 */
-            border-radius: 50%; /* 圆形 */
+            background-color: #b8860b;
+            color: #fff;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 12px;
             font-weight: bold;
-            z-index: 1; /* 防止被遮挡 */
+            z-index: 1;
         }
-        /* 信息项网格 */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 20px 15px;
             align-items: center;
-            padding-left: 40px; /* 新增：预留序号空间，不偏移原有文字 */
+            padding-left: 40px;
         }
-        /* 单个信息 - 移除小框样式 */
         .info-item {
             display: flex;
             flex-direction: column;
@@ -152,7 +143,6 @@
             font-size: 17px;
             word-break: break-all;
         }
-        /* 分页样式 */
         .pagination {
             display: flex;
             justify-content: center;
@@ -182,7 +172,6 @@
             color: #666;
             font-size: 16px;
         }
-        /* 提示信息 */
         .tip-message {
             text-align: center;
             padding: 30px 0;
@@ -195,11 +184,13 @@
         .tip-empty {
             color: #999;
         }
-        /* 移动端适配 */
+        .tip-loading {
+            color: #d4af37;
+        }
         @media (max-width: 768px) {
             .info-grid {
                 grid-template-columns: 1fr 1fr;
-                padding-left: 40px; /* 新增：移动端保留序号空间 */
+                padding-left: 40px;
             }
             .search-container {
                 max-width: 95%;
@@ -215,7 +206,7 @@
         @media (max-width: 480px) {
             .info-grid {
                 grid-template-columns: 1fr;
-                padding-left: 40px; /* 新增：小屏保留序号空间 */
+                padding-left: 40px;
             }
             .pagination {
                 flex-direction: column;
@@ -228,22 +219,20 @@
     <div class="container">
         <div class="header">
             <h1>学生信息查询系统</h1>
-            <!-- 新增：数据更新时间小字，参考ck.html中.header p的样式 -->
             <p class="update-time">数据更新时间：2026.3.16 23:10</p>
         </div>
-        <!-- 胶囊搜索框+文字搜索按钮 - 缩短占位符 -->
         <div class="search-container">
-            <input type="text" class="search-input" id="searchInput" placeholder="输入关键词查询">
+            <input type="text" class="search-input" id="searchInput" placeholder="输入关键词查询 (支持学号/姓名/班级等)">
             <button class="search-btn" id="searchBtn">搜索</button>
         </div>
-        <!-- 提示信息 -->
+        <!-- 提示信息区域 -->
         <div class="tip-message tip-error" id="errorMsg">请输入有效的查询关键词</div>
         <div class="tip-message tip-empty" id="emptyMsg">未找到匹配的学生信息，请更换关键词重试</div>
-        <!-- 结果展示：分页+单人一大框+移除小框 -->
+        <div class="tip-message tip-loading" id="loadingMsg">数据加载中，请稍后...</div>
+        <!-- 结果展示区域 -->
         <div class="result-container" id="resultContainer">
             <div class="result-title" id="resultCount">查询结果（共<span id="totalNum">0</span>条）</div>
             <div class="result-list" id="resultList"></div>
-            <!-- 分页控件 -->
             <div class="pagination" id="pagination">
                 <button class="page-btn" id="prevPage" disabled>上一页</button>
                 <div class="page-info" id="pageInfo">第<span id="currentPage">1</span>页 / 共<span id="totalPage">1</span>页</div>
@@ -252,7 +241,7 @@
         </div>
     </div>
     <script>
-        // DOM元素获取
+        // DOM 元素获取
         const el = {
             searchInput: document.getElementById('searchInput'),
             searchBtn: document.getElementById('searchBtn'),
@@ -265,78 +254,74 @@
             nextPage: document.getElementById('nextPage'),
             pageInfo: document.getElementById('pageInfo'),
             errorMsg: document.getElementById('errorMsg'),
-            emptyMsg: document.getElementById('emptyMsg')
+            emptyMsg: document.getElementById('emptyMsg'),
+            loadingMsg: document.getElementById('loadingMsg')
         };
-        // 全局变量：分页配置+搜索结果缓存
-        let studentData = []; // 原始JSON数据
-        let searchResult = []; // 搜索匹配的结果缓存
-        const PAGE_SIZE = 10; // 每页展示10条，可自定义
-        let currentPageNum = 1; // 当前页码
+        
+        // 全局变量
+        let studentData = [];           // 原始学生数据
+        let searchResult = [];          // 当前搜索结果缓存
+        let currentPageNum = 1;         // 当前页码
+        let isDataLoaded = false;        // 数据是否加载完成标志
+        let loadFailed = false;           // 数据加载是否失败
+        
+        const PAGE_SIZE = 10;            // 每页显示数量
         const JSON_FILE_NAME = 'studentInfo.json';
-        // 初始化：读取本地JSON文件
-        function init() {
-            fetch(JSON_FILE_NAME)
-                .then(res => {
-                    if (!res.ok) throw new Error('文件加载失败');
-                    return res.json();
-                })
-                .then(data => {
-                    studentData = Array.isArray(data) ? data : [data];
-                    console.log(`本地JSON加载成功，共${studentData.length}条学生信息`);
-                })
-                .catch(err => {
-                    el.errorMsg.textContent = `本地JSON文件加载失败：请检查${JSON_FILE_NAME}是否与HTML同目录`;
-                    el.errorMsg.style.display = 'block';
-                    // 本地跨域备用方案：注释上方fetch，取消下方注释粘贴JSON
-                    // studentData = [
-                    //     {"adminclass_name":"临床22-11","code":"2022306117","depart_name":"医学院","direction_name":"","gender":"女","major_name":"临床医学","name":"左倩"},
-                    //     {"adminclass_name":"临床22-12","code":"2022306118","depart_name":"医学院","direction_name":"心血管","gender":"男","major_name":"临床医学","name":"张三"}
-                    // ];
-                });
+        
+        // ---------- 工具函数 ----------
+        // 获取 URL 参数 (支持 ?s=xxx 或 &s=xxx)
+        function getUrlParameter(name) {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            } catch (e) {
+                // 降级方案：手动正则
+                const match = window.location.search.match(new RegExp('[?&]' + name + '=([^&]+)'));
+                return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : null;
+            }
         }
-        // 重置所有显示状态（搜索/翻页时调用）
-        function resetDisplay() {
-            el.resultContainer.style.display = 'none';
+        
+        // 隐藏所有提示消息
+        function hideAllTips() {
             el.errorMsg.style.display = 'none';
             el.emptyMsg.style.display = 'none';
+            el.loadingMsg.style.display = 'none';
+        }
+        
+        // 显示加载中状态 (仅在没有结果展示时显示)
+        function showLoadingTip(show = true) {
+            if (show) {
+                hideAllTips();
+                el.loadingMsg.style.display = 'block';
+            } else {
+                el.loadingMsg.style.display = 'none';
+            }
+        }
+        
+        // 重置整个UI（清空结果、隐藏容器、重置分页）
+        function resetDisplay() {
+            el.resultContainer.style.display = 'none';
             el.resultList.innerHTML = '';
-            currentPageNum = 1; // 每次搜索重置为第1页
-            updatePaginationBtn(); // 重置分页按钮状态
+            currentPageNum = 1;
+            hideAllTips();
         }
-        // 搜索逻辑：模糊匹配+缓存结果+渲染第一页
-        function searchStudent() {
-            resetDisplay();
-            const keyword = el.searchInput.value.trim().toLowerCase();
-            if (!keyword) {
-                el.errorMsg.style.display = 'block';
-                return;
-            }
-            // 模糊匹配所有字段，缓存结果到searchResult
-            searchResult = studentData.filter(student => {
-                return Object.values(student).some(val => {
-                    return String(val).toLowerCase().includes(keyword);
-                });
-            });
-            // 无匹配结果
-            if (searchResult.length === 0) {
-                el.emptyMsg.style.display = 'block';
-                return;
-            }
-            // 更新总条数和总页数
-            el.totalNum.textContent = searchResult.length;
-            el.totalPage.textContent = Math.ceil(searchResult.length / PAGE_SIZE);
-            // 渲染当前页（第1页）
-            renderCurrentPage();
-            el.resultContainer.style.display = 'block';
-            updatePaginationBtn(); // 更新分页按钮状态
+        
+        // 更新分页按钮状态
+        function updatePaginationBtn() {
+            const totalPageNum = Math.ceil(searchResult.length / PAGE_SIZE);
+            el.prevPage.disabled = (currentPageNum === 1);
+            el.nextPage.disabled = (currentPageNum === totalPageNum || totalPageNum === 0);
         }
-        // 渲染当前页数据：截取对应分页的10条数据
+        
+        // 渲染当前页数据 (基于 searchResult 和 currentPageNum)
         function renderCurrentPage() {
-            // 计算截取起始和结束索引
+            if (!searchResult.length) return;
+            
             const startIndex = (currentPageNum - 1) * PAGE_SIZE;
             const endIndex = startIndex + PAGE_SIZE;
             const currentData = searchResult.slice(startIndex, endIndex);
-            // 固定信息显示顺序：移除专业方向
+            
+            // 固定展示顺序 (专业方向已移除)
             const infoMap = [
                 { label: '班级', key: 'adminclass_name' },
                 { label: '学号', key: 'code' },
@@ -345,70 +330,233 @@
                 { label: '学院', key: 'depart_name' },
                 { label: '专业', key: 'major_name' }
             ];
-            // 渲染当前页的每条数据（新增index计算全局序号）
-            currentData.forEach((student, index) => {
-                // 计算全局连续序号：第一页1-10，第二页11-20，以此类推
-                const globalIndex = (currentPageNum - 1) * PAGE_SIZE + index + 1;
+            
+            let htmlBuffer = '';
+            currentData.forEach((student, idx) => {
+                // 全局序号（从1开始连续）
+                const globalIndex = (currentPageNum - 1) * PAGE_SIZE + idx + 1;
                 let infoHtml = '';
                 infoMap.forEach(item => {
-                    const value = student[item.key] || '无';
+                    const value = student[item.key] !== undefined && student[item.key] !== null ? student[item.key] : '无';
                     infoHtml += `
                         <div class="info-item">
                             <span class="info-label">${item.label}</span>
-                            <span class="info-value">${value}</span>
+                            <span class="info-value">${escapeHtml(value)}</span>
                         </div>
                     `;
                 });
-                // 单人一个大框，新增左上角序号小圆
-                const cardHtml = `
+                htmlBuffer += `
                     <div class="student-card">
                         <div class="student-index">${globalIndex}</div>
                         <div class="info-grid">${infoHtml}</div>
                     </div>
                 `;
-                el.resultList.innerHTML += cardHtml;
             });
-            // 更新当前页码显示
+            el.resultList.innerHTML = htmlBuffer;
             el.currentPage.textContent = currentPageNum;
+            el.totalPage.textContent = Math.ceil(searchResult.length / PAGE_SIZE);
         }
-        // 更新分页按钮禁用/启用状态
-        function updatePaginationBtn() {
-            const totalPageNum = Math.ceil(searchResult.length / PAGE_SIZE);
-            // 上一页：第1页时禁用
-            el.prevPage.disabled = currentPageNum === 1;
-            // 下一页：最后一页时禁用
-            el.nextPage.disabled = currentPageNum === totalPageNum;
+        
+        // 简单防XSS
+        function escapeHtml(str) {
+            if (!str) return '无';
+            return String(str).replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+                return c;
+            });
         }
-        // 上一页逻辑
-        function toPrevPage() {
+        
+        // 核心搜索逻辑 (基于全局 studentData 和输入框关键词)
+        function performSearch() {
+            // 1. 数据未就绪检测
+            if (!isDataLoaded) {
+                hideAllTips();
+                if (loadFailed) {
+                    el.errorMsg.textContent = '学生数据加载失败，请刷新页面重试或检查 studentInfo.json 文件。';
+                    el.errorMsg.style.display = 'block';
+                } else {
+                    el.errorMsg.textContent = '数据仍在加载中，请稍后再试...';
+                    el.errorMsg.style.display = 'block';
+                }
+                el.resultContainer.style.display = 'none';
+                return;
+            }
+            
+            const keyword = el.searchInput.value.trim();
+            if (!keyword) {
+                // 空关键词提示
+                hideAllTips();
+                el.errorMsg.textContent = '请输入有效的查询关键词';
+                el.errorMsg.style.display = 'block';
+                el.resultContainer.style.display = 'none';
+                return;
+            }
+            
+            // 模糊匹配所有字段 (不区分大小写)
+            const lowerKeyword = keyword.toLowerCase();
+            const filtered = studentData.filter(student => {
+                return Object.values(student).some(val => {
+                    if (val === undefined || val === null) return false;
+                    return String(val).toLowerCase().includes(lowerKeyword);
+                });
+            });
+            
+            searchResult = filtered;
+            
+            // 无匹配结果
+            if (searchResult.length === 0) {
+                resetDisplay();
+                hideAllTips();
+                el.emptyMsg.style.display = 'block';
+                return;
+            }
+            
+            // 有结果: 重置分页
+            currentPageNum = 1;
+            el.totalNum.textContent = searchResult.length;
+            el.totalPage.textContent = Math.ceil(searchResult.length / PAGE_SIZE);
+            
+            // 渲染第一页
+            renderCurrentPage();
+            updatePaginationBtn();
+            
+            // 显示结果容器
+            el.resultContainer.style.display = 'block';
+            hideAllTips(); // 确保提示隐藏
+        }
+        
+        // 封装搜索（供手动和自动调用）
+        function searchAndRender() {
+            performSearch();
+        }
+        
+        // 分页控制
+        function goPrevPage() {
             if (currentPageNum > 1) {
                 currentPageNum--;
-                el.resultList.innerHTML = ''; // 清空当前页
                 renderCurrentPage();
                 updatePaginationBtn();
+                // 滚动到顶部让用户看到新内容
+                document.querySelector('.result-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
-        // 下一页逻辑
-        function toNextPage() {
-            const totalPageNum = Math.ceil(searchResult.length / PAGE_SIZE);
-            if (currentPageNum < totalPageNum) {
+        
+        function goNextPage() {
+            const total = Math.ceil(searchResult.length / PAGE_SIZE);
+            if (currentPageNum < total) {
                 currentPageNum++;
-                el.resultList.innerHTML = ''; // 清空当前页
                 renderCurrentPage();
                 updatePaginationBtn();
+                document.querySelector('.result-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
-        // 事件绑定
-        // 搜索按钮+回车搜索
-        el.searchBtn.addEventListener('click', searchStudent);
-        el.searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') searchStudent();
-        });
-        // 分页按钮
-        el.prevPage.addEventListener('click', toPrevPage);
-        el.nextPage.addEventListener('click', toNextPage);
-        // 页面加载初始化
-        window.onload = init;
+        
+        // 从 URL 参数自动填充并搜索 (仅当数据加载完成后调用)
+        function autoSearchFromUrl() {
+            if (!isDataLoaded) return false;
+            
+            const sValue = getUrlParameter('s');
+            if (sValue && sValue.trim() !== '') {
+                const decodedValue = decodeURIComponent(sValue.trim());
+                // 填入搜索框
+                el.searchInput.value = decodedValue;
+                // 执行搜索
+                performSearch();
+                return true;
+            }
+            return false;
+        }
+        
+        // ---------- 数据初始化 ----------
+        function loadStudentData() {
+            // 显示加载提示
+            showLoadingTip(true);
+            el.resultContainer.style.display = 'none';
+            hideAllTips();
+            el.loadingMsg.style.display = 'block';
+            
+            fetch(JSON_FILE_NAME)
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(`HTTP ${res.status}: 无法加载 ${JSON_FILE_NAME}`);
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    studentData = Array.isArray(data) ? data : (data ? [data] : []);
+                    console.log(`✅ 本地JSON加载成功，共 ${studentData.length} 条学生信息`);
+                    isDataLoaded = true;
+                    loadFailed = false;
+                    showLoadingTip(false);
+                    
+                    // 数据加载完成后，检查是否需要自动搜索（URL参数 s=xxx）
+                    const hasAutoSearch = autoSearchFromUrl();
+                    if (!hasAutoSearch) {
+                        // 没有自动搜索参数，保持初始状态：不显示结果，不报错
+                        hideAllTips();
+                        // 可选：提示输入关键词（不做强制）
+                    }
+                })
+                .catch(err => {
+                    console.error('❌ 加载学生数据失败:', err);
+                    isDataLoaded = false;
+                    loadFailed = true;
+                    showLoadingTip(false);
+                    // 显示详细错误信息，友好提示
+                    el.errorMsg.textContent = `本地JSON文件加载失败：请确保 ${JSON_FILE_NAME} 与HTML文件在同一目录，且格式正确。\n详细信息：${err.message}`;
+                    el.errorMsg.style.display = 'block';
+                    el.resultContainer.style.display = 'none';
+                    
+                    // 如果加载失败但 URL 有参数，无法搜索，给出额外提示
+                    const sParam = getUrlParameter('s');
+                    if (sParam && sParam.trim()) {
+                        // 追加提醒
+                        el.errorMsg.innerHTML = `⚠️ 数据加载失败，无法完成自动搜索“${escapeHtml(sParam)}”。<br>请检查 ${JSON_FILE_NAME} 文件是否存在。`;
+                    }
+                });
+        }
+        
+        // ---------- 事件绑定 ----------
+        function bindEvents() {
+            // 搜索按钮点击
+            el.searchBtn.addEventListener('click', () => {
+                if (!isDataLoaded && !loadFailed) {
+                    el.errorMsg.textContent = '数据加载中，请稍后再试';
+                    el.errorMsg.style.display = 'block';
+                    setTimeout(() => { if (!isDataLoaded) el.errorMsg.style.display = 'none'; }, 2000);
+                    return;
+                }
+                searchAndRender();
+            });
+            
+            // 回车搜索
+            el.searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (!isDataLoaded && !loadFailed) {
+                        el.errorMsg.textContent = '数据加载中，请稍后再试';
+                        el.errorMsg.style.display = 'block';
+                        setTimeout(() => { if (!isDataLoaded) el.errorMsg.style.display = 'none'; }, 2000);
+                        return;
+                    }
+                    searchAndRender();
+                }
+            });
+            
+            // 分页按钮
+            el.prevPage.addEventListener('click', goPrevPage);
+            el.nextPage.addEventListener('click', goNextPage);
+        }
+        
+        // 页面启动
+        window.onload = () => {
+            bindEvents();
+            loadStudentData();  // 异步加载，加载完成自动触发 URL 参数检测
+        };
     </script>
 </body>
 </html>
