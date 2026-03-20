@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>班级课程表</title>
+    <title>班级课程表 · 悬浮交互</title>
     <style>
         * {
             box-sizing: border-box;
@@ -409,7 +409,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
             padding: 16px 20px;
-            min-width: 240px;
+            min-width: 260px;
             z-index: 1000;
             border: 1px solid #d4af37;
             backdrop-filter: blur(2px);
@@ -524,7 +524,7 @@
                 <th>周五</th>
                 <th>周六</th>
                 <th>周日</th>
-            </tr>
+             </tr>
             </thead>
             <tbody id="timetableBody">
                 <tr><td colspan="8" style="text-align:center; padding:40px;">⏳ 加载数据...</td></tr>
@@ -663,13 +663,13 @@
             closeFloatingCard();
             if (!selectedClass) return;
 
-            
-        // 获取该课程的所有班级（包含当前班级）
-let allClassesForLesson = [];
-if (lessonToClasses.has(lessonId)) {
-    allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort((a, b) => a.localeCompare(b, 'zh'));
-}
-const classText = allClassesForLesson.length ? `该课程班级: ${allClassesForLesson.join('、')}` : '该课程班级: 无';
+            // 获取该课程的所有班级（包含当前班级），按首字母排序
+            let allClassesForLesson = [];
+            if (lessonToClasses.has(lessonId)) {
+                allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort((a, b) => a.localeCompare(b, 'zh'));
+            }
+            const classText = allClassesForLesson.length ? `该课程班级: ${allClassesForLesson.join('、')}` : '该课程班级: 无';
+
             const rect = cardElement.getBoundingClientRect();
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
             const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
@@ -679,7 +679,7 @@ const classText = allClassesForLesson.length ? `该课程班级: ${allClassesFor
             div.innerHTML = `
                 <div class="floating-title">${escapeHtml(courseName)}</div>
                 <button class="query-student-btn">查询该班学生</button>
-                <div class="same-class-info">${escapeHtml(sameClassText)}</div>
+                <div class="same-class-info">${escapeHtml(classText)}</div>
             `;
             document.body.appendChild(div);
             currentFloatingCard = div;
@@ -792,7 +792,6 @@ const classText = allClassesForLesson.length ? `该课程班级: ${allClassesFor
                 const courseName = newCard.dataset.coursename;
                 if (!lessonId) return;
 
-                // 悬停效果（CSS已处理）
                 if (enableQuery) {
                     // 启用查询时：点击显示悬浮窗口
                     newCard.addEventListener('click', (e) => {
