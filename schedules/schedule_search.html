@@ -314,6 +314,7 @@
             font-size: 1rem;
             padding: 14px 4px;
             border: 1px solid #eed2b1;
+            transition: background 0.2s, border-color 0.2s;
         }
         td {
             border: 1px solid #eed2b1;
@@ -331,6 +332,15 @@
             vertical-align: middle;
             font-size: 1rem;
             border-right: 2px solid #d4af37;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        /* 高亮当前时间对应的表头 */
+        th.current-highlight,
+        .time-col.current-highlight {
+            background: #ffecb3 !important;
+            border-color: #d4af37 !important;
+            color: #b8860b !important;
+            font-weight: 700;
         }
         .course-item {
             background: #fffdf5;
@@ -392,6 +402,7 @@
             padding-top: 24px;
             font-size: 0.9rem;
         }
+        /* 悬浮窗口渐入动画 */
         .floating-card {
             position: absolute;
             background: white;
@@ -402,11 +413,17 @@
             z-index: 1000;
             border: 1px solid #d4af37;
             backdrop-filter: blur(2px);
-            animation: fadeIn 0.1s ease;
+            animation: fadeSlideIn 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.96); }
-            to { opacity: 1; transform: scale(1); }
+        @keyframes fadeSlideIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.92) translateY(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
         .floating-title {
             font-weight: 700;
@@ -520,6 +537,10 @@
 </div>
 <script>
     (function() {
+        // ---------- 学期开始时间（可手动修改，格式：年,月,日，注意月从0开始）----------
+        const SEMESTER_START = new Date(2026, 2, 2);  // 2026年3月2日，周一
+        // ---------------------------------------------------------------------
+
         let coursesData = [];
         let scheduleData = [];
         let courseNameMap = new Map();
@@ -541,11 +562,11 @@
         const queryToggle = document.getElementById('queryToggle');
 
         const SESSIONS = [
-            { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40" },
-            { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40" },
-            { name: "5-6", start: 5, end: 6, time: "14:00 - 15:40" },
-            { name: "7-8", start: 7, end: 8, time: "16:00 - 17:40" },
-            { name: "10-11", start: 10, end: 11, time: "19:20 - 21:00" }
+            { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40", startHour: 8, startMin: 0, endHour: 9, endMin: 40 },
+            { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40", startHour: 10, startMin: 0, endHour: 11, endMin: 40 },
+            { name: "5-6", start: 5, end: 6, time: "14:00 - 15:40", startHour: 14, startMin: 0, endHour: 15, endMin: 40 },
+            { name: "7-8", start: 7, end: 8, time: "16:00 - 17:40", startHour: 16, startMin: 0, endHour: 17, endMin: 40 },
+            { name: "10-11", start: 10, end: 11, time: "19:20 - 21:00", startHour: 19, startMin: 20, endHour: 21, endMin: 0 }
         ];
         const WEEKDAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
 
@@ -556,6 +577,61 @@
         function getUrlParam(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
+        }
+
+        // 计算当前是第几周（基于学期开始日期，周一为一周开始）
+        function getCurrentWeekNumber() {
+            const today = new Date();
+            // 如果当前日期早于学期开始，返回1
+            if (today < SEMESTER_START) return 1;
+            const diffTime = today - SEMESTER_START;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const weekNum = Math.floor(diffDays / 7) + 1;
+            return Math.min(weekNum, 26); // 最多26周
+        }
+
+        // 根据当前时间高亮表头：星期和节次
+        function highlightCurrentTime() {
+            // 移除已有的高亮
+            document.querySelectorAll('#weekHeaders th, .time-col').forEach(el => {
+                el.classList.remove('current-highlight');
+            });
+            const now = new Date();
+            let currentWeekday = now.getDay(); // 0周日 ~ 6周六
+            // 转为1-7，周一=1，周日=7
+            let weekdayIndex = currentWeekday === 0 ? 7 : currentWeekday;
+            // 高亮星期表头（th，第一个th是节次，对应索引1-7）
+            const headers = document.querySelectorAll('#weekHeaders th');
+            if (headers[weekdayIndex]) {
+                headers[weekdayIndex].classList.add('current-highlight');
+            }
+
+            // 高亮当前节次
+            const currentHour = now.getHours();
+            const currentMin = now.getMinutes();
+            let currentSessionIndex = -1;
+            for (let i = 0; i < SESSIONS.length; i++) {
+                const s = SESSIONS[i];
+                const startTotal = s.startHour * 60 + s.startMin;
+                const endTotal = s.endHour * 60 + s.endMin;
+                const nowTotal = currentHour * 60 + currentMin;
+                if (nowTotal >= startTotal && nowTotal <= endTotal) {
+                    currentSessionIndex = i;
+                    break;
+                }
+            }
+            if (currentSessionIndex !== -1) {
+                const timeCols = document.querySelectorAll('.time-col');
+                if (timeCols[currentSessionIndex]) {
+                    timeCols[currentSessionIndex].classList.add('current-highlight');
+                }
+            }
+        }
+
+        // 自动同步周数到当前周（页面加载时调用）
+        function autoSyncWeek() {
+            const currentWeek = getCurrentWeekNumber();
+            weekDisplayInput.value = currentWeek;
         }
 
         function updateStatus(msg, isError = false) {
@@ -695,7 +771,9 @@
             const queryBtn = div.querySelector('.query-student-btn');
             queryBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                window.location.href = `/student_search.html?s=${encodeURIComponent(selectedClass)}`;
+                // 新标签页打开
+                const url = `/student_search.html?s=${encodeURIComponent(selectedClass)}`;
+                window.open(url, '_blank');
             });
             div.addEventListener('click', (e) => e.stopPropagation());
         }
@@ -716,7 +794,7 @@
                 return;
             }
             const grid = buildTimetableData(className, weekNum);
-            const baseDate = new Date(2026, 2, 2);
+            const baseDate = new Date(SEMESTER_START);
             const monday = new Date(baseDate);
             monday.setDate(baseDate.getDate() + (weekNum - 1) * 7);
             const dates = [];
@@ -761,6 +839,8 @@
             }
             tbody.innerHTML = html;
             attachCourseEvents();
+            // 每次渲染后重新高亮当前时间
+            highlightCurrentTime();
         }
 
         function attachCourseEvents() {
@@ -965,9 +1045,12 @@
                 updateStatus('数据更新时间:2026.3.20');
                 allClasses = extractClasses();
                 
+                // 自动同步周数
+                autoSyncWeek();
                 // 检查 URL 参数
                 const urlClass = getUrlParam('s');
                 initCombo(urlClass);
+                // 高亮当前时间（会在渲染后执行）
             } catch (err) {
                 updateStatus(`❌ 加载失败: ${err.message}`, true);
                 console.error(err);
