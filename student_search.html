@@ -2,13 +2,200 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学生信息查询系统</title>
     <style>
-        /* ... 原有样式保持不变 ... */
-        
-        /* 新增：设置按钮及面板样式（与schedule_search.html对齐） */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            min-width: 300px;
+            position: relative; /* 新增：为设置按钮定位提供参考 */
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #d4af37;
+        }
+        .header h1 {
+            color: #333;
+            font-size: clamp(20px, 5vw, 28px);
+        }
+        .update-time {
+            color: #666;
+            font-size: clamp(12px, 3vw, 15px);
+            margin-top: 8px;
+            margin-bottom: 0px;
+        }
+        /* 胶囊形搜索容器（原样） */
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+            position: relative;
+            max-width: 600px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 22px;
+            padding-right: 100px;
+            border: 2px solid #d4af37;
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        .search-input:focus {
+            box-shadow: 0 0 8px rgba(212,175,55,0.4);
+            border-color: #d4af37;
+        }
+        .search-btn {
+            position: absolute;
+            right: 4px;
+            height: calc(100% - 8px);
+            width: 90px;
+            background: #d4af37;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .search-btn:hover {
+            background: #b8860b;
+        }
+        /* 结果展示区域 */
+        .result-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .result-title {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .result-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .student-card {
+            background: #fffdf5;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #f5efd9;
+            width: 100%;
+            position: relative;
+        }
+        .student-index {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 24px;
+            height: 24px;
+            background-color: #b8860b;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px 15px;
+            align-items: center;
+            padding-left: 40px;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .info-label {
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .info-value {
+            color: #333;
+            font-size: 17px;
+            word-break: break-all;
+        }
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .page-btn {
+            padding: 8px 20px;
+            background: #d4af37;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        .page-btn:disabled {
+            background: #e6e6e6;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .page-btn:hover:not(:disabled) {
+            background: #b8860b;
+        }
+        .page-info {
+            color: #666;
+            font-size: 16px;
+        }
+        .tip-message {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 16px;
+            display: none;
+        }
+        .tip-error {
+            color: #f44336;
+        }
+        .tip-empty {
+            color: #999;
+        }
+        .tip-loading {
+            color: #d4af37;
+        }
+        /* ========= 新增：设置按钮及面板样式（与schedule_search.html对齐） ========= */
         .settings-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
             width: 44px;
             height: 44px;
             border-radius: 50%;
@@ -19,8 +206,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
-            position: relative;
-            margin-left: 8px;
+            z-index: 10;
         }
         .settings-btn:hover {
             background: #d5caba;
@@ -33,14 +219,14 @@
         }
         .settings-panel {
             position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
+            top: 80px;
+            right: 30px;
             background: white;
             border-radius: 24px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             padding: 16px 20px;
             min-width: 220px;
-            z-index: 30;
+            z-index: 20;
             border: 1px solid #d4af37;
             display: none;
         }
@@ -97,14 +283,12 @@
         input:checked + .slider:before {
             transform: translateX(24px);
         }
-        
         /* 手机端隐藏设置按钮 */
         @media (max-width: 768px) {
             .settings-btn {
                 display: none;
             }
         }
-        
         /* 可点击班级样式（无下划线、无蓝色） */
         .clickable-class {
             cursor: pointer;
@@ -117,6 +301,33 @@
         .clickable-class:hover {
             background: #f0e5d2;
         }
+        /* 移动端适配（原有，保留） */
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+                padding-left: 40px;
+            }
+            .search-container {
+                max-width: 95%;
+            }
+            .student-card {
+                padding: 20px;
+            }
+            .page-btn {
+                padding: 6px 15px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                padding-left: 40px;
+            }
+            .pagination {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -125,36 +336,34 @@
             <h1>学生信息查询系统</h1>
             <p class="update-time">数据更新时间：2026.3.16 23:10</p>
         </div>
-        
-        <!-- 搜索栏 + 设置按钮（新增） -->
-        <div style="display: flex; align-items: center; gap: 12px; margin: 0 auto 40px; max-width: 600px; position: relative;">
-            <div class="search-container" style="margin: 0; flex: 1;">
-                <input type="text" class="search-input" id="searchInput" placeholder="输入关键词查询 (支持学号/姓名/班级等)">
-                <button class="search-btn" id="searchBtn">搜索</button>
-            </div>
-            <div style="position: relative;">
-                <button class="settings-btn" id="settingsBtn">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-2,0-3.6-1.6-3.6-3.6 s1.6-3.6,3.6-3.6s3.6,1.6,3.6,3.6S14,15.6,12,15.6z"/>
-                    </svg>
-                </button>
-                <div id="settingsPanel" class="settings-panel">
-                    <div class="toggle-switch">
-                        <span class="toggle-label">点击班级跳转课程表</span>
-                        <label class="switch">
-                            <input type="checkbox" id="classClickToggle">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </div>
+        <!-- 胶囊搜索框+文字搜索按钮（完全原样） -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="输入关键词查询">
+            <button class="search-btn" id="searchBtn">搜索</button>
+        </div>
+
+        <!-- 新增：设置按钮（PC端显示） -->
+        <button class="settings-btn" id="settingsBtn">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-2,0-3.6-1.6-3.6-3.6 s1.6-3.6,3.6-3.6s3.6,1.6,3.6,3.6S14,15.6,12,15.6z"/>
+            </svg>
+        </button>
+        <div id="settingsPanel" class="settings-panel">
+            <div class="toggle-switch">
+                <span class="toggle-label">班级名称可点击跳转课程表</span>
+                <label class="switch">
+                    <input type="checkbox" id="classClickToggle">
+                    <span class="slider"></span>
+                </label>
             </div>
         </div>
-        
-        <!-- 其余提示信息、结果容器保持不变 -->
+
+        <!-- 提示信息（原样） -->
         <div class="tip-message tip-error" id="errorMsg">请输入有效的查询关键词</div>
         <div class="tip-message tip-empty" id="emptyMsg">未找到匹配的学生信息，请更换关键词重试</div>
         <div class="tip-message tip-loading" id="loadingMsg">数据加载中，请稍后...</div>
-        
+
+        <!-- 结果展示区域（原样） -->
         <div class="result-container" id="resultContainer">
             <div class="result-title" id="resultCount">查询结果（共<span id="totalNum">0</span>条）</div>
             <div class="result-list" id="resultList"></div>
@@ -165,9 +374,9 @@
             </div>
         </div>
     </div>
-    
+
     <script>
-        // ... 原有 DOM 获取和全局变量保持不变 ...
+        // DOM元素获取（原样）
         const el = {
             searchInput: document.getElementById('searchInput'),
             searchBtn: document.getElementById('searchBtn'),
@@ -183,35 +392,90 @@
             emptyMsg: document.getElementById('emptyMsg'),
             loadingMsg: document.getElementById('loadingMsg')
         };
-        
-        // 新增变量：班级点击开关状态
+
+        // 新增变量：班级可点击开关状态
         let enableClassClick = false;
-        
+        // 新增：开关元素
+        const classClickToggle = document.getElementById('classClickToggle');
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingsPanel = document.getElementById('settingsPanel');
+
+        // 全局变量
         let studentData = [];
         let searchResult = [];
         let currentPageNum = 1;
         let isDataLoaded = false;
         let loadFailed = false;
-        
+
         const PAGE_SIZE = 10;
         const JSON_FILE_NAME = 'studentInfo.json';
-        
+
+        // ---------- 工具函数 ----------
+        function getUrlParameter(name) {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            } catch (e) {
+                const match = window.location.search.match(new RegExp('[?&]' + name + '=([^&]+)'));
+                return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : null;
+            }
+        }
+
+        function hideAllTips() {
+            el.errorMsg.style.display = 'none';
+            el.emptyMsg.style.display = 'none';
+            el.loadingMsg.style.display = 'none';
+        }
+
+        function showLoadingTip(show) {
+            if (show) {
+                hideAllTips();
+                el.loadingMsg.style.display = 'block';
+            } else {
+                el.loadingMsg.style.display = 'none';
+            }
+        }
+
+        function resetDisplay() {
+            el.resultContainer.style.display = 'none';
+            el.resultList.innerHTML = '';
+            currentPageNum = 1;
+            hideAllTips();
+        }
+
+        function updatePaginationBtn() {
+            const totalPageNum = Math.ceil(searchResult.length / PAGE_SIZE);
+            el.prevPage.disabled = (currentPageNum === 1);
+            el.nextPage.disabled = (currentPageNum === totalPageNum || totalPageNum === 0);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '无';
+            return String(str).replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+                return c;
+            });
+        }
+
         // 新增：跳转函数（相对域名）
         function jumpToSchedule(className) {
             if (!className) return;
-            // 构建相对路径（支持同域名下跳转）
             const targetUrl = `https://fanboom100.github.io/schedules/schedule_search.html?s=${encodeURIComponent(className)}`;
             window.location.href = targetUrl;
         }
-        
-        // 修改渲染函数，使班级名称支持可点击（仅当开关开启时）
+
+        // 渲染函数（修改：班级字段支持可点击）
         function renderCurrentPage() {
             if (!searchResult.length) return;
-            
+
             const startIndex = (currentPageNum - 1) * PAGE_SIZE;
             const endIndex = startIndex + PAGE_SIZE;
             const currentData = searchResult.slice(startIndex, endIndex);
-            
+
             const infoMap = [
                 { label: '班级', key: 'adminclass_name' },
                 { label: '学号', key: 'code' },
@@ -220,7 +484,7 @@
                 { label: '学院', key: 'depart_name' },
                 { label: '专业', key: 'major_name' }
             ];
-            
+
             let htmlBuffer = '';
             currentData.forEach((student, idx) => {
                 const globalIndex = (currentPageNum - 1) * PAGE_SIZE + idx + 1;
@@ -228,12 +492,10 @@
                 infoMap.forEach(item => {
                     const rawValue = student[item.key] !== undefined && student[item.key] !== null ? student[item.key] : '无';
                     let displayValue = escapeHtml(rawValue);
-                    
-                    // 特殊处理班级字段：如果开关开启，添加可点击样式和事件
+                    // 如果开关开启且是班级字段且有值，添加可点击样式
                     if (item.key === 'adminclass_name' && enableClassClick && rawValue !== '无' && rawValue) {
                         displayValue = `<span class="clickable-class" data-classname="${escapeHtml(rawValue)}">${displayValue}</span>`;
                     }
-                    
                     infoHtml += `
                         <div class="info-item">
                             <span class="info-label">${item.label}</span>
@@ -251,8 +513,8 @@
             el.resultList.innerHTML = htmlBuffer;
             el.currentPage.textContent = currentPageNum;
             el.totalPage.textContent = Math.ceil(searchResult.length / PAGE_SIZE);
-            
-            // 绑定可点击班级的跳转事件
+
+            // 绑定点击事件（如果开关开启）
             if (enableClassClick) {
                 document.querySelectorAll('.clickable-class').forEach(elem => {
                     elem.addEventListener('click', (e) => {
@@ -263,53 +525,185 @@
                 });
             }
         }
-        
-        // 新增：开关事件监听
-        const classClickToggle = document.getElementById('classClickToggle');
-        const settingsBtn = document.getElementById('settingsBtn');
-        const settingsPanel = document.getElementById('settingsPanel');
-        
-        function closeSettingsPanel() {
-            settingsPanel.classList.remove('show');
-        }
-        function toggleSettingsPanel() {
-            settingsPanel.classList.toggle('show');
-        }
-        settingsBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            toggleSettingsPanel();
-        });
-        document.addEventListener('click', (e) => {
-            if (!settingsBtn.contains(e.target) && !settingsPanel.contains(e.target)) {
-                closeSettingsPanel();
+
+        // 搜索逻辑（原样，但最后调用renderCurrentPage会自动应用开关）
+        function performSearch() {
+            if (!isDataLoaded) {
+                hideAllTips();
+                if (loadFailed) {
+                    el.errorMsg.textContent = '学生数据加载失败，请刷新页面重试或检查 studentInfo.json 文件。';
+                    el.errorMsg.style.display = 'block';
+                } else {
+                    el.errorMsg.textContent = '数据仍在加载中，请稍后再试...';
+                    el.errorMsg.style.display = 'block';
+                }
+                el.resultContainer.style.display = 'none';
+                return;
             }
-        });
-        classClickToggle.addEventListener('change', (e) => {
-            enableClassClick = e.target.checked;
-            // 如果当前有搜索结果，刷新渲染以应用新状态
-            if (searchResult.length > 0 && el.resultContainer.style.display === 'block') {
+
+            const keyword = el.searchInput.value.trim();
+            if (!keyword) {
+                hideAllTips();
+                el.errorMsg.textContent = '请输入有效的查询关键词';
+                el.errorMsg.style.display = 'block';
+                el.resultContainer.style.display = 'none';
+                return;
+            }
+
+            const lowerKeyword = keyword.toLowerCase();
+            const filtered = studentData.filter(student => {
+                return Object.values(student).some(val => {
+                    if (val === undefined || val === null) return false;
+                    return String(val).toLowerCase().includes(lowerKeyword);
+                });
+            });
+
+            searchResult = filtered;
+
+            if (searchResult.length === 0) {
+                resetDisplay();
+                hideAllTips();
+                el.emptyMsg.style.display = 'block';
+                return;
+            }
+
+            currentPageNum = 1;
+            el.totalNum.textContent = searchResult.length;
+            el.totalPage.textContent = Math.ceil(searchResult.length / PAGE_SIZE);
+            renderCurrentPage();
+            updatePaginationBtn();
+            el.resultContainer.style.display = 'block';
+            hideAllTips();
+        }
+
+        function searchAndRender() {
+            performSearch();
+        }
+
+        function goPrevPage() {
+            if (currentPageNum > 1) {
+                currentPageNum--;
                 renderCurrentPage();
+                updatePaginationBtn();
+                document.querySelector('.result-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        });
-        
-        // 原有函数保持不变（getUrlParameter、hideAllTips、showLoadingTip、resetDisplay、updatePaginationBtn、escapeHtml、performSearch等）
-        // 注意：performSearch 最后调用了 renderCurrentPage，已自动适配开关状态
-        
-        // 以下是原有函数（为保持完整性，这里简写，实际应保留全部原有逻辑）
-        function getUrlParameter(name) { /* 原有代码 */ }
-        function hideAllTips() { /* 原有代码 */ }
-        function showLoadingTip(show) { /* 原有代码 */ }
-        function resetDisplay() { /* 原有代码 */ }
-        function updatePaginationBtn() { /* 原有代码 */ }
-        function escapeHtml(str) { /* 原有代码 */ }
-        function performSearch() { /* 原有代码（调用renderCurrentPage）*/ }
-        function searchAndRender() { performSearch(); }
-        function goPrevPage() { /* 原有代码 */ }
-        function goNextPage() { /* 原有代码 */ }
-        function autoSearchFromUrl() { /* 原有代码 */ }
-        function loadStudentData() { /* 原有代码 */ }
-        function bindEvents() { /* 原有代码，保留搜索和分页事件 */ }
-        
+        }
+
+        function goNextPage() {
+            const total = Math.ceil(searchResult.length / PAGE_SIZE);
+            if (currentPageNum < total) {
+                currentPageNum++;
+                renderCurrentPage();
+                updatePaginationBtn();
+                document.querySelector('.result-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function autoSearchFromUrl() {
+            if (!isDataLoaded) return false;
+            const sValue = getUrlParameter('s');
+            if (sValue && sValue.trim() !== '') {
+                const decodedValue = decodeURIComponent(sValue.trim());
+                el.searchInput.value = decodedValue;
+                performSearch();
+                return true;
+            }
+            return false;
+        }
+
+        // 数据加载（原样）
+        function loadStudentData() {
+            showLoadingTip(true);
+            el.resultContainer.style.display = 'none';
+            hideAllTips();
+            el.loadingMsg.style.display = 'block';
+
+            fetch(JSON_FILE_NAME)
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(`HTTP ${res.status}: 无法加载 ${JSON_FILE_NAME}`);
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    studentData = Array.isArray(data) ? data : (data ? [data] : []);
+                    console.log(`✅ 本地JSON加载成功，共 ${studentData.length} 条学生信息`);
+                    isDataLoaded = true;
+                    loadFailed = false;
+                    showLoadingTip(false);
+                    const hasAutoSearch = autoSearchFromUrl();
+                    if (!hasAutoSearch) {
+                        hideAllTips();
+                    }
+                })
+                .catch(err => {
+                    console.error('❌ 加载学生数据失败:', err);
+                    isDataLoaded = false;
+                    loadFailed = true;
+                    showLoadingTip(false);
+                    el.errorMsg.textContent = `本地JSON文件加载失败：请确保 ${JSON_FILE_NAME} 与HTML文件在同一目录，且格式正确。\n详细信息：${err.message}`;
+                    el.errorMsg.style.display = 'block';
+                    el.resultContainer.style.display = 'none';
+                    const sParam = getUrlParameter('s');
+                    if (sParam && sParam.trim()) {
+                        el.errorMsg.innerHTML = `⚠️ 数据加载失败，无法完成自动搜索“${escapeHtml(sParam)}”。<br>请检查 ${JSON_FILE_NAME} 文件是否存在。`;
+                    }
+                });
+        }
+
+        // 事件绑定（原样，新增设置面板开关事件）
+        function bindEvents() {
+            el.searchBtn.addEventListener('click', () => {
+                if (!isDataLoaded && !loadFailed) {
+                    el.errorMsg.textContent = '数据加载中，请稍后再试';
+                    el.errorMsg.style.display = 'block';
+                    setTimeout(() => { if (!isDataLoaded) el.errorMsg.style.display = 'none'; }, 2000);
+                    return;
+                }
+                searchAndRender();
+            });
+
+            el.searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (!isDataLoaded && !loadFailed) {
+                        el.errorMsg.textContent = '数据加载中，请稍后再试';
+                        el.errorMsg.style.display = 'block';
+                        setTimeout(() => { if (!isDataLoaded) el.errorMsg.style.display = 'none'; }, 2000);
+                        return;
+                    }
+                    searchAndRender();
+                }
+            });
+
+            el.prevPage.addEventListener('click', goPrevPage);
+            el.nextPage.addEventListener('click', goNextPage);
+
+            // 设置面板相关
+            function closeSettingsPanel() {
+                settingsPanel.classList.remove('show');
+            }
+            function toggleSettingsPanel() {
+                settingsPanel.classList.toggle('show');
+            }
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleSettingsPanel();
+            });
+            document.addEventListener('click', (e) => {
+                if (!settingsBtn.contains(e.target) && !settingsPanel.contains(e.target)) {
+                    closeSettingsPanel();
+                }
+            });
+            classClickToggle.addEventListener('change', (e) => {
+                enableClassClick = e.target.checked;
+                // 如果当前有结果显示，刷新渲染
+                if (searchResult.length > 0 && el.resultContainer.style.display === 'block') {
+                    renderCurrentPage();
+                }
+            });
+        }
+
         window.onload = () => {
             bindEvents();
             loadStudentData();
