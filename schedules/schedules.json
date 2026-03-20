@@ -876,7 +876,17 @@
     "weekday": 2,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "00000000111111110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王化菊",
+    "courseId": "387459",
+    "roomName": "明德楼105",
+    "weekday": 2,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "11111111000000000000000000",
     "isScheduled": true
   },
   {
@@ -1317,6 +1327,16 @@
     "startSession": 1,
     "endSession": 2,
     "vaildWeeks": "11111111111111110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "陈超",
+    "courseId": "387751",
+    "roomName": "停课",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -2726,7 +2746,17 @@
     "weekday": 5,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "00111111111111111100000000",
+    "vaildWeeks": "00000000000000001100000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "杨旭东",
+    "courseId": "387803",
+    "roomName": "天工301",
+    "weekday": 5,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00111111111111110000000000",
     "isScheduled": true
   },
   {
@@ -5016,7 +5046,17 @@
     "weekday": 1,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "00001111111111110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "郭明全",
+    "courseId": "385885",
+    "roomName": "明理南107",
+    "weekday": 1,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "11110000000000000000000000",
     "isScheduled": true
   },
   {
@@ -5026,7 +5066,17 @@
     "weekday": 5,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "00001111111111110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "郭明全",
+    "courseId": "385885",
+    "roomName": "明理南107",
+    "weekday": 5,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "11110000000000000000000000",
     "isScheduled": true
   },
   {
@@ -5706,7 +5756,17 @@
     "weekday": 2,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11011111100000000000000000",
+    "vaildWeeks": "00000000100000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "罗再刚",
+    "courseId": "378470",
+    "roomName": "耕心楼403",
+    "weekday": 2,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "11011111000000000000000000",
     "isScheduled": true
   },
   {
@@ -8456,7 +8516,17 @@
     "weekday": 1,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "许西美",
+    "courseId": "380106",
+    "roomName": "天工北307",
+    "weekday": 1,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -8486,7 +8556,17 @@
     "weekday": 1,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "魏抗抗",
+    "courseId": "380104",
+    "roomName": "天工北209",
+    "weekday": 1,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -8716,7 +8796,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "徐芳",
+    "courseId": "381768",
+    "roomName": "天工北309",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -8816,7 +8906,17 @@
     "weekday": 1,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "李翠萍",
+    "courseId": "378188",
+    "roomName": "耕心楼214",
+    "weekday": 1,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -8846,7 +8946,17 @@
     "weekday": 4,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张静静",
+    "courseId": "388418",
+    "roomName": "耕心楼311",
+    "weekday": 4,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -8886,7 +8996,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "刘佳婷",
+    "courseId": "388417",
+    "roomName": "耕心楼305",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -8936,7 +9056,17 @@
     "weekday": 1,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "李宁",
+    "courseId": "381776",
+    "roomName": "天工北109",
+    "weekday": 1,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9006,7 +9136,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王义军",
+    "courseId": "381772",
+    "roomName": "天工北209",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9086,7 +9226,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王鸿萍",
+    "courseId": "381780",
+    "roomName": "天工北408",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9206,7 +9356,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张翠",
+    "courseId": "378609",
+    "roomName": "耕心楼305",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9276,7 +9436,17 @@
     "weekday": 1,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "陈莹莹",
+    "courseId": "387862",
+    "roomName": "天工北410",
+    "weekday": 1,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9356,7 +9526,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王文娟",
+    "courseId": "383116",
+    "roomName": "天工北106",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9366,7 +9546,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "徐芳",
+    "courseId": "383118",
+    "roomName": "天工北109",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9396,7 +9586,17 @@
     "weekday": 4,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "刘艳玲",
+    "courseId": "387851",
+    "roomName": "天工北202",
+    "weekday": 4,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9506,7 +9706,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "刘佳婷",
+    "courseId": "377883",
+    "roomName": "双S楼509",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -9636,7 +9846,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "00100000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王宁宁",
+    "courseId": "383108",
+    "roomName": "天工北209",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "11011111111111110000000000",
     "isScheduled": true
   },
   {
@@ -9696,7 +9916,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "吴建华",
+    "courseId": "383106",
+    "roomName": "天工北107",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -10046,7 +10276,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "陈莹莹",
+    "courseId": "383822",
+    "roomName": "天工北201",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -10096,7 +10336,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "孙慧春",
+    "courseId": "379014",
+    "roomName": "天工北301",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -10116,7 +10366,27 @@
     "weekday": 1,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张梅芳",
+    "courseId": "383120",
+    "roomName": "天工北203",
+    "weekday": 1,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张梅芳",
+    "courseId": "383120",
+    "roomName": "停课",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "00000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -10216,7 +10486,17 @@
     "weekday": 3,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01111111111111110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "郑灵程",
+    "courseId": "383121",
+    "roomName": "天工北107",
+    "weekday": 3,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -10266,7 +10546,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "邓高胜",
+    "courseId": "385387",
+    "roomName": "天工北409",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -10486,7 +10776,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "孙慧春",
+    "courseId": "383064",
+    "roomName": "天工北407",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -10846,7 +11146,17 @@
     "weekday": 4,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "冯茹",
+    "courseId": "383061",
+    "roomName": "天工北201",
+    "weekday": 4,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11056,7 +11366,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "吴建华",
+    "courseId": "378989",
+    "roomName": "天工北103",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11136,7 +11456,17 @@
     "weekday": 4,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "孙慧春",
+    "courseId": "381834",
+    "roomName": "天工北205",
+    "weekday": 4,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11316,7 +11646,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "冯茹",
+    "courseId": "378978",
+    "roomName": "天工北105",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11436,7 +11776,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "冯茹",
+    "courseId": "381801",
+    "roomName": "天工北201",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11486,7 +11836,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "冯茹",
+    "courseId": "387148",
+    "roomName": "天工北202",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11616,7 +11976,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "10101010101010100000000000",
+    "vaildWeeks": "00100000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王宁宁",
+    "courseId": "381817",
+    "roomName": "天工北307",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10001010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11666,7 +12036,17 @@
     "weekday": 1,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "梁颖",
+    "courseId": "381819",
+    "roomName": "天工北107",
+    "weekday": 1,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11776,7 +12156,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "朱正玲",
+    "courseId": "384843",
+    "roomName": "天工北305",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11842,6 +12232,16 @@
   {
     "teacherName": "张梅芳",
     "courseId": "383840",
+    "roomName": "停课",
+    "weekday": 4,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00000000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张梅芳",
+    "courseId": "383840",
     "roomName": "天工北103",
     "weekday": 4,
     "startSession": 3,
@@ -11876,7 +12276,17 @@
     "weekday": 2,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "徐芳",
+    "courseId": "387144",
+    "roomName": "天工北507",
+    "weekday": 2,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11897,6 +12307,16 @@
     "startSession": 1,
     "endSession": 2,
     "vaildWeeks": "11111111111111110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张梅芳",
+    "courseId": "390154",
+    "roomName": "停课",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -11946,7 +12366,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "刘艳玲",
+    "courseId": "384837",
+    "roomName": "天工北409",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -11976,7 +12406,17 @@
     "weekday": 4,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王鸿萍",
+    "courseId": "383857",
+    "roomName": "天工北503",
+    "weekday": 4,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -12056,7 +12496,17 @@
     "weekday": 1,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "李红霞",
+    "courseId": "387136",
+    "roomName": "天工北507",
+    "weekday": 1,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -12246,7 +12696,17 @@
     "weekday": 1,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "李红霞",
+    "courseId": "379481",
+    "roomName": "天工北305",
+    "weekday": 1,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -12336,7 +12796,17 @@
     "weekday": 1,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "朱正玲",
+    "courseId": "379574",
+    "roomName": "天工北207",
+    "weekday": 1,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -12906,7 +13376,17 @@
     "weekday": 1,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "汪中瑞",
+    "courseId": "389159",
+    "roomName": "天工北505",
+    "weekday": 1,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -12956,7 +13436,17 @@
     "weekday": 1,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张翠",
+    "courseId": "389365",
+    "roomName": "耕心楼302",
+    "weekday": 1,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -13026,7 +13516,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "邓高胜",
+    "courseId": "384788",
+    "roomName": "天工北202",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -13056,7 +13556,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "廖华云",
+    "courseId": "389153",
+    "roomName": "天工北309",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -13336,7 +13846,17 @@
     "weekday": 2,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "程仲",
+    "courseId": "384794",
+    "roomName": "天工北407",
+    "weekday": 2,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -13386,7 +13906,17 @@
     "weekday": 1,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "刘火泉",
+    "courseId": "384796",
+    "roomName": "天工北109",
+    "weekday": 1,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -13586,7 +14116,17 @@
     "weekday": 1,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "费磊",
+    "courseId": "385381",
+    "roomName": "天工北501",
+    "weekday": 1,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -13816,7 +14356,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "任华妮",
+    "courseId": "380826",
+    "roomName": "天工北309",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -14122,6 +14672,16 @@
   {
     "teacherName": "曲忠伟",
     "courseId": "377877",
+    "roomName": "停课",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00000000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "曲忠伟",
+    "courseId": "377877",
     "roomName": "启智楼204",
     "weekday": 2,
     "startSession": 3,
@@ -14202,6 +14762,16 @@
   {
     "teacherName": "张梅芳",
     "courseId": "380846",
+    "roomName": "停课",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "00000000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张梅芳",
+    "courseId": "380846",
     "roomName": "天工北103",
     "weekday": 4,
     "startSession": 1,
@@ -14236,7 +14806,17 @@
     "weekday": 1,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "李成忠",
+    "courseId": "378612",
+    "roomName": "双S楼507",
+    "weekday": 1,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -14546,7 +15126,27 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "00100000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王宁宁",
+    "courseId": "380835",
+    "roomName": "百川楼B304",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王宁宁",
+    "courseId": "380835",
+    "roomName": "天工北303",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10001010101010100000000000",
     "isScheduled": true
   },
   {
@@ -15016,7 +15616,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张慧敏",
+    "courseId": "380853",
+    "roomName": "天工北307",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -15076,7 +15686,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "刘媛媛",
+    "courseId": "385418",
+    "roomName": "天工北501",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -15116,7 +15736,17 @@
     "weekday": 2,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "陈莹莹",
+    "courseId": "388904",
+    "roomName": "天工北509",
+    "weekday": 2,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -15136,7 +15766,17 @@
     "weekday": 1,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "00000000001111000000000000",
+    "vaildWeeks": "00000000000011000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "沙子恒",
+    "courseId": "378793",
+    "roomName": "天工北201",
+    "weekday": 1,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "00000000001100000000000000",
     "isScheduled": true
   },
   {
@@ -15146,7 +15786,17 @@
     "weekday": 5,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "00000000001111000000000000",
+    "vaildWeeks": "00000000000011000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "沙子恒",
+    "courseId": "378793",
+    "roomName": "天工北201",
+    "weekday": 5,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "00000000001100000000000000",
     "isScheduled": true
   },
   {
@@ -15326,7 +15976,17 @@
     "weekday": 2,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "梁颖",
+    "courseId": "380137",
+    "roomName": "天工北108",
+    "weekday": 2,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -15426,7 +16086,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "费磊",
+    "courseId": "388144",
+    "roomName": "天工北503",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -15456,7 +16126,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "01010101010101010000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张慧敏",
+    "courseId": "388145",
+    "roomName": "天工北509",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10101010101010100000000000",
     "isScheduled": true
   },
   {
@@ -15496,7 +16176,17 @@
     "weekday": 2,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "11111111110000000000000000",
+    "vaildWeeks": "00000000010000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "刘丽红",
+    "courseId": "380243",
+    "roomName": "天工北503",
+    "weekday": 2,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "11111111100000000000000000",
     "isScheduled": true
   },
   {
@@ -15506,7 +16196,17 @@
     "weekday": 4,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "11111111110000000000000000",
+    "vaildWeeks": "00000000010000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "刘丽红",
+    "courseId": "380243",
+    "roomName": "天工北503",
+    "weekday": 4,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "11111111100000000000000000",
     "isScheduled": true
   },
   {
@@ -15786,7 +16486,37 @@
     "weekday": 1,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "00000001000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "许克义",
+    "courseId": "388544",
+    "roomName": "启智楼204",
+    "weekday": 1,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "00001110000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "徐功玉",
+    "courseId": "388544",
+    "roomName": "启智楼204",
+    "weekday": 1,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "00010000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "胡伟男",
+    "courseId": "388544",
+    "roomName": "启智楼204",
+    "weekday": 1,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "11100000000000000000000000",
     "isScheduled": true
   },
   {
@@ -15796,7 +16526,37 @@
     "weekday": 4,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "00000001000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "许克义",
+    "courseId": "388544",
+    "roomName": "启智楼204",
+    "weekday": 4,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "00001110000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "徐功玉",
+    "courseId": "388544",
+    "roomName": "启智楼204",
+    "weekday": 4,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "00010000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "胡伟男",
+    "courseId": "388544",
+    "roomName": "启智楼204",
+    "weekday": 4,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "11100000000000000000000000",
     "isScheduled": true
   },
   {
@@ -16626,7 +17386,17 @@
     "weekday": 3,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "00000000111111110000000000",
+    "vaildWeeks": "00000000000011110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王昱敬",
+    "courseId": "388490",
+    "roomName": "启智楼204",
+    "weekday": 3,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "00000000111100000000000000",
     "isScheduled": true
   },
   {
@@ -16636,7 +17406,17 @@
     "weekday": 4,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "00000000111111110000000000",
+    "vaildWeeks": "00000000000011110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王昱敬",
+    "courseId": "388490",
+    "roomName": "启智楼204",
+    "weekday": 4,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "00000000111100000000000000",
     "isScheduled": true
   },
   {
@@ -16656,7 +17436,17 @@
     "weekday": 2,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "00000000111111110000000000",
+    "vaildWeeks": "00000000000011110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王昱敬",
+    "courseId": "388491",
+    "roomName": "耕心楼410",
+    "weekday": 2,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "00000000111100000000000000",
     "isScheduled": true
   },
   {
@@ -16666,7 +17456,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "00000000111111110000000000",
+    "vaildWeeks": "00000000000011110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王昱敬",
+    "courseId": "388491",
+    "roomName": "耕心楼410",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00000000111100000000000000",
     "isScheduled": true
   },
   {
@@ -16736,7 +17536,17 @@
     "weekday": 1,
     "startSession": 10,
     "endSession": 11,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "00001111000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "胡乐林",
+    "courseId": "388487",
+    "roomName": "耕心楼203",
+    "weekday": 1,
+    "startSession": 10,
+    "endSession": 11,
+    "vaildWeeks": "11110000000000000000000000",
     "isScheduled": true
   },
   {
@@ -16746,7 +17556,17 @@
     "weekday": 2,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "00001111000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "胡乐林",
+    "courseId": "388487",
+    "roomName": "开慧楼102",
+    "weekday": 2,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "11110000000000000000000000",
     "isScheduled": true
   },
   {
@@ -16756,7 +17576,17 @@
     "weekday": 6,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "00001111000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "胡乐林",
+    "courseId": "388487",
+    "roomName": "耕心楼212",
+    "weekday": 6,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "11110000000000000000000000",
     "isScheduled": true
   },
   {
@@ -17196,7 +18026,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "00001111000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "赵明娟",
+    "courseId": "382045",
+    "roomName": "机房2(机电）",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "11110000000000000000000000",
     "isScheduled": true
   },
   {
@@ -17206,7 +18046,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "00001111000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "赵明娟",
+    "courseId": "382045",
+    "roomName": "机房2(机电）",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "11110000000000000000000000",
     "isScheduled": true
   },
   {
@@ -17526,7 +18376,17 @@
     "weekday": 1,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "11111111111100000000000000",
+    "vaildWeeks": "01111111111100000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张家秀",
+    "courseId": "390220",
+    "roomName": "天工304",
+    "weekday": 1,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -17566,7 +18426,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "01111111100000000000000000",
+    "vaildWeeks": "00000111100000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张亚骏",
+    "courseId": "388498",
+    "roomName": "耕心楼303",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "01111000000000000000000000",
     "isScheduled": true
   },
   {
@@ -17576,7 +18446,17 @@
     "weekday": 4,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "01111111100000000000000000",
+    "vaildWeeks": "00000111100000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张亚骏",
+    "courseId": "388498",
+    "roomName": "耕心楼303",
+    "weekday": 4,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "01111000000000000000000000",
     "isScheduled": true
   },
   {
@@ -18276,7 +19156,17 @@
     "weekday": 5,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "00011110000000000000000000",
+    "vaildWeeks": "00000110000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "储本发",
+    "courseId": "384814",
+    "roomName": "天工北104",
+    "weekday": 5,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "00011000000000000000000000",
     "isScheduled": true
   },
   {
@@ -18446,7 +19336,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "00000000111111110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王斌",
+    "courseId": "385186",
+    "roomName": "天工北505",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "11111111000000000000000000",
     "isScheduled": true
   },
   {
@@ -18456,7 +19356,17 @@
     "weekday": 4,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "11111111111111110000000000",
+    "vaildWeeks": "00000000111111110000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王斌",
+    "courseId": "385186",
+    "roomName": "天工北109",
+    "weekday": 4,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "11111111000000000000000000",
     "isScheduled": true
   },
   {
@@ -18676,7 +19586,17 @@
     "weekday": 2,
     "startSession": 7,
     "endSession": 8,
-    "vaildWeeks": "11111111111100000000000000",
+    "vaildWeeks": "01111111111100000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张家秀",
+    "courseId": "384050",
+    "roomName": "天工104",
+    "weekday": 2,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -18766,7 +19686,17 @@
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "11111011000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张红梅,陈孝杨",
+    "courseId": "379868",
+    "roomName": "天工204",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00000100000000000000000000",
     "isScheduled": true
   },
   {
@@ -18776,7 +19706,17 @@
     "weekday": 5,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "11111011000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张红梅,陈孝杨",
+    "courseId": "379868",
+    "roomName": "天工203",
+    "weekday": 5,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "00000100000000000000000000",
     "isScheduled": true
   },
   {
@@ -18966,7 +19906,17 @@
     "weekday": 3,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "01111111000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "汪森辉",
+    "courseId": "378927",
+    "roomName": "天工北216",
+    "weekday": 3,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -19046,7 +19996,17 @@
     "weekday": 6,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11110000000000000000000000",
+    "vaildWeeks": "01110000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "李洪伟",
+    "courseId": "385701",
+    "roomName": "天工北105",
+    "weekday": 6,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -19126,7 +20086,17 @@
     "weekday": 6,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11110000000000000000000000",
+    "vaildWeeks": "01110000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "何志伟",
+    "courseId": "385705",
+    "roomName": "天工北103",
+    "weekday": 6,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -19236,7 +20206,17 @@
     "weekday": 2,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "00000001111111100000000000",
+    "vaildWeeks": "00000000000111100000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "尹涛",
+    "courseId": "380795",
+    "roomName": "天工北410",
+    "weekday": 2,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "00000001111000000000000000",
     "isScheduled": true
   },
   {
@@ -19246,7 +20226,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "00000001111111100000000000",
+    "vaildWeeks": "00000000000111100000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "尹涛",
+    "courseId": "380795",
+    "roomName": "天工北410",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "00000001111000000000000000",
     "isScheduled": true
   },
   {
@@ -19472,11 +20462,31 @@
   {
     "teacherName": "王磊",
     "courseId": "385062",
+    "roomName": "停课",
+    "weekday": 2,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00000000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王磊",
+    "courseId": "385062",
     "roomName": "明理南303",
     "weekday": 2,
     "startSession": 3,
     "endSession": 4,
     "vaildWeeks": "10111111110000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "王磊",
+    "courseId": "385062",
+    "roomName": "停课",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "00000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -19616,7 +20626,17 @@
     "weekday": 3,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "11111111000000000000000000",
+    "vaildWeeks": "01111111000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "汪森辉",
+    "courseId": "378957",
+    "roomName": "天工北214",
+    "weekday": 3,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -19896,7 +20916,17 @@
     "weekday": 2,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "00000000001111111100000000",
+    "vaildWeeks": "00000000000000111100000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "段宗新",
+    "courseId": "386745",
+    "roomName": "明理北105",
+    "weekday": 2,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "00000000001111000000000000",
     "isScheduled": true
   },
   {
@@ -19906,7 +20936,17 @@
     "weekday": 4,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "00000000001111111100000000",
+    "vaildWeeks": "00000000000000111100000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "段宗新",
+    "courseId": "386745",
+    "roomName": "明理北105",
+    "weekday": 4,
+    "startSession": 3,
+    "endSession": 4,
+    "vaildWeeks": "00000000001111000000000000",
     "isScheduled": true
   },
   {
@@ -21282,11 +22322,31 @@
   {
     "teacherName": "井波",
     "courseId": "380972",
+    "roomName": "停课",
+    "weekday": 2,
+    "startSession": 7,
+    "endSession": 8,
+    "vaildWeeks": "00000000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "井波",
+    "courseId": "380972",
     "roomName": "天工北214",
     "weekday": 2,
     "startSession": 7,
     "endSession": 8,
     "vaildWeeks": "10111100000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "井波",
+    "courseId": "380972",
+    "roomName": "停课",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "00000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -21416,7 +22476,17 @@
     "weekday": 6,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11110000000000000000000000",
+    "vaildWeeks": "01110000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "吴红波",
+    "courseId": "385699",
+    "roomName": "天工北107",
+    "weekday": 6,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -21506,7 +22576,17 @@
     "weekday": 6,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "11110000000000000000000000",
+    "vaildWeeks": "01110000000000000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "苗飞超",
+    "courseId": "385694",
+    "roomName": "天工北203",
+    "weekday": 6,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "10000000000000000000000000",
     "isScheduled": true
   },
   {
@@ -21526,7 +22606,17 @@
     "weekday": 2,
     "startSession": 5,
     "endSession": 6,
-    "vaildWeeks": "00000001111111100000000000",
+    "vaildWeeks": "00000000000111100000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "吉凌",
+    "courseId": "380857",
+    "roomName": "天工北408",
+    "weekday": 2,
+    "startSession": 5,
+    "endSession": 6,
+    "vaildWeeks": "00000001111000000000000000",
     "isScheduled": true
   },
   {
@@ -21536,7 +22626,17 @@
     "weekday": 4,
     "startSession": 1,
     "endSession": 2,
-    "vaildWeeks": "00000001111111100000000000",
+    "vaildWeeks": "00000000000111100000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "吉凌",
+    "courseId": "380857",
+    "roomName": "明德楼105",
+    "weekday": 4,
+    "startSession": 1,
+    "endSession": 2,
+    "vaildWeeks": "00000001111000000000000000",
     "isScheduled": true
   },
   {
