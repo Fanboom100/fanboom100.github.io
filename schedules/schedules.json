@@ -1,5 +1,5 @@
 [
-  {
+    {
     "teacherName": "null",
     "courseId": "1",
     "roomName": "null",
@@ -23,7 +23,7 @@
     "teacherName": "null",
     "courseId": "3",
     "roomName": "null",
-    "weekday": 4,
+    "weekday": 5,
     "startSession": 7,
     "endSession": 8,
     "vaildWeeks": "01111111111111111100000000",
@@ -34,26 +34,6 @@
     "courseId": "4",
     "roomName": "null",
     "weekday": 5,
-    "startSession": 3,
-    "endSession": 4,
-    "vaildWeeks": "01111111111111111100000000",
-    "isScheduled": true
-  },
-  {
-    "teacherName": "null",
-    "courseId": "5",
-    "roomName": "null",
-    "weekday": 5,
-    "startSession": 7,
-    "endSession": 8,
-    "vaildWeeks": "01111111111111111100000000",
-    "isScheduled": true
-  },
-  {
-    "teacherName": "null",
-    "courseId": "6",
-    "roomName": "null",
-    "weekday": 5,
     "startSession": 5,
     "endSession": 6,
     "vaildWeeks": "01111111111111111100000000",
@@ -61,17 +41,7 @@
   },
   {
     "teacherName": "null",
-    "courseId": "7",
-    "roomName": "null",
-    "weekday": 5,
-    "startSession": 7,
-    "endSession": 8,
-    "vaildWeeks": "01111111111111111100000000",
-    "isScheduled": true
-  },
-  {
-    "teacherName": "null",
-    "courseId": "8",
+    "courseId": "5",
     "roomName": "null",
     "weekday": 3,
     "startSession": 7,
@@ -81,7 +51,7 @@
   },
   {
     "teacherName": "null",
-    "courseId": "9",
+    "courseId": "6",
     "roomName": "null",
     "weekday": 4,
     "startSession": 5,
@@ -91,51 +61,11 @@
   },
   {
     "teacherName": "null",
-    "courseId": "10",
+    "courseId": "7",
     "roomName": "null",
     "weekday": 4,
     "startSession": 3,
     "endSession": 4,
-    "vaildWeeks": "01111111111111111100000000",
-    "isScheduled": true
-  },
-  {
-    "teacherName": "null",
-    "courseId": "11",
-    "roomName": "null",
-    "weekday": 4,
-    "startSession": 7,
-    "endSession": 8,
-    "vaildWeeks": "01111111111111111100000000",
-    "isScheduled": true
-  },
-  {
-    "teacherName": "null",
-    "courseId": "12",
-    "roomName": "null",
-    "weekday": 5,
-    "startSession": 5,
-    "endSession": 6,
-    "vaildWeeks": "01111111111111111100000000",
-    "isScheduled": true
-  },
-  {
-    "teacherName": "null",
-    "courseId": "13",
-    "roomName": "null",
-    "weekday": 5,
-    "startSession": 7,
-    "endSession": 8,
-    "vaildWeeks": "01111111111111111100000000",
-    "isScheduled": true
-  },
-  {
-    "teacherName": "null",
-    "courseId": "14",
-    "roomName": "null",
-    "weekday": 5,
-    "startSession": 5,
-    "endSession": 6,
     "vaildWeeks": "01111111111111111100000000",
     "isScheduled": true
   },

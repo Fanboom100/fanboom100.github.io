@@ -138,6 +138,168 @@
         "teacher": ""
     },
     {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "遥感25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "地质25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "地质25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "地质25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "地质25-4",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "环境25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "环境25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "水文25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "水文25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "电子商务25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "电子商务25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "会计25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "会计25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "会计25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "金融学25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "金融学25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "测绘25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "测绘25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "测绘25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "遥感25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "遥感25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "电子商务25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "卫检h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "医检h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "预防医学h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "预防医学h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "1",
+        "name": "体育2",
+        "class": "预防医学h25-3",
+        "teacher": ""
+    },
+    {
         "lessonid": "2",
         "name": "体育2",
         "class": "非金属25-1",
@@ -294,1113 +456,951 @@
         "teacher": ""
     },
     {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "遥感25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "地质25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "地质25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "地质25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "地质25-4",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "环境25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "环境25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "水文25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "水文25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "电子商务25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "电子商务25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "会计25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "会计25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "会计25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "金融学25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "金融学25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "测绘25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "测绘25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "测绘25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "遥感25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "遥感25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "3",
-        "name": "体育2",
-        "class": "电子商务25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "英语25-1",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "英语25-2",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "英语25-3",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "英语25-4",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "计算机25-1",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "计算机25-2",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "计算机25-3",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "计算机25-4",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "计算机25-5",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "计算机25-6",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "计算机25-7",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "计算机25-8",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "区块链25-1",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "区块链25-2",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "软件工程25-1",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "软件工程25-2",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "软件工程25-3",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "软件工程25-4",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "数字媒体25-1",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "数字媒体25-2",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "物联网25-1",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "物联网25-2",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "物联网25-3",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "信息安全25-1",
         "teacher": ""
     },
     {
-        "lessonid": "4",
+        "lessonid": "2",
         "name": "体育2",
         "class": "信息安全25-2",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "安全25-1",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "数大25-1",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "数大25-2",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "数大25-3",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "数大25-4",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "信计25-1",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "信计25-2",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "信计25-3",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "信计25-4",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "应用数学25-1",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "应用数学25-2",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "应用统计25-1",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "应用统计25-2",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "安全25-2",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "安全25-3",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "安全25-4",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "安全25-5",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "安全25-6",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "安全25-7",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "安全25-8",
         "teacher": ""
     },
     {
-        "lessonid": "5",
+        "lessonid": "3",
         "name": "体育2",
         "class": "消防工程25-1",
         "teacher": ""
     },
     {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电气25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电气25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电气25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电气25-4",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电气25-5",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电气25-6",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电气25-7",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电气25-8",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电子25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电子25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电子25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "电子25-4",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "集成电路25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "集成电路25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "通信25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "通信25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "通信25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "通信25-4",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "通信25-5",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "自动化25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "自动化25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "自动化25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "自动化25-4",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "自动化25-5",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "自动化25-6",
-        "teacher": ""
-    },
-    {
-        "lessonid": "6",
-        "name": "体育2",
-        "class": "自动化25-7",
-        "teacher": ""
-    },
-    {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "测控25-1",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "测控25-2",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "工业设计25-1",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "工业设计25-2",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "过程控制25-1",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "过程控制25-2",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-1",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-10",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-2",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-3",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-4",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-5",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-6",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-7",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-8",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-9",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机设25-11",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机械电子25（中韩合作）",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "智能制造25-1",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "智能制造25-2",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "智能制造25-3",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机械电子25-1",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机械电子25-2",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机械电子25-3",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机械电子25-4",
         "teacher": ""
     },
     {
-        "lessonid": "7",
+        "lessonid": "3",
         "name": "体育2",
         "class": "机械电子25-5",
         "teacher": ""
     },
     {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "车辆工程h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "车辆工程h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "车辆工程h25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "车辆工程h25-4",
-        "teacher": ""
-    },
-    {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "车辆工程h25-5",
-        "teacher": ""
-    },
-    {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "新能源汽车h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "新能源汽车h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "新能源汽车h25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "8",
-        "name": "体育2",
-        "class": "新能源汽车h25-4",
-        "teacher": ""
-    },
-    {
-        "lessonid": "9",
-        "name": "体育2",
-        "class": "安全h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "9",
-        "name": "体育2",
-        "class": "安全h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "9",
-        "name": "体育2",
-        "class": "应急h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "9",
-        "name": "体育2",
-        "class": "应急h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "9",
-        "name": "体育2",
-        "class": "职业卫生h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "10",
-        "name": "体育2",
-        "class": "储能科学h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "10",
-        "name": "体育2",
-        "class": "储能科学h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "10",
-        "name": "体育2",
-        "class": "新能源h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "10",
-        "name": "体育2",
-        "class": "新能源h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "10",
-        "name": "体育2",
-        "class": "储能科学h25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "11",
-        "name": "体育2",
-        "class": "卫检h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "11",
-        "name": "体育2",
-        "class": "医检h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "11",
-        "name": "体育2",
-        "class": "预防医学h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "11",
-        "name": "体育2",
-        "class": "预防医学h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "11",
-        "name": "体育2",
-        "class": "预防医学h25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "12",
-        "name": "体育2",
-        "class": "机器人h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "12",
-        "name": "体育2",
-        "class": "机器人h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "12",
-        "name": "体育2",
-        "class": "机器人h25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "12",
-        "name": "体育2",
-        "class": "机器人h25-4",
-        "teacher": ""
-    },
-    {
-        "lessonid": "12",
-        "name": "体育2",
-        "class": "智能科学h25-1",
-        "teacher": ""
-    },
-    {
-        "lessonid": "12",
-        "name": "体育2",
-        "class": "智能科学h25-2",
-        "teacher": ""
-    },
-    {
-        "lessonid": "12",
-        "name": "体育2",
-        "class": "智能科学h25-3",
-        "teacher": ""
-    },
-    {
-        "lessonid": "13",
+        "lessonid": "3",
         "name": "体育2",
         "class": "人工智能h25-1",
         "teacher": ""
     },
     {
-        "lessonid": "13",
+        "lessonid": "3",
         "name": "体育2",
         "class": "人工智能h25-2",
         "teacher": ""
     },
     {
-        "lessonid": "13",
+        "lessonid": "3",
         "name": "体育2",
         "class": "人工智能h25-3",
         "teacher": ""
     },
     {
-        "lessonid": "13",
+        "lessonid": "3",
         "name": "体育2",
         "class": "人工智能h25-4",
         "teacher": ""
     },
     {
-        "lessonid": "13",
+        "lessonid": "3",
         "name": "体育2",
         "class": "人工智能h25-5",
         "teacher": ""
     },
     {
-        "lessonid": "13",
+        "lessonid": "3",
         "name": "体育2",
         "class": "人工智能h25-6",
         "teacher": ""
     },
     {
-        "lessonid": "13",
+        "lessonid": "3",
         "name": "体育2",
         "class": "智能科学h25-4",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电气25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电气25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电气25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电气25-4",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电气25-5",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电气25-6",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电气25-7",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电气25-8",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电子25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电子25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电子25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "电子25-4",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "集成电路25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "集成电路25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "通信25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "通信25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "通信25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "通信25-4",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "通信25-5",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "自动化25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "自动化25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "自动化25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "自动化25-4",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "自动化25-5",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "自动化25-6",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "自动化25-7",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "机器人h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "机器人h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "机器人h25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "机器人h25-4",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "智能科学h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "智能科学h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
+        "name": "体育2",
+        "class": "智能科学h25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "4",
         "name": "体育2",
         "class": "动画25-1",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "动画25-2",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "新媒体25-1",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "新媒体25-2",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "新媒体25-3",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-1",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-10",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-11",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-12",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-13",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-2",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-3",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-4",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-5",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-6",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-7",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-8",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "临床25-9",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "药学25-1",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "药学25-2",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "新媒体25-4",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "采矿25-1",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "采矿25-2",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "交通工程25-1",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "交通工程25-2",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "智能采矿25-1",
         "teacher": ""
     },
     {
-        "lessonid": "14",
+        "lessonid": "4",
         "name": "体育2",
         "class": "智能采矿25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "车辆工程h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "车辆工程h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "车辆工程h25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "车辆工程h25-4",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "车辆工程h25-5",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "新能源汽车h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "新能源汽车h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "新能源汽车h25-3",
+        "teacher": ""
+    },
+    {
+        "lessonid": "5",
+        "name": "体育2",
+        "class": "新能源汽车h25-4",
+        "teacher": ""
+    },
+    {
+        "lessonid": "6",
+        "name": "体育2",
+        "class": "安全h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "6",
+        "name": "体育2",
+        "class": "安全h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "6",
+        "name": "体育2",
+        "class": "应急h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "6",
+        "name": "体育2",
+        "class": "应急h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "6",
+        "name": "体育2",
+        "class": "职业卫生h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "7",
+        "name": "体育2",
+        "class": "储能科学h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "7",
+        "name": "体育2",
+        "class": "储能科学h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "7",
+        "name": "体育2",
+        "class": "新能源h25-1",
+        "teacher": ""
+    },
+    {
+        "lessonid": "7",
+        "name": "体育2",
+        "class": "新能源h25-2",
+        "teacher": ""
+    },
+    {
+        "lessonid": "7",
+        "name": "体育2",
+        "class": "储能科学h25-3",
         "teacher": ""
     },
     {
