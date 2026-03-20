@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>班级课程表</title>
+    <title>班级课程表 · 悬浮交互</title>
     <style>
         * {
             box-sizing: border-box;
@@ -416,7 +416,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
             padding: 16px 20px;
-            min-width: 260px;
+            min-width: 280px;
             z-index: 1000;
             border: 1px solid #d4af37;
             backdrop-filter: blur(2px);
@@ -478,6 +478,28 @@
             color: #5f4c2e;
             word-break: break-word;
         }
+        /* 班级网格布局：每行最多4个 */
+        .class-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            margin-top: 4px;
+        }
+        .class-item {
+            cursor: pointer;
+            color: #5f4c2e;
+            text-decoration: none;
+            transition: color 0.1s;
+            white-space: nowrap;
+        }
+        .class-item:hover {
+            color: #b8860b;
+            text-decoration: underline;
+        }
+        .class-item strong {
+            font-weight: 700;
+            color: #2c1e0e;
+        }
         @media (max-width: 768px) {
             .settings-btn {
                 display: none;
@@ -495,6 +517,12 @@
             .week-display-box { padding: 2px 10px 2px 14px; }
             .week-display-box span { font-size: 1.3rem; }
             .week-display-box input { width: 65px; font-size: 1.3rem; }
+            .class-grid {
+                gap: 4px 10px;
+            }
+            .class-item {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -747,6 +775,13 @@
             }
         }
 
+        // 跳转学生查询（新标签页）
+        function jumpToStudentSearch(className) {
+            if (!className) return;
+            const url = `/student_search.html?s=${encodeURIComponent(className)}`;
+            window.open(url, '_blank');
+        }
+
         function showFloatingCard(cardElement, lessonId, courseName) {
             closeFloatingCard();
             if (!selectedClass) return;
@@ -755,17 +790,23 @@
             if (lessonToClasses.has(lessonId)) {
                 allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort((a, b) => a.localeCompare(b, 'zh'));
             }
-            let classTextHtml = '';
+            
+            // 生成班级网格 HTML，每行最多4个，且每个班级可点击
+            let classGridHtml = '';
             if (allClassesForLesson.length) {
-                const classItems = allClassesForLesson.map(cls => {
-                    if (cls === selectedClass) {
-                        return `<strong>${escapeHtml(cls)}</strong>`;
-                    }
-                    return escapeHtml(cls);
+                const items = allClassesForLesson.map(cls => {
+                    const isCurrent = (cls === selectedClass);
+                    const displayClass = isCurrent ? `<strong>${escapeHtml(cls)}</strong>` : escapeHtml(cls);
+                    return `<span class="class-item" data-class="${escapeHtml(cls)}">${displayClass}</span>`;
                 });
-                classTextHtml = `该课程班级: ${classItems.join('、')}`;
+                // 分组，每4个一组
+                const chunkSize = 4;
+                for (let i = 0; i < items.length; i += chunkSize) {
+                    const chunk = items.slice(i, i + chunkSize);
+                    classGridHtml += `<div class="class-grid">${chunk.join('')}</div>`;
+                }
             } else {
-                classTextHtml = '该课程班级: 无';
+                classGridHtml = '<div class="class-grid">无</div>';
             }
 
             const rect = cardElement.getBoundingClientRect();
@@ -777,7 +818,10 @@
             div.innerHTML = `
                 <div class="floating-title">${escapeHtml(courseName)}</div>
                 <button class="query-student-btn">查询该班学生</button>
-                <div class="same-class-info">${classTextHtml}</div>
+                <div class="same-class-info">
+                    <div style="margin-bottom: 6px;">该课程班级：</div>
+                    ${classGridHtml}
+                </div>
             `;
             document.body.appendChild(div);
             currentFloatingCard = div;
@@ -795,12 +839,24 @@
             div.style.left = left + 'px';
             div.style.top = top + 'px';
 
+            // 绑定查询该班学生按钮
             const queryBtn = div.querySelector('.query-student-btn');
             queryBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const url = `/student_search.html?s=${encodeURIComponent(selectedClass)}`;
-                window.open(url, '_blank');
+                jumpToStudentSearch(selectedClass);
             });
+            
+            // 绑定每个班级点击事件
+            div.querySelectorAll('.class-item').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const cls = el.dataset.class;
+                    if (cls) {
+                        jumpToStudentSearch(cls);
+                    }
+                });
+            });
+            
             div.addEventListener('click', (e) => e.stopPropagation());
         }
 
