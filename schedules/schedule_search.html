@@ -251,8 +251,6 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            font-size: 2rem;
-            line-height: 1;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -262,6 +260,15 @@
         }
         .week-nav-btn:hover {
             background: #b8860b;
+        }
+        .week-nav-btn img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+            display: block;
+        }
+        .week-nav-btn .right-arrow {
+            transform: rotate(180deg);
         }
         .week-display-box {
             display: flex;
@@ -402,7 +409,7 @@
             padding-top: 24px;
             font-size: 0.9rem;
         }
-        /* 悬浮窗口渐入动画 */
+        /* 悬浮窗口渐入渐出动画 */
         .floating-card {
             position: absolute;
             background: white;
@@ -415,6 +422,9 @@
             backdrop-filter: blur(2px);
             animation: fadeSlideIn 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
+        .floating-card.fade-out {
+            animation: fadeSlideOut 0.15s ease forwards;
+        }
         @keyframes fadeSlideIn {
             0% {
                 opacity: 0;
@@ -423,6 +433,17 @@
             100% {
                 opacity: 1;
                 transform: scale(1) translateY(0);
+            }
+        }
+        @keyframes fadeSlideOut {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.95) translateY(4px);
+                visibility: hidden;
             }
         }
         .floating-title {
@@ -469,7 +490,8 @@
             .combo-btn { width: 34px; height: 34px; right: 6px; }
             .combo-btn img { width: 20px; height: 20px; }
             .status { margin-left: 0; width: 100%; text-align: center; white-space: normal; }
-            .week-nav-btn { width: 38px; height: 38px; font-size: 1.8rem; }
+            .week-nav-btn { width: 38px; height: 38px; }
+            .week-nav-btn img { width: 22px; height: 22px; }
             .week-display-box { padding: 2px 10px 2px 14px; }
             .week-display-box span { font-size: 1.3rem; }
             .week-display-box input { width: 65px; font-size: 1.3rem; }
@@ -506,13 +528,17 @@
         </div>
     </div>
     <div class="week-control-center">
-        <button class="week-nav-btn" id="prevWeekBtn">←</button>
+        <button class="week-nav-btn" id="prevWeekBtn">
+            <img src="Arrow.svg" alt="prev">
+        </button>
         <div class="week-display-box">
             <span>第</span>
             <input type="text" id="weekDisplayInput" value="3" inputmode="numeric" pattern="\d*">
             <span>周</span>
         </div>
-        <button class="week-nav-btn" id="nextWeekBtn">→</button>
+        <button class="week-nav-btn" id="nextWeekBtn">
+            <img src="Arrow.svg" alt="next" class="right-arrow">
+        </button>
     </div>
     <div class="table-wrapper">
         <table id="timetable">
@@ -526,7 +552,7 @@
                 <th>周五</th>
                 <th>周六</th>
                 <th>周日</th>
-               </tr>
+                </tr>
             </thead>
             <tbody id="timetableBody">
                 <tr><td colspan="8" style="text-align:center; padding:40px;">⏳ 加载数据...</td></tr>
@@ -582,31 +608,25 @@
         // 计算当前是第几周（基于学期开始日期，周一为一周开始）
         function getCurrentWeekNumber() {
             const today = new Date();
-            // 如果当前日期早于学期开始，返回1
             if (today < SEMESTER_START) return 1;
             const diffTime = today - SEMESTER_START;
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             const weekNum = Math.floor(diffDays / 7) + 1;
-            return Math.min(weekNum, 26); // 最多26周
+            return Math.min(weekNum, 26);
         }
 
-        // 根据当前时间高亮表头：星期和节次
+        // 高亮当前时间对应的表头
         function highlightCurrentTime() {
-            // 移除已有的高亮
             document.querySelectorAll('#weekHeaders th, .time-col').forEach(el => {
                 el.classList.remove('current-highlight');
             });
             const now = new Date();
-            let currentWeekday = now.getDay(); // 0周日 ~ 6周六
-            // 转为1-7，周一=1，周日=7
+            let currentWeekday = now.getDay();
             let weekdayIndex = currentWeekday === 0 ? 7 : currentWeekday;
-            // 高亮星期表头（th，第一个th是节次，对应索引1-7）
             const headers = document.querySelectorAll('#weekHeaders th');
             if (headers[weekdayIndex]) {
                 headers[weekdayIndex].classList.add('current-highlight');
             }
-
-            // 高亮当前节次
             const currentHour = now.getHours();
             const currentMin = now.getMinutes();
             let currentSessionIndex = -1;
@@ -628,7 +648,7 @@
             }
         }
 
-        // 自动同步周数到当前周（页面加载时调用）
+        // 自动同步周数
         function autoSyncWeek() {
             const currentWeek = getCurrentWeekNumber();
             weekDisplayInput.value = currentWeek;
@@ -695,8 +715,10 @@
                 const weekday = sch.weekday;
                 if (weekday < 1 || weekday > 7) return;
                 const courseName = courseNameMap.get(courseId) || '未知课程';
-                const teacher = sch.teacherName || '';
-                const room = sch.roomName || '';
+                let teacher = sch.teacherName || '';
+                let room = sch.roomName || '';
+                if (teacher === "null") teacher = '';
+                if (room === "null") room = '';
                 const courseInfo = { name: courseName, teacher, room, lessonId: courseId };
                 for (let sIdx = 0; sIdx < SESSIONS.length; sIdx++) {
                     const block = SESSIONS[sIdx];
@@ -712,9 +734,15 @@
             document.querySelectorAll('.course-item').forEach(card => card.classList.remove('selected'));
         }
 
+        // 渐出关闭浮窗
         function closeFloatingCard() {
             if (currentFloatingCard) {
-                currentFloatingCard.remove();
+                const card = currentFloatingCard;
+                card.classList.add('fade-out');
+                card.addEventListener('animationend', function onEnd() {
+                    if (card.parentNode) card.remove();
+                    card.removeEventListener('animationend', onEnd);
+                });
                 currentFloatingCard = null;
             }
         }
@@ -727,7 +755,6 @@
             if (lessonToClasses.has(lessonId)) {
                 allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort((a, b) => a.localeCompare(b, 'zh'));
             }
-            // 生成班级列表，当前班级加粗
             let classTextHtml = '';
             if (allClassesForLesson.length) {
                 const classItems = allClassesForLesson.map(cls => {
@@ -771,7 +798,6 @@
             const queryBtn = div.querySelector('.query-student-btn');
             queryBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // 新标签页打开
                 const url = `/student_search.html?s=${encodeURIComponent(selectedClass)}`;
                 window.open(url, '_blank');
             });
@@ -824,9 +850,8 @@
                     } else {
                         courses.forEach(c => {
                             let details = '';
-                            if (c.room) details += `<div class="course-detail">教室：${c.room}</div>`;
-                            if (c.teacher) details += `<div class="course-detail">教师：${c.teacher}</div>`;
-                            if (!c.room && !c.teacher) details += `<div class="course-detail">无教室/教师信息</div>`;
+                            if (c.room && c.room !== '') details += `<div class="course-detail">教室：${c.room}</div>`;
+                            if (c.teacher && c.teacher !== '') details += `<div class="course-detail">教师：${c.teacher}</div>`;
                             html += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}">`;
                             html += `<div class="course-name">${escapeHtml(c.name)}</div>`;
                             html += details;
@@ -839,7 +864,6 @@
             }
             tbody.innerHTML = html;
             attachCourseEvents();
-            // 每次渲染后重新高亮当前时间
             highlightCurrentTime();
         }
 
@@ -1044,13 +1068,9 @@
                 buildMaps();
                 updateStatus('数据更新时间:2026.3.20');
                 allClasses = extractClasses();
-                
-                // 自动同步周数
                 autoSyncWeek();
-                // 检查 URL 参数
                 const urlClass = getUrlParam('s');
                 initCombo(urlClass);
-                // 高亮当前时间（会在渲染后执行）
             } catch (err) {
                 updateStatus(`❌ 加载失败: ${err.message}`, true);
                 console.error(err);
