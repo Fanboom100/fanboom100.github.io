@@ -381,7 +381,7 @@
             font-weight: 700;
             color: #2c1e0e;
             font-size: 1rem;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             border-bottom: 1px dashed #e9d7b5;
             padding-bottom: 4px;
         }
@@ -393,7 +393,7 @@
             display: flex;
             align-items: baseline;
             gap: 5px;
-            margin-top: 6px;
+            margin-top: 6px;  /* 保持合适间距 */
         }
         .course-detail::before {
             content: "•";
@@ -761,8 +761,9 @@
                 const courseName = courseNameMap.get(courseId) || '未知课程';
                 let teacher = sch.teacherName || '';
                 let room = sch.roomName || '';
-                if (teacher === "null") teacher = '';
-                if (room === "null") room = '';
+                // 处理 null 值：显示为“自选”
+                if (teacher === "null") teacher = '自选';
+                if (room === "null") room = '自选';
                 const courseInfo = { name: courseName, teacher, room, lessonId: courseId };
                 for (let sIdx = 0; sIdx < SESSIONS.length; sIdx++) {
                     const block = SESSIONS[sIdx];
@@ -804,7 +805,6 @@
             selectedClass = className;
             comboInput.value = className;
             refreshTimetable();
-            // 更新下拉框选中样式
             renderDropdown(comboInput.value);
         }
 
@@ -821,7 +821,6 @@
             const month = targetDate.getMonth() + 1;
             const day = targetDate.getDate();
             const sessionDisplay = SESSIONS[sessionIndex].display;
-            // 使用6个空格分隔（使用 &nbsp; 实现）
             const dateSessionStr = `${month}.${day}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${sessionDisplay}`;
 
             let allClassesForLesson = [];
@@ -833,11 +832,15 @@
             let currentSelectedLessonClass = selectedClass;
 
             // 生成班级网格 HTML，每个班级可点击切换
+            // 当前课程班级（selectedClass）始终加粗；当前选中的班级（currentSelectedLessonClass）额外加 selected 类（背景高亮）
             function renderClassGrid() {
                 if (!allClassesForLesson.length) return '<div class="class-grid">无</div>';
                 const items = allClassesForLesson.map(cls => {
-                    const isSelected = (cls === currentSelectedLessonClass);
-                    const displayClass = isSelected ? `<strong>${escapeHtml(cls)}</strong>` : escapeHtml(cls);
+                    const isOriginal = (cls === selectedClass);        // 原始课程班级，始终加粗
+                    const isSelected = (cls === currentSelectedLessonClass); // 用户点击选中的班级
+                    let displayClass = '';
+                    if (isOriginal) displayClass = `<strong>${escapeHtml(cls)}</strong>`;
+                    else displayClass = escapeHtml(cls);
                     return `<span class="class-item ${isSelected ? 'selected' : ''}" data-class="${escapeHtml(cls)}">${displayClass}</span>`;
                 });
                 const chunkSize = 4;
@@ -862,7 +865,7 @@
                 <button class="floating-btn" id="queryStudentBtn">查询该班学生</button>
                 <button class="floating-btn" id="queryScheduleBtn">查询该班课程表</button>
                 <div class="same-class-info">
-                    <div style="margin-bottom: 6px;">该课程班级：</div>
+                    <div style="margin-bottom: 6px;">同课程班级：</div>
                     <div id="classGridContainer">${renderClassGrid()}</div>
                 </div>
             `;
