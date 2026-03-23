@@ -1,0 +1,5432 @@
+[
+    {
+        "studentId": "2025300206",
+        "name": "于浩",
+        "newclass": "地质25-2"
+    },
+    {
+        "studentId": "2025300261",
+        "name": "李金储",
+        "newclass": "环境25-2"
+    },
+    {
+        "studentId": "2025300199",
+        "name": "张德富",
+        "newclass": "水文25-2"
+    },
+    {
+        "studentId": "2025300211",
+        "name": "张莘宙",
+        "newclass": "水文25-2"
+    },
+    {
+        "studentId": "2025304726",
+        "name": "代其斌",
+        "newclass": "安全25-2"
+    },
+    {
+        "studentId": "2025307351",
+        "name": "艾雨蕾",
+        "newclass": "安全25-3"
+    },
+    {
+        "studentId": "2025307469",
+        "name": "徐思涛",
+        "newclass": "安全25-5"
+    },
+    {
+        "studentId": "2025307224",
+        "name": "刘若旋",
+        "newclass": "安全25-5"
+    },
+    {
+        "studentId": "2025307004",
+        "name": "耿静昳",
+        "newclass": "安全25-5"
+    },
+    {
+        "studentId": "2025304877",
+        "name": "焦瑛琪",
+        "newclass": "安全25-1"
+    },
+    {
+        "studentId": "2025318561",
+        "name": "王博浩宇",
+        "newclass": "安全25-4"
+    },
+    {
+        "studentId": "2025307334",
+        "name": "申子文",
+        "newclass": "安全25-3"
+    },
+    {
+        "studentId": "2025300225",
+        "name": "罗晓凤",
+        "newclass": "安全25-3"
+    },
+    {
+        "studentId": "2025300178",
+        "name": "张伦搏",
+        "newclass": "安全25-2"
+    },
+    {
+        "studentId": "2025300752",
+        "name": "宛峻琦",
+        "newclass": "安全25-1"
+    },
+    {
+        "studentId": "2025300997",
+        "name": "梁森汉",
+        "newclass": "安全25-4"
+    },
+    {
+        "studentId": "2025300636",
+        "name": "蒋旭强",
+        "newclass": "安全25-6"
+    },
+    {
+        "studentId": "2025300643",
+        "name": "李其奥",
+        "newclass": "安全25-6"
+    },
+    {
+        "studentId": "2025301103",
+        "name": "冉梦蝶",
+        "newclass": "安全25-6"
+    },
+    {
+        "studentId": "2025300105",
+        "name": "卢成俊",
+        "newclass": "安全25-7"
+    },
+    {
+        "studentId": "2025303493",
+        "name": "陈佳琦",
+        "newclass": "安全25-7"
+    },
+    {
+        "studentId": "2025303520",
+        "name": "蒋泽宇",
+        "newclass": "安全25-7"
+    },
+    {
+        "studentId": "2025300612",
+        "name": "张雅诗",
+        "newclass": "安全25-7"
+    },
+    {
+        "studentId": "2025300616",
+        "name": "尹旭东",
+        "newclass": "安全25-7"
+    },
+    {
+        "studentId": "2025300638",
+        "name": "薛子龙",
+        "newclass": "安全25-7"
+    },
+    {
+        "studentId": "2025307799",
+        "name": "张莹莹",
+        "newclass": "安全25-8"
+    },
+    {
+        "studentId": "2025306301",
+        "name": "李自成",
+        "newclass": "安全25-8"
+    },
+    {
+        "studentId": "2025307160",
+        "name": "刘安嘉",
+        "newclass": "安全25-8"
+    },
+    {
+        "studentId": "2025307169",
+        "name": "孙晔",
+        "newclass": "安全25-8"
+    },
+    {
+        "studentId": "2025300628",
+        "name": "冯清源",
+        "newclass": "安全25-8"
+    },
+    {
+        "studentId": "2025300641",
+        "name": "王彪",
+        "newclass": "安全25-8"
+    },
+    {
+        "studentId": "2022306524",
+        "name": "刘",
+        "newclass": "消防工程24-1"
+    },
+    {
+        "studentId": "2025300681",
+        "name": "齐乾坤",
+        "newclass": "智能采矿25-1"
+    },
+    {
+        "studentId": "2025300675",
+        "name": "许超奇",
+        "newclass": "智能采矿25-1"
+    },
+    {
+        "studentId": "2025300672",
+        "name": "吴聚浩",
+        "newclass": "交通工程25-1"
+    },
+    {
+        "studentId": "2025301005",
+        "name": "黄春燕",
+        "newclass": "工程造价25-1"
+    },
+    {
+        "studentId": "2025300977",
+        "name": "余钱鹏",
+        "newclass": "工程造价25-1"
+    },
+    {
+        "studentId": "2025301140",
+        "name": "褚明慧",
+        "newclass": "工程造价25-1"
+    },
+    {
+        "studentId": "2025301064",
+        "name": "赵书彤",
+        "newclass": "工程造价25-2"
+    },
+    {
+        "studentId": "2025301016",
+        "name": "杨承昊",
+        "newclass": "工程造价25-2"
+    },
+    {
+        "studentId": "2025301024",
+        "name": "邹爱华",
+        "newclass": "工程造价25-2"
+    },
+    {
+        "studentId": "2025300968",
+        "name": "张政航",
+        "newclass": "工程造价25-2"
+    },
+    {
+        "studentId": "2025301092",
+        "name": "陆建",
+        "newclass": "工程造价25-2"
+    },
+    {
+        "studentId": "2025301008",
+        "name": "刘霁婵",
+        "newclass": "土木25-3"
+    },
+    {
+        "studentId": "2025301012",
+        "name": "范祎硕",
+        "newclass": "土木25-3"
+    },
+    {
+        "studentId": "2025300972",
+        "name": "韩依帆",
+        "newclass": "土木25-6"
+    },
+    {
+        "studentId": "2025300974",
+        "name": "黄今",
+        "newclass": "智能建造25-1"
+    },
+    {
+        "studentId": "2025301084",
+        "name": "马晋级",
+        "newclass": "智能建造25-1"
+    },
+    {
+        "studentId": "2025300979",
+        "name": "袁文琦",
+        "newclass": "智能建造25-1"
+    },
+    {
+        "studentId": "2025301034",
+        "name": "吴亚璞",
+        "newclass": "智能建造25-2"
+    },
+    {
+        "studentId": "2025300975",
+        "name": "段谢融",
+        "newclass": "智能建造25-2"
+    },
+    {
+        "studentId": "2025301007",
+        "name": "石敏君",
+        "newclass": "智能建造25-2"
+    },
+    {
+        "studentId": "2025300828",
+        "name": "牛生达",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301239",
+        "name": "武硕",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025307258",
+        "name": "陈容葵",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025307486",
+        "name": "黄国旭",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301234",
+        "name": "李昊",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301235",
+        "name": "陈启峰",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025300807",
+        "name": "田凯歌",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025307408",
+        "name": "张冠宇",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301152",
+        "name": "王天乐",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301049",
+        "name": "陶路遥",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025306957",
+        "name": "刘海林",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301369",
+        "name": "高官正",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025305761",
+        "name": "张佳哲",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025306069",
+        "name": "解德",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301117",
+        "name": "邱声权",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301130",
+        "name": "许世豪",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025307232",
+        "name": "朱泽鹏",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025300725",
+        "name": "肖宇航",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025318040",
+        "name": "常国豪",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301166",
+        "name": "方文韬",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025305317",
+        "name": "黄旭",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025307191",
+        "name": "朱嘉",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301177",
+        "name": "张百森",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025300471",
+        "name": "杨万山",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301449",
+        "name": "程家霖",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025304808",
+        "name": "位孜豪",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301054",
+        "name": "王庆",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025318165",
+        "name": "陈秋宇",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301246",
+        "name": "李少庭",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025300804",
+        "name": "崔波",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025306929",
+        "name": "薛韩雨",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025307405",
+        "name": "尚雨乐",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025307110",
+        "name": "周峻宇",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025303652",
+        "name": "孙浩",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025304758",
+        "name": "吴庆康",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301277",
+        "name": "王时宜",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025305235",
+        "name": "李庭汉",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025307485",
+        "name": "王异铖",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301430",
+        "name": "粟宇玮",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301450",
+        "name": "李勇晢",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301447",
+        "name": "张子俊",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025306378",
+        "name": "常子涵",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025305249",
+        "name": "穆东琛",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025300033",
+        "name": "吴高旭",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301444",
+        "name": "何一帆",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301514",
+        "name": "张帅",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301452",
+        "name": "王艺",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025301443",
+        "name": "陈明伟",
+        "newclass": "机设25-12"
+    },
+    {
+        "studentId": "2025300208",
+        "name": "王永康",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301301",
+        "name": "谢水香",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300087",
+        "name": "彭胜达",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300883",
+        "name": "乔家琪",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301093",
+        "name": "董泽宇",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301221",
+        "name": "牛天赐",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301299",
+        "name": "王雯慧",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025307022",
+        "name": "朱启飞",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301231",
+        "name": "徐子豪",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300289",
+        "name": "邹涵",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300050",
+        "name": "管浩轩",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301162",
+        "name": "张天博",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025307027",
+        "name": "朱振宇",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025306754",
+        "name": "闫续博",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025307255",
+        "name": "吴庆铎",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300582",
+        "name": "李响",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300959",
+        "name": "杨宸",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300053",
+        "name": "李其超",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025304659",
+        "name": "贾博文",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300912",
+        "name": "赵浩涵",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300930",
+        "name": "唐佳慧",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025306838",
+        "name": "张梦洋",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025303573",
+        "name": "李易奇",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025304881",
+        "name": "周智康",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025306751",
+        "name": "徐国栋",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025307578",
+        "name": "郑力胜",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025307383",
+        "name": "李宜泽",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300623",
+        "name": "薛佳乐",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025307534",
+        "name": "袁程瑜",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300398",
+        "name": "刘嘉毅",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301196",
+        "name": "李毅宸",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025303608",
+        "name": "梁乘勇",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301261",
+        "name": "张怡",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301091",
+        "name": "万钰俊",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025305779",
+        "name": "蔡舒佳",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025306804",
+        "name": "袁自文",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025303458",
+        "name": "赵锦洲",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300565",
+        "name": "王一鸣",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025306322",
+        "name": "周剑锋",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025306394",
+        "name": "孙衡",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025300953",
+        "name": "闫路航",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301440",
+        "name": "黄经纬",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301422",
+        "name": "李书全",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025318006",
+        "name": "孙树奥",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301424",
+        "name": "邹畅",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025307532",
+        "name": "李昊澎",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301435",
+        "name": "胡亚豪",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025301441",
+        "name": "陈文乐",
+        "newclass": "机设25-13"
+    },
+    {
+        "studentId": "2025305841",
+        "name": "张胜涛",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025301267",
+        "name": "杜博轩",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300443",
+        "name": "闫虹旭",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025307195",
+        "name": "王宁",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025318159",
+        "name": "赵志鹏",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025301108",
+        "name": "陈可",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025306397",
+        "name": "杜恒久",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025301163",
+        "name": "张建宇",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025304634",
+        "name": "陶鸿悦",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025305798",
+        "name": "惠炳尧",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300557",
+        "name": "邵浩宇",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025306305",
+        "name": "魏梓鸣",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025318001",
+        "name": "郑志先",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025306204",
+        "name": "李明宇",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300021",
+        "name": "朱佳宇",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300457",
+        "name": "宋菀",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025304682",
+        "name": "马海锋",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025306055",
+        "name": "李思晨",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025306086",
+        "name": "杨子钊",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025306962",
+        "name": "刘虎",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025304854",
+        "name": "赵云赫",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025307651",
+        "name": "贾庆峰",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300391",
+        "name": "马天宇",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300043",
+        "name": "汪洋",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300984",
+        "name": "陈雨轩",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025307204",
+        "name": "向高",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300282",
+        "name": "胡可佳",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300990",
+        "name": "张俊杰",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025303651",
+        "name": "吴子康",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025307434",
+        "name": "汪淦",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025318111",
+        "name": "鲍子寅",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025301425",
+        "name": "韩帅",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025318471",
+        "name": "吕园园",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025301454",
+        "name": "刘喜昊",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300595",
+        "name": "潘梓剑",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025307466",
+        "name": "林炜尊",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025305803",
+        "name": "周有军",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025306923",
+        "name": "叶宇翔",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300655",
+        "name": "刘家俊",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025307230",
+        "name": "陆桂林",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025307855",
+        "name": "刘自金",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025301429",
+        "name": "宋云鹏",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025307231",
+        "name": "姚耀",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025300048",
+        "name": "聂之添",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025301433",
+        "name": "朱振兴",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025306434",
+        "name": "付凯楠",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025301465",
+        "name": "曾富铭",
+        "newclass": "机设25-14"
+    },
+    {
+        "studentId": "2025304760",
+        "name": "张硕",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301014",
+        "name": "李颖聪",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301180",
+        "name": "郭铭洋",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025307082",
+        "name": "林童",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301428",
+        "name": "路军",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301487",
+        "name": "方宇",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025317956",
+        "name": "金福临",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025300103",
+        "name": "张祥昊",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025300279",
+        "name": "张晓尚",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301418",
+        "name": "崔紫妍",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025300538",
+        "name": "臧娜娜",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025300046",
+        "name": "甘思浩",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025306385",
+        "name": "陈盛超",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025318171",
+        "name": "李恩泽",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301176",
+        "name": "陈羽睿",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301036",
+        "name": "黄赵康",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025307822",
+        "name": "司宇扬",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025300164",
+        "name": "张昊天",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025318394",
+        "name": "钟锦昌",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025318543",
+        "name": "王康辉",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025307468",
+        "name": "韩彦成",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025300020",
+        "name": "王路昊",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025307549",
+        "name": "刘雨蝶",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301254",
+        "name": "栾笑豪",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301059",
+        "name": "王思博",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025307463",
+        "name": "郑俊凯",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025302161",
+        "name": "于子航",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025303641",
+        "name": "孙伟光",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025307381",
+        "name": "汪科宇",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025300844",
+        "name": "邾文鑫",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301427",
+        "name": "陈耀明",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025306065",
+        "name": "胡晋瑞",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025300691",
+        "name": "侍雅宁",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301420",
+        "name": "冯浩洋",
+        "newclass": "机电25-6"
+    },
+    {
+        "studentId": "2025301275",
+        "name": "徐瑞",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301280",
+        "name": "王浩睿",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025307198",
+        "name": "伍镓玮",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025306936",
+        "name": "吴汀",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025307407",
+        "name": "陶克冉",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025304857",
+        "name": "陈威",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300928",
+        "name": "胡以琦",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301423",
+        "name": "谢雨帆",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025304674",
+        "name": "陈翔睿",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025306145",
+        "name": "程绮珊",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300007",
+        "name": "韦诚康",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301025",
+        "name": "郭涵瑜",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025306896",
+        "name": "梁俊",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025307237",
+        "name": "刘健豪",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301191",
+        "name": "杨爽",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025306899",
+        "name": "刘锦阳",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301209",
+        "name": "王文硕",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300663",
+        "name": "李子明",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301432",
+        "name": "温智强",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025305242",
+        "name": "吴尚文",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301284",
+        "name": "涂嘉豪",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301029",
+        "name": "项锦霖",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301457",
+        "name": "邓方",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301051",
+        "name": "刘会其",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301044",
+        "name": "李裕友",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300817",
+        "name": "李响",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301111",
+        "name": "任正炜",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300819",
+        "name": "陈洪泽",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300708",
+        "name": "崔元飞",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300696",
+        "name": "尹可庆",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301150",
+        "name": "凌子健",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025301524",
+        "name": "杨皓文",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300748",
+        "name": "周海泼",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300790",
+        "name": "陈尧",
+        "newclass": "机电25-7"
+    },
+    {
+        "studentId": "2025300456",
+        "name": "江静",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025304747",
+        "name": "陈雅婷",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025300245",
+        "name": "赵子航",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025304752",
+        "name": "周芷言",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025300250",
+        "name": "刘卓彦",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025301498",
+        "name": "彭一素",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025302123",
+        "name": "周文轩",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025301062",
+        "name": "姚丝语",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025306828",
+        "name": "杨淋",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025303378",
+        "name": "张颖",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025300583",
+        "name": "胡林峰",
+        "newclass": "测控25-1"
+    },
+    {
+        "studentId": "2025301023",
+        "name": "杨蕊",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025307740",
+        "name": "王亚如",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025300459",
+        "name": "张雨萌",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025303637",
+        "name": "孙艺娜",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025300055",
+        "name": "李庆祥",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025307117",
+        "name": "闪亮",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025300116",
+        "name": "张敏宇",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025300115",
+        "name": "万林峰",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025307483",
+        "name": "王晓纯",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025307478",
+        "name": "林湘",
+        "newclass": "测控25-2"
+    },
+    {
+        "studentId": "2025301307",
+        "name": "梁飞强",
+        "newclass": "智能制造25-1"
+    },
+    {
+        "studentId": "2025303508",
+        "name": "马哲聪",
+        "newclass": "智能制造25-1"
+    },
+    {
+        "studentId": "2025307100",
+        "name": "唐运飞",
+        "newclass": "智能制造25-1"
+    },
+    {
+        "studentId": "2025301107",
+        "name": "孙一鸣",
+        "newclass": "智能制造25-1"
+    },
+    {
+        "studentId": "2025306836",
+        "name": "范艺渤",
+        "newclass": "智能制造25-2"
+    },
+    {
+        "studentId": "2025307215",
+        "name": "吝金旗",
+        "newclass": "智能制造25-2"
+    },
+    {
+        "studentId": "2025306898",
+        "name": "刘飞扬",
+        "newclass": "智能制造25-2"
+    },
+    {
+        "studentId": "2025301499",
+        "name": "曹硕仟",
+        "newclass": "智能制造25-3"
+    },
+    {
+        "studentId": "2025301324",
+        "name": "杨裕淇",
+        "newclass": "智能制造25-3"
+    },
+    {
+        "studentId": "2025301334",
+        "name": "郭新宇",
+        "newclass": "智能制造25-3"
+    },
+    {
+        "studentId": "2025318397",
+        "name": "李旻宇",
+        "newclass": "过程控制25-1"
+    },
+    {
+        "studentId": "2025305748",
+        "name": "厉杨",
+        "newclass": "工业设计25-1"
+    },
+    {
+        "studentId": "2025302757",
+        "name": "韦永利",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302756",
+        "name": "管振箕",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303060",
+        "name": "潘国豪",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303201",
+        "name": "李曼嘉",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302763",
+        "name": "李重阳",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302747",
+        "name": "刘法泽",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302887",
+        "name": "马芊芋",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303078",
+        "name": "杨梦茹",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302870",
+        "name": "陈安康",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302829",
+        "name": "罗响",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303041",
+        "name": "方慧贤",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303025",
+        "name": "彭博",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302680",
+        "name": "陈硕廷",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302745",
+        "name": "王悦豪",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303075",
+        "name": "徐诺",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303027",
+        "name": "郁乐",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303196",
+        "name": "王诗怡",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303079",
+        "name": "王可盈",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302880",
+        "name": "骆天哲",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302646",
+        "name": "饶中锐",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303163",
+        "name": "李嘉祥",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303038",
+        "name": "李子木",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303097",
+        "name": "叶天宇",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303279",
+        "name": "陈若田",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303284",
+        "name": "李昕卓",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302912",
+        "name": "张悦",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303262",
+        "name": "刘玉航",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303164",
+        "name": "许良昊",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303172",
+        "name": "耿瑞",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303120",
+        "name": "朱思彤",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303096",
+        "name": "赵锦明",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303264",
+        "name": "李梦繁",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025302784",
+        "name": "王震",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303084",
+        "name": "徐刘恩博",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303071",
+        "name": "夏硕",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303077",
+        "name": "周佳佳",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303030",
+        "name": "霍远",
+        "newclass": "电气25-9"
+    },
+    {
+        "studentId": "2025303080",
+        "name": "王敬依",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303138",
+        "name": "刘粮齐",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302911",
+        "name": "王振宇",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302873",
+        "name": "王硕",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302656",
+        "name": "姚齐轩",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303036",
+        "name": "徐粤川",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302645",
+        "name": "牛宇辰",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302825",
+        "name": "董文祥",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302872",
+        "name": "钱仁淇",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303010",
+        "name": "邢茂杨",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302712",
+        "name": "计秋实",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303327",
+        "name": "操健飞",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302964",
+        "name": "赵一霖",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302942",
+        "name": "王文皓",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303270",
+        "name": "张康",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302868",
+        "name": "邵济民",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303187",
+        "name": "冯子睿",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302915",
+        "name": "王清玮",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302985",
+        "name": "陈鑫哲",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303022",
+        "name": "钱金鑫",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303128",
+        "name": "叶天萌",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303332",
+        "name": "代博文",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302805",
+        "name": "苏曼",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302654",
+        "name": "汪子妍",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025302720",
+        "name": "杨宇啸",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025303023",
+        "name": "李煜",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025306467",
+        "name": "左恒宇",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025301383",
+        "name": "侯晓琳",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025300151",
+        "name": "彭雪明",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025300552",
+        "name": "孙浩铭",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025300230",
+        "name": "徐飞宇",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025306490",
+        "name": "徐智秀",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025304977",
+        "name": "李睿康",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025305092",
+        "name": "储炅",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025300255",
+        "name": "赵奕奕",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025300892",
+        "name": "叶婷",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025307419",
+        "name": "陈陆阳",
+        "newclass": "电气25-10"
+    },
+    {
+        "studentId": "2025304544",
+        "name": "蔡雅萱",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025305004",
+        "name": "耿康",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025305451",
+        "name": "王志晨",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025305644",
+        "name": "唐朝顺",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025306793",
+        "name": "叶静萱",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025304784",
+        "name": "马苗苗",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025306465",
+        "name": "刘凯翔",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025304299",
+        "name": "林广",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025302094",
+        "name": "武政权",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025300291",
+        "name": "王灿",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025304982",
+        "name": "孙艳菊",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025300502",
+        "name": "王锦程",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025300221",
+        "name": "崔梦妮",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025300241",
+        "name": "武良才",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025318718",
+        "name": "李泽林",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025302091",
+        "name": "韩博文",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025300788",
+        "name": "罗元驰",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025307442",
+        "name": "张悦",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025307404",
+        "name": "刘文斌",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025304763",
+        "name": "蔡淇翔",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025306912",
+        "name": "韦欣悦",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025301102",
+        "name": "张瑾怡",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025305857",
+        "name": "黄可",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025306718",
+        "name": "程泽清",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025304464",
+        "name": "袁婉晴",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025306195",
+        "name": "石雨辰",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025304970",
+        "name": "李骏铠",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025305089",
+        "name": "郭永超",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025304329",
+        "name": "周祺",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025314216",
+        "name": "杨兆恒",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025305408",
+        "name": "邱以诺",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025301282",
+        "name": "陆路通",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025302005",
+        "name": "郭茹婷",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025306138",
+        "name": "许诗妍",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025306810",
+        "name": "陈欢",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025318117",
+        "name": "郑天琦",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025300937",
+        "name": "华威",
+        "newclass": "电气25-11"
+    },
+    {
+        "studentId": "2025307103",
+        "name": "赵淑雅",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025306214",
+        "name": "张梦寒",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025304764",
+        "name": "刘梦龙",
+        "newclass": "电子25-3"
+    },
+    {
+        "studentId": "2025307761",
+        "name": "王雅琪",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301101",
+        "name": "冉金灿",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301226",
+        "name": "林志鹏",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301478",
+        "name": "高文硕",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301606",
+        "name": "陶益苒",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025303681",
+        "name": "许添铖",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025300254",
+        "name": "黄芬",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025307812",
+        "name": "徐小悦",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025307032",
+        "name": "朱文雅",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025300499",
+        "name": "张思情",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025303566",
+        "name": "龙诗涵",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025305615",
+        "name": "郭博文",
+        "newclass": "电子25-1"
+    },
+    {
+        "studentId": "2025301141",
+        "name": "汪雨轩",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025304907",
+        "name": "张思语",
+        "newclass": "电子25-1"
+    },
+    {
+        "studentId": "2025300734",
+        "name": "郑斯咏",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025304323",
+        "name": "郝明远",
+        "newclass": "电子25-3"
+    },
+    {
+        "studentId": "2025301195",
+        "name": "覃杰华",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025303559",
+        "name": "兰芬",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301233",
+        "name": "蔡泓纬",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025300939",
+        "name": "李天宇",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025307476",
+        "name": "周夏伊",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301040",
+        "name": "汪锦湖",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025300774",
+        "name": "刘梦雨",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025300531",
+        "name": "方雅婷",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025318138",
+        "name": "袁嘉莉",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025303433",
+        "name": "郑雅文",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301187",
+        "name": "郭运程",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025300772",
+        "name": "高雅",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025303529",
+        "name": "苏佳欣",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025306824",
+        "name": "陈洁",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301086",
+        "name": "李佳乐",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025307020",
+        "name": "储少宇",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025301416",
+        "name": "李慧茹",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025300570",
+        "name": "曾军堡",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025303361",
+        "name": "吕佳欣",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025307205",
+        "name": "张雨晨",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025305947",
+        "name": "王润国",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025304612",
+        "name": "贾金雨",
+        "newclass": "电子25-3"
+    },
+    {
+        "studentId": "2025307506",
+        "name": "张胜杰",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025302871",
+        "name": "潘喆萌",
+        "newclass": "电子25-1"
+    },
+    {
+        "studentId": "2025302865",
+        "name": "王晨宇",
+        "newclass": "电子25-1"
+    },
+    {
+        "studentId": "2025302896",
+        "name": "沈皓天",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025302957",
+        "name": "孔庆宇",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025302965",
+        "name": "孙可仁",
+        "newclass": "电子25-5"
+    },
+    {
+        "studentId": "2025302859",
+        "name": "周科",
+        "newclass": "电子25-1"
+    },
+    {
+        "studentId": "2025303059",
+        "name": "方佛生",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025303063",
+        "name": "包仕强",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302813",
+        "name": "徐珑菲",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302869",
+        "name": "杨豆豆",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302827",
+        "name": "唐文强",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302971",
+        "name": "苌旭东",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302884",
+        "name": "李兆进",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302878",
+        "name": "汪鹏",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025303035",
+        "name": "董俊杰",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302837",
+        "name": "程虎",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302840",
+        "name": "鲁照贤",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302882",
+        "name": "康奕凯",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025303049",
+        "name": "王煜涵",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025302838",
+        "name": "周子鸣",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300451",
+        "name": "徐文婷",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025318174",
+        "name": "谢顺顺",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025306803",
+        "name": "江轩宇",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025318143",
+        "name": "郭展帆",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025301106",
+        "name": "王帅旗",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025305248",
+        "name": "徐子鹏",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025301227",
+        "name": "张志豪",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025301322",
+        "name": "冯熙凯",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025303506",
+        "name": "许浩然",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300347",
+        "name": "管军",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025304293",
+        "name": "王权",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025301722",
+        "name": "孟勇宏",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300786",
+        "name": "孙祖安",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025306883",
+        "name": "胡梓揆",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025318188",
+        "name": "匡汉琼",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300400",
+        "name": "邹恒诚",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025305223",
+        "name": "蔡晟玥",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025301026",
+        "name": "汪嘉创",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025301068",
+        "name": "朱佳俊",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300686",
+        "name": "郑锦睿",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300825",
+        "name": "陈于佳",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300590",
+        "name": "程静楠",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025305782",
+        "name": "李婷",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300794",
+        "name": "林树荣",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025305831",
+        "name": "方宇轩",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025307087",
+        "name": "郭星麟",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025300351",
+        "name": "叶开灿",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025306920",
+        "name": "王永强",
+        "newclass": "自动化25-8"
+    },
+    {
+        "studentId": "2025301110",
+        "name": "陈鑫宇",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025304526",
+        "name": "田宜航",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025307011",
+        "name": "张迪",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305485",
+        "name": "孙瑜",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025303523",
+        "name": "段菲",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025306932",
+        "name": "李斌",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025318571",
+        "name": "周可心",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025301055",
+        "name": "吴飞杨",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025304666",
+        "name": "安惠婷",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305285",
+        "name": "杜明浩",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025301132",
+        "name": "郭嘉彬",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025307063",
+        "name": "汪雅芳",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025306537",
+        "name": "刘奕灵",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025301220",
+        "name": "周芯雨",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305120",
+        "name": "陈凯歌",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305971",
+        "name": "戴天佑",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025300943",
+        "name": "王佳岩",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025318620",
+        "name": "印子凡",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025318371",
+        "name": "方雨",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305450",
+        "name": "王庆国",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025318736",
+        "name": "蒋海俊",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025300085",
+        "name": "楚少宽",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025300054",
+        "name": "胡昊",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305292",
+        "name": "汤宏飞",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025307448",
+        "name": "徐帅",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025317883",
+        "name": "吴韩",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025307611",
+        "name": "陈世杰",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025306469",
+        "name": "程恒心",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305360",
+        "name": "戈阳",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025304620",
+        "name": "张尉传",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025306398",
+        "name": "徐玉杰",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025300016",
+        "name": "梁科杰",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025306937",
+        "name": "熊佳悦",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025300168",
+        "name": "刘亚宇",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025300976",
+        "name": "欧阳英学",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305910",
+        "name": "程兆勇",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025302314",
+        "name": "周致远",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025305287",
+        "name": "柯浩楠",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025313856",
+        "name": "王嘉策",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025301184",
+        "name": "车志伟",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025304875",
+        "name": "汪亚楠",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025307473",
+        "name": "许超宇",
+        "newclass": "自动化25-9"
+    },
+    {
+        "studentId": "2025301229",
+        "name": "毛润耀",
+        "newclass": "通信25-1"
+    },
+    {
+        "studentId": "2025307206",
+        "name": "王可心",
+        "newclass": "通信25-3"
+    },
+    {
+        "studentId": "2025307216",
+        "name": "张青",
+        "newclass": "通信25-3"
+    },
+    {
+        "studentId": "2025306492",
+        "name": "费一天",
+        "newclass": "通信25-1"
+    },
+    {
+        "studentId": "2025305232",
+        "name": "孙琪然",
+        "newclass": "通信25-1"
+    },
+    {
+        "studentId": "2025301032",
+        "name": "蒋守琛",
+        "newclass": "通信25-2"
+    },
+    {
+        "studentId": "2025307093",
+        "name": "刘珊珊",
+        "newclass": "通信25-1"
+    },
+    {
+        "studentId": "2025300799",
+        "name": "魏英豪",
+        "newclass": "通信25-3"
+    },
+    {
+        "studentId": "2025301228",
+        "name": "张子鑫",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025301298",
+        "name": "李星雨",
+        "newclass": "通信25-2"
+    },
+    {
+        "studentId": "2025307507",
+        "name": "李瑞",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025307124",
+        "name": "叶沁雨",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025307529",
+        "name": "郭森泽",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025301302",
+        "name": "高如意",
+        "newclass": "通信25-2"
+    },
+    {
+        "studentId": "2025305807",
+        "name": "常朝恒",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025306004",
+        "name": "尤鑫尧",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025305772",
+        "name": "赵泉智",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025306333",
+        "name": "曾景虹",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025307213",
+        "name": "白秀美",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025305765",
+        "name": "陈宇杰",
+        "newclass": "通信25-1"
+    },
+    {
+        "studentId": "2025300781",
+        "name": "张婷",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025300726",
+        "name": "周靖雲",
+        "newclass": "通信25-2"
+    },
+    {
+        "studentId": "2025300145",
+        "name": "王黄煜菲",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025306127",
+        "name": "王悦",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025301306",
+        "name": "蒋治胜",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025300159",
+        "name": "廖梓涵",
+        "newclass": "通信25-3"
+    },
+    {
+        "studentId": "2025306382",
+        "name": "叶强志",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025302312",
+        "name": "黄韦翔",
+        "newclass": "通信25-3"
+    },
+    {
+        "studentId": "2025301814",
+        "name": "刘译阳",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025304684",
+        "name": "汪凯",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025307051",
+        "name": "卢梦君",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025300657",
+        "name": "高新华",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025304478",
+        "name": "李瑞琪",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025304658",
+        "name": "曹云钊",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025300070",
+        "name": "牟建峰",
+        "newclass": "通信25-5"
+    },
+    {
+        "studentId": "2025304644",
+        "name": "梅晨雨",
+        "newclass": "通信25-4"
+    },
+    {
+        "studentId": "2025318569",
+        "name": "邱寒思",
+        "newclass": "通信25-3"
+    },
+    {
+        "studentId": "2025300948",
+        "name": "赖万财",
+        "newclass": "通信25-3"
+    },
+    {
+        "studentId": "2025306468",
+        "name": "洪康",
+        "newclass": "通信25-2"
+    },
+    {
+        "studentId": "2025300172",
+        "name": "赵亦涵",
+        "newclass": "通信25-1"
+    },
+    {
+        "studentId": "2025301469",
+        "name": "张峰华",
+        "newclass": "通信25-1"
+    },
+    {
+        "studentId": "2025303412",
+        "name": "王贺",
+        "newclass": "集成电路25-1"
+    },
+    {
+        "studentId": "2025301151",
+        "name": "欧阳智豪",
+        "newclass": "集成电路25-1"
+    },
+    {
+        "studentId": "2025307134",
+        "name": "林云涵",
+        "newclass": "集成电路25-2"
+    },
+    {
+        "studentId": "2025303427",
+        "name": "胡雅菲",
+        "newclass": "集成电路25-1"
+    },
+    {
+        "studentId": "2025304769",
+        "name": "李研",
+        "newclass": "集成电路25-2"
+    },
+    {
+        "studentId": "2025300162",
+        "name": "江凯",
+        "newclass": "集成电路25-2"
+    },
+    {
+        "studentId": "2025304718",
+        "name": "韩双",
+        "newclass": "集成电路25-2"
+    },
+    {
+        "studentId": "2025301223",
+        "name": "胡根涛",
+        "newclass": "集成电路25-2"
+    },
+    {
+        "studentId": "2025300832",
+        "name": "徐辰昊",
+        "newclass": "集成电路25-2"
+    },
+    {
+        "studentId": "2025318310",
+        "name": "闫勇",
+        "newclass": "集成电路25-2"
+    },
+    {
+        "studentId": "2025305966",
+        "name": "孙怀志",
+        "newclass": "集成电路25-2"
+    },
+    {
+        "studentId": "2025301153",
+        "name": "洪晨健",
+        "newclass": "非金属25-2"
+    },
+    {
+        "studentId": "2025303401",
+        "name": "赵梓彤",
+        "newclass": "非金属25-2"
+    },
+    {
+        "studentId": "2025303471",
+        "name": "冯丽萍",
+        "newclass": "高分子25-1"
+    },
+    {
+        "studentId": "2025303477",
+        "name": "马新颉",
+        "newclass": "高分子25-2"
+    },
+    {
+        "studentId": "2025303470",
+        "name": "邴纪赟",
+        "newclass": "高分子25-1"
+    },
+    {
+        "studentId": "2025303467",
+        "name": "张雅漾",
+        "newclass": "高分子25-1"
+    },
+    {
+        "studentId": "2025303517",
+        "name": "王阁",
+        "newclass": "高分子25-3"
+    },
+    {
+        "studentId": "2025303500",
+        "name": "向蕊蔓",
+        "newclass": "高分子25-3"
+    },
+    {
+        "studentId": "2025303513",
+        "name": "卫健宇",
+        "newclass": "智材25-1"
+    },
+    {
+        "studentId": "2021303470",
+        "name": "朱",
+        "newclass": "高分子23-3"
+    },
+    {
+        "studentId": "2021303419",
+        "name": "刘",
+        "newclass": "高分子23-3"
+    },
+    {
+        "studentId": "2025314247",
+        "name": "高翔",
+        "newclass": "人工智能h25-1"
+    },
+    {
+        "studentId": "2025317977",
+        "name": "赵浩哲",
+        "newclass": "人工智能h25-1"
+    },
+    {
+        "studentId": "2025318016",
+        "name": "谢芷静",
+        "newclass": "人工智能h25-1"
+    },
+    {
+        "studentId": "2025318442",
+        "name": "李昊泽",
+        "newclass": "人工智能h25-2"
+    },
+    {
+        "studentId": "2025318247",
+        "name": "吴正阳",
+        "newclass": "人工智能h25-2"
+    },
+    {
+        "studentId": "2025307164",
+        "name": "王庭钰",
+        "newclass": "人工智能h25-2"
+    },
+    {
+        "studentId": "2025306524",
+        "name": "李康豪",
+        "newclass": "人工智能h25-2"
+    },
+    {
+        "studentId": "2025300888",
+        "name": "刘姿帆",
+        "newclass": "人工智能h25-3"
+    },
+    {
+        "studentId": "2025307233",
+        "name": "徐浩成",
+        "newclass": "人工智能h25-3"
+    },
+    {
+        "studentId": "2025300923",
+        "name": "李奕芬",
+        "newclass": "人工智能h25-3"
+    },
+    {
+        "studentId": "2025301312",
+        "name": "靳越",
+        "newclass": "人工智能h25-4"
+    },
+    {
+        "studentId": "2025300660",
+        "name": "余云龙",
+        "newclass": "人工智能h25-4"
+    },
+    {
+        "studentId": "2025300155",
+        "name": "刘亦儒",
+        "newclass": "人工智能h25-4"
+    },
+    {
+        "studentId": "2025305549",
+        "name": "邹睿",
+        "newclass": "人工智能h25-5"
+    },
+    {
+        "studentId": "2025305192",
+        "name": "臧旭",
+        "newclass": "人工智能h25-5"
+    },
+    {
+        "studentId": "2025307452",
+        "name": "郝潇和",
+        "newclass": "人工智能h25-5"
+    },
+    {
+        "studentId": "2025307240",
+        "name": "郭泽",
+        "newclass": "人工智能h25-6"
+    },
+    {
+        "studentId": "2025305945",
+        "name": "张舒展",
+        "newclass": "人工智能h25-6"
+    },
+    {
+        "studentId": "2025307416",
+        "name": "陈佳佳",
+        "newclass": "人工智能h25-6"
+    },
+    {
+        "studentId": "2025318401",
+        "name": "唐以睿",
+        "newclass": "智能科学h25-1"
+    },
+    {
+        "studentId": "2025318545",
+        "name": "刘威铭",
+        "newclass": "智能科学h25-2"
+    },
+    {
+        "studentId": "2025318472",
+        "name": "孔翔",
+        "newclass": "智能科学h25-2"
+    },
+    {
+        "studentId": "2025306903",
+        "name": "程阳",
+        "newclass": "智能科学h25-3"
+    },
+    {
+        "studentId": "2025304824",
+        "name": "王梦",
+        "newclass": "智能科学h25-4"
+    },
+    {
+        "studentId": "2025318593",
+        "name": "童睿辰",
+        "newclass": "机器人h25-1"
+    },
+    {
+        "studentId": "2025318603",
+        "name": "李穆杰",
+        "newclass": "机器人h25-1"
+    },
+    {
+        "studentId": "2025313902",
+        "name": "杨诚",
+        "newclass": "机器人h25-1"
+    },
+    {
+        "studentId": "2025318599",
+        "name": "石国梁",
+        "newclass": "机器人h25-2"
+    },
+    {
+        "studentId": "2025318509",
+        "name": "叶东浩",
+        "newclass": "机器人h25-2"
+    },
+    {
+        "studentId": "2025318587",
+        "name": "尹海轩",
+        "newclass": "机器人h25-2"
+    },
+    {
+        "studentId": "2025318415",
+        "name": "吴依琳",
+        "newclass": "机器人h25-3"
+    },
+    {
+        "studentId": "2025307337",
+        "name": "朱安蕾",
+        "newclass": "机器人h25-3"
+    },
+    {
+        "studentId": "2025307539",
+        "name": "杨源硕",
+        "newclass": "机器人h25-3"
+    },
+    {
+        "studentId": "2025300194",
+        "name": "刘雨欣",
+        "newclass": "机器人h25-3"
+    },
+    {
+        "studentId": "2025307122",
+        "name": "张晓玉",
+        "newclass": "机器人h25-4"
+    },
+    {
+        "studentId": "2025301085",
+        "name": "刘毅琳",
+        "newclass": "机器人h25-4"
+    },
+    {
+        "studentId": "2025300820",
+        "name": "田鹏波",
+        "newclass": "机器人h25-4"
+    },
+    {
+        "studentId": "2025300904",
+        "name": "张涛",
+        "newclass": "机器人h25-4"
+    },
+    {
+        "studentId": "2025306619",
+        "name": "靳依琳",
+        "newclass": "应化25-1"
+    },
+    {
+        "studentId": "2025307553",
+        "name": "陈思怡",
+        "newclass": "应化25-1"
+    },
+    {
+        "studentId": "2025304870",
+        "name": "王珂钰",
+        "newclass": "应化25-1"
+    },
+    {
+        "studentId": "2025300921",
+        "name": "陈阳",
+        "newclass": "化工25-1"
+    },
+    {
+        "studentId": "2025304873",
+        "name": "张建梅",
+        "newclass": "化工25-1"
+    },
+    {
+        "studentId": "2025304853",
+        "name": "高怡迪",
+        "newclass": "化工25-1"
+    },
+    {
+        "studentId": "2025306888",
+        "name": "王薇",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025306995",
+        "name": "陈宏",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025306866",
+        "name": "王元伟",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025307014",
+        "name": "张达斌",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025306961",
+        "name": "程涛",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025306908",
+        "name": "臧喜文",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301116",
+        "name": "翁才杰",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301146",
+        "name": "谢业龙",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301265",
+        "name": "祖睿涵",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300999",
+        "name": "吴英杰",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301104",
+        "name": "储伟",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301045",
+        "name": "刘子豪",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301013",
+        "name": "周涛",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300945",
+        "name": "刘书帆",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301020",
+        "name": "袁洋",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300973",
+        "name": "黄淮屹",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301157",
+        "name": "郭垟成",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2024305611",
+        "name": "陆文俊",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025306075",
+        "name": "金泽",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025305812",
+        "name": "杨涛",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025307384",
+        "name": "张喆",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025305701",
+        "name": "何佳城",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301460",
+        "name": "李博芸",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025301486",
+        "name": "徐博涵",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025318559",
+        "name": "江祎程",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025318514",
+        "name": "赵利友",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025318404",
+        "name": "李宗楠",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300198",
+        "name": "方天宇",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300114",
+        "name": "鹿尚彬",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300080",
+        "name": "陶澍阳",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300107",
+        "name": "田渝灿",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300207",
+        "name": "叶新宇",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300025",
+        "name": "朱俊杰",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300052",
+        "name": "陈效豫",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300015",
+        "name": "廖良刚",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025303454",
+        "name": "熊晟博",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025303578",
+        "name": "刘子腾",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025303514",
+        "name": "温施雨",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025303408",
+        "name": "邓皓南",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025303363",
+        "name": "黄心语",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300345",
+        "name": "董顺",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025300518",
+        "name": "谢境榕",
+        "newclass": "弹药25-9"
+    },
+    {
+        "studentId": "2025304807",
+        "name": "靳海洋",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304608",
+        "name": "洪嘉凯",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304762",
+        "name": "张天",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304736",
+        "name": "刘绍安",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304841",
+        "name": "陆凯乐",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304848",
+        "name": "张健",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304635",
+        "name": "邓昊文",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304678",
+        "name": "阚跃武",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304615",
+        "name": "李道禹",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304887",
+        "name": "郭韶伟",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304893",
+        "name": "徐磊",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304591",
+        "name": "吴迪",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304618",
+        "name": "杜文韬",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304701",
+        "name": "郑钧",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304647",
+        "name": "雷维超",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304739",
+        "name": "郑玉祥",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304843",
+        "name": "彭天成",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304614",
+        "name": "牛儒鑫",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304685",
+        "name": "朱禹豪",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304773",
+        "name": "廖澄峰",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304712",
+        "name": "徐洋",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304895",
+        "name": "王卓昊",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304840",
+        "name": "丁沁文",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304888",
+        "name": "薛伟",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304724",
+        "name": "徐博文",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304715",
+        "name": "周发丞",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304756",
+        "name": "杨毅然",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304849",
+        "name": "唐正",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304795",
+        "name": "朱子俊",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304722",
+        "name": "王子豪",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304602",
+        "name": "黄治远",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304884",
+        "name": "雷诺",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304844",
+        "name": "罗凯",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304812",
+        "name": "楚幼山",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304768",
+        "name": "谢家腾",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304657",
+        "name": "董支点",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304842",
+        "name": "何俊浩",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304671",
+        "name": "朱天宇",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304805",
+        "name": "张傲瑜",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304753",
+        "name": "车新杰",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304797",
+        "name": "夏卓越",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304725",
+        "name": "李乐乐",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025304772",
+        "name": "廖思远",
+        "newclass": "弹药25-10"
+    },
+    {
+        "studentId": "2025307170",
+        "name": "赵明佩",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307763",
+        "name": "陈妍笙",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025306616",
+        "name": "高佳佳",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307547",
+        "name": "伍长玲",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307152",
+        "name": "陈佳怡",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025306557",
+        "name": "潘思宇",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307410",
+        "name": "肖厚强",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307278",
+        "name": "江卓佳",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025304828",
+        "name": "刘颜颜",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307298",
+        "name": "孟芙蓉",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025318421",
+        "name": "曾嘉轩",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025303639",
+        "name": "胡紫艺",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025306414",
+        "name": "董晓冉",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307154",
+        "name": "姚可馨",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025306799",
+        "name": "唐月文",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025301208",
+        "name": "宋一诺",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307777",
+        "name": "李姿蓉",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307333",
+        "name": "吴鑫冉",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025318156",
+        "name": "朱志浩",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025300415",
+        "name": "周玥彤",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025301113",
+        "name": "杨浩风",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025304407",
+        "name": "何智康",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025301028",
+        "name": "李飞扬",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025318475",
+        "name": "邱睿琦",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025300913",
+        "name": "王健宇",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025306228",
+        "name": "张宸",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025306705",
+        "name": "李曼琪",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025300963",
+        "name": "周巧灵",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025301515",
+        "name": "王明智",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025300927",
+        "name": "王哲",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307003",
+        "name": "夏薇薇",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025306750",
+        "name": "赵聪",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025301122",
+        "name": "吴挺荟",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025301142",
+        "name": "张梦琪",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025300932",
+        "name": "王欣茹",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307386",
+        "name": "江霖凡",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025300699",
+        "name": "杜学文",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025305944",
+        "name": "姚晓琳",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025306862",
+        "name": "姜仁澍",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025303694",
+        "name": "刘志鹏",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025307501",
+        "name": "陈嘉浩",
+        "newclass": "计算机25-9"
+    },
+    {
+        "studentId": "2025313815",
+        "name": "孙方堃",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025306410",
+        "name": "李静雯",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025307595",
+        "name": "曹钰",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025318389",
+        "name": "郭佳鑫",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025303626",
+        "name": "郑博允",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305784",
+        "name": "胡予希",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025300150",
+        "name": "支雨莹",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025300147",
+        "name": "赵美艳",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025314242",
+        "name": "吴子浩",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025306432",
+        "name": "李宇斐",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025306379",
+        "name": "史洪扬",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305795",
+        "name": "杨泽铭",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025304619",
+        "name": "万志腾",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025300614",
+        "name": "武弘烨",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025300138",
+        "name": "王子恒",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305599",
+        "name": "王天宇",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305273",
+        "name": "宋彦舒",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305713",
+        "name": "王婷婷",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305567",
+        "name": "吴昊鸣",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305350",
+        "name": "张宁",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305255",
+        "name": "赵苏航",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305585",
+        "name": "周雨萌",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305336",
+        "name": "杨子涵",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305291",
+        "name": "高辉",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305322",
+        "name": "徐书和",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305233",
+        "name": "吴列国",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305259",
+        "name": "刘镇豪",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305663",
+        "name": "张芳熙",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305356",
+        "name": "庞羽翔",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305262",
+        "name": "马瑶",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305602",
+        "name": "韩童",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305514",
+        "name": "李海艳",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305698",
+        "name": "钱洪升",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305544",
+        "name": "余文倩",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305396",
+        "name": "郑力旗",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305467",
+        "name": "郑小钰",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305270",
+        "name": "张洁",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305240",
+        "name": "汤新阳",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305656",
+        "name": "朱杰冉",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305265",
+        "name": "张圣兰",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305470",
+        "name": "谢馨雨",
+        "newclass": "计算机25-10"
+    },
+    {
+        "studentId": "2025305717",
+        "name": "马庭冉",
+        "newclass": "计算机25-1"
+    },
+    {
+        "studentId": "2025305591",
+        "name": "汪茂林",
+        "newclass": "计算机25-1"
+    },
+    {
+        "studentId": "2025305278",
+        "name": "胡友发",
+        "newclass": "计算机25-1"
+    },
+    {
+        "studentId": "2025305245",
+        "name": "王律之",
+        "newclass": "计算机25-2"
+    },
+    {
+        "studentId": "2025305236",
+        "name": "刘博远",
+        "newclass": "计算机25-2"
+    },
+    {
+        "studentId": "2025305563",
+        "name": "吴镇阳",
+        "newclass": "计算机25-2"
+    },
+    {
+        "studentId": "2025305276",
+        "name": "徐向杨",
+        "newclass": "计算机25-3"
+    },
+    {
+        "studentId": "2025305224",
+        "name": "殷越",
+        "newclass": "计算机25-3"
+    },
+    {
+        "studentId": "2025305286",
+        "name": "张扬",
+        "newclass": "计算机25-3"
+    },
+    {
+        "studentId": "2025305548",
+        "name": "瞿知菲",
+        "newclass": "计算机25-4"
+    },
+    {
+        "studentId": "2025305227",
+        "name": "张羽",
+        "newclass": "计算机25-4"
+    },
+    {
+        "studentId": "2025305290",
+        "name": "朱朗",
+        "newclass": "计算机25-4"
+    },
+    {
+        "studentId": "2025305250",
+        "name": "甘建涛",
+        "newclass": "计算机25-5"
+    },
+    {
+        "studentId": "2025305492",
+        "name": "彭凯",
+        "newclass": "计算机25-5"
+    },
+    {
+        "studentId": "2025305244",
+        "name": "李承志",
+        "newclass": "计算机25-5"
+    },
+    {
+        "studentId": "2025305533",
+        "name": "潘健宇",
+        "newclass": "计算机25-6"
+    },
+    {
+        "studentId": "2025305645",
+        "name": "张福诚",
+        "newclass": "计算机25-6"
+    },
+    {
+        "studentId": "2025305252",
+        "name": "王俊先",
+        "newclass": "计算机25-6"
+    },
+    {
+        "studentId": "2025305289",
+        "name": "潘子诚",
+        "newclass": "计算机25-7"
+    },
+    {
+        "studentId": "2025305247",
+        "name": "夏多旭",
+        "newclass": "计算机25-7"
+    },
+    {
+        "studentId": "2025305576",
+        "name": "张念祖",
+        "newclass": "计算机25-7"
+    },
+    {
+        "studentId": "2025305239",
+        "name": "吴秋实",
+        "newclass": "计算机25-8"
+    },
+    {
+        "studentId": "2025305284",
+        "name": "王佳硕",
+        "newclass": "计算机25-8"
+    },
+    {
+        "studentId": "2025305298",
+        "name": "周景宇",
+        "newclass": "计算机25-8"
+    },
+    {
+        "studentId": "2025307844",
+        "name": "邓晓洁",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025307358",
+        "name": "张明轩",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025306832",
+        "name": "杨博涵",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025307062",
+        "name": "周欣柔",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025306466",
+        "name": "齐佳乐",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025306141",
+        "name": "张欣瑞",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025307832",
+        "name": "董欣蕊",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025307157",
+        "name": "潘美玲",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025307184",
+        "name": "张磊磊",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025301075",
+        "name": "沈海洋",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025301304",
+        "name": "潘锐莹",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025306359",
+        "name": "贾喆",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025300789",
+        "name": "李锦麟",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025300141",
+        "name": "曾令彬",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025300190",
+        "name": "杨丹",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025307315",
+        "name": "孟一婷",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025307525",
+        "name": "沈永浩",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025317958",
+        "name": "朱子浩",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025318519",
+        "name": "焦泓睿",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025300894",
+        "name": "肖宇倩",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025304770",
+        "name": "梁铭扬",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025300188",
+        "name": "张宇琪",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025313771",
+        "name": "檀永乐",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025300117",
+        "name": "邵家旺",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025318602",
+        "name": "张望",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305226",
+        "name": "胡美林",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305581",
+        "name": "王恒",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305228",
+        "name": "包微",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305577",
+        "name": "耿壮",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305266",
+        "name": "刘晓希",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305281",
+        "name": "赵子豪",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305624",
+        "name": "王安欣",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305604",
+        "name": "柯旭东",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305546",
+        "name": "惠紫涵",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305553",
+        "name": "乐薇",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305267",
+        "name": "王湘怡",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305225",
+        "name": "丁媛媛",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305613",
+        "name": "魏子炫",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305231",
+        "name": "刘新月",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305275",
+        "name": "冯德轩",
+        "newclass": "软件工程25-5"
+    },
+    {
+        "studentId": "2025305619",
+        "name": "任天硕",
+        "newclass": "软件工程25-1"
+    },
+    {
+        "studentId": "2025305258",
+        "name": "晏宇辉",
+        "newclass": "软件工程25-1"
+    },
+    {
+        "studentId": "2025305222",
+        "name": "郑文星",
+        "newclass": "软件工程25-2"
+    },
+    {
+        "studentId": "2025305234",
+        "name": "刘晨阳",
+        "newclass": "软件工程25-2"
+    },
+    {
+        "studentId": "2025305293",
+        "name": "朱赵盼",
+        "newclass": "软件工程25-3"
+    },
+    {
+        "studentId": "2025305260",
+        "name": "李昊然",
+        "newclass": "软件工程25-3"
+    },
+    {
+        "studentId": "2025305294",
+        "name": "黄翔钧",
+        "newclass": "软件工程25-4"
+    },
+    {
+        "studentId": "2025305299",
+        "name": "王翰",
+        "newclass": "软件工程25-4"
+    },
+    {
+        "studentId": "2025301052",
+        "name": "杨忠康",
+        "newclass": "物联网25-1"
+    },
+    {
+        "studentId": "2025318487",
+        "name": "付星源",
+        "newclass": "物联网25-1"
+    },
+    {
+        "studentId": "2025306517",
+        "name": "洪日成",
+        "newclass": "物联网25-1"
+    },
+    {
+        "studentId": "2025304787",
+        "name": "刘惠文",
+        "newclass": "物联网25-1"
+    },
+    {
+        "studentId": "2025300079",
+        "name": "陈子祥",
+        "newclass": "物联网25-1"
+    },
+    {
+        "studentId": "2025301285",
+        "name": "陈明宇",
+        "newclass": "物联网25-1"
+    },
+    {
+        "studentId": "2025300712",
+        "name": "曾垂源",
+        "newclass": "物联网25-2"
+    },
+    {
+        "studentId": "2025318595",
+        "name": "王奕翰",
+        "newclass": "物联网25-2"
+    },
+    {
+        "studentId": "2025307727",
+        "name": "李薇",
+        "newclass": "数字媒体25-1"
+    },
+    {
+        "studentId": "2025306296",
+        "name": "徐梦昕",
+        "newclass": "数字媒体25-1"
+    },
+    {
+        "studentId": "2025307736",
+        "name": "王怡",
+        "newclass": "数字媒体25-1"
+    },
+    {
+        "studentId": "2025306288",
+        "name": "薛婉茹",
+        "newclass": "数字媒体25-1"
+    },
+    {
+        "studentId": "2025306972",
+        "name": "朱淑仪",
+        "newclass": "数字媒体25-1"
+    },
+    {
+        "studentId": "2025305773",
+        "name": "朱富强",
+        "newclass": "数字媒体25-1"
+    },
+    {
+        "studentId": "2025302851",
+        "name": "杨梓莹",
+        "newclass": "数字媒体25-1"
+    },
+    {
+        "studentId": "2025307798",
+        "name": "孙若萱",
+        "newclass": "数字媒体25-2"
+    },
+    {
+        "studentId": "2025303465",
+        "name": "孙钰鑫",
+        "newclass": "数字媒体25-2"
+    },
+    {
+        "studentId": "2025318490",
+        "name": "陈子珣",
+        "newclass": "数字媒体25-2"
+    },
+    {
+        "studentId": "2025306661",
+        "name": "欧阳慧凡",
+        "newclass": "信息安全25-1"
+    },
+    {
+        "studentId": "2025300996",
+        "name": "李绍祺",
+        "newclass": "信息安全25-1"
+    },
+    {
+        "studentId": "2025307073",
+        "name": "王宏轩",
+        "newclass": "信息安全25-1"
+    },
+    {
+        "studentId": "2025318457",
+        "name": "吴珊琦",
+        "newclass": "信息安全25-1"
+    },
+    {
+        "studentId": "2025307175",
+        "name": "李英",
+        "newclass": "信息安全25-1"
+    },
+    {
+        "studentId": "2025306506",
+        "name": "陈子豪",
+        "newclass": "信息安全25-1"
+    },
+    {
+        "studentId": "2025300936",
+        "name": "邬婷",
+        "newclass": "信息安全25-2"
+    },
+    {
+        "studentId": "2025300024",
+        "name": "张涵",
+        "newclass": "信息安全25-2"
+    },
+    {
+        "studentId": "2025304780",
+        "name": "孔繁凯",
+        "newclass": "信息安全25-2"
+    },
+    {
+        "studentId": "2025300010",
+        "name": "陈冠宇",
+        "newclass": "信息安全25-2"
+    },
+    {
+        "studentId": "2025305468",
+        "name": "徐文婧",
+        "newclass": "信息安全25-2"
+    },
+    {
+        "studentId": "2024305100",
+        "name": "余志强",
+        "newclass": "信息安全25-2"
+    },
+    {
+        "studentId": "2025317962",
+        "name": "黄瑞楠",
+        "newclass": "应用物理25-1"
+    },
+    {
+        "studentId": "2025307126",
+        "name": "邱馨悦",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025307125",
+        "name": "夏豪晴",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025318363",
+        "name": "季守域",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025300964",
+        "name": "林佳怡",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025305788",
+        "name": "冷勇博",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025300967",
+        "name": "马雨涵",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025305793",
+        "name": "王锐宁",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025318555",
+        "name": "陶晨阳",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025307467",
+        "name": "薛清蕾",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025307440",
+        "name": "吴欣冉",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025304613",
+        "name": "郑远城",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025318557",
+        "name": "叶品涵",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306057",
+        "name": "沈欣璇",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025301315",
+        "name": "孙琪",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025304599",
+        "name": "顾海洋",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306088",
+        "name": "唐天翔",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025305760",
+        "name": "张浩杰",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306064",
+        "name": "张树喜",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025305758",
+        "name": "雷发松",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306061",
+        "name": "张桂溶",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306105",
+        "name": "蒋硕",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306085",
+        "name": "李鹏旭",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306076",
+        "name": "王若斌",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025305804",
+        "name": "赵逸飞",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025305808",
+        "name": "胡立夫",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025305814",
+        "name": "田林洪",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306109",
+        "name": "戚家镇",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306072",
+        "name": "刘一铭",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025305813",
+        "name": "王屹",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025301035",
+        "name": "王子涵",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025307845",
+        "name": "赵浩然",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025306111",
+        "name": "杨逸航",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025304592",
+        "name": "耿雨航",
+        "newclass": "光电信息25-7"
+    },
+    {
+        "studentId": "2025307417",
+        "name": "来思恩",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306539",
+        "name": "杨慧敏",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306544",
+        "name": "李婉君",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306450",
+        "name": "毕玉",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306332",
+        "name": "谢晓燕",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306553",
+        "name": "章范林",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306345",
+        "name": "熊健翔",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306336",
+        "name": "陈晓洁",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025307393",
+        "name": "卢金金",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306566",
+        "name": "蓝浩文",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306502",
+        "name": "吴浩宇",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025303496",
+        "name": "石栩桢",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306603",
+        "name": "庞俊葆",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306428",
+        "name": "胡雨丰",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306470",
+        "name": "吴铭",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306474",
+        "name": "沈骄阳",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306409",
+        "name": "张晓倩",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306437",
+        "name": "张义",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306825",
+        "name": "周琦钰",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025307368",
+        "name": "王佳悦",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025307217",
+        "name": "江慧仪",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306562",
+        "name": "位嘉泽",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306401",
+        "name": "蒋其宏",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306373",
+        "name": "王琦",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306372",
+        "name": "周惠琳",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025303356",
+        "name": "林静思",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306416",
+        "name": "苟晶茹",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306441",
+        "name": "莫敬丰",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025300536",
+        "name": "邓雅宁",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025303498",
+        "name": "胡笑",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025300027",
+        "name": "李超",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306460",
+        "name": "李叶",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306384",
+        "name": "周腾辉",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306568",
+        "name": "张祥和",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306339",
+        "name": "韩金宇",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306371",
+        "name": "卢启颖",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306462",
+        "name": "芮自然",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306363",
+        "name": "苑仁赫",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306480",
+        "name": "陈晓博",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306374",
+        "name": "周雨菲",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025307800",
+        "name": "陈娴",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306500",
+        "name": "涂心蕊",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306491",
+        "name": "汪馨",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306477",
+        "name": "张杰乐",
+        "newclass": "数大25-5"
+    },
+    {
+        "studentId": "2025306300",
+        "name": "胡鸿涛",
+        "newclass": "信计25-3"
+    },
+    {
+        "studentId": "2025306307",
+        "name": "邵琪",
+        "newclass": "信计25-3"
+    },
+    {
+        "studentId": "2025307222",
+        "name": "刘益佳",
+        "newclass": "统计25-1"
+    },
+    {
+        "studentId": "2025307371",
+        "name": "冯小娟",
+        "newclass": "统计25-1"
+    },
+    {
+        "studentId": "2025305743",
+        "name": "陈梓萌",
+        "newclass": "应用数学25-2"
+    },
+    {
+        "studentId": "2025318375",
+        "name": "温骐曼",
+        "newclass": "临床25-8"
+    },
+    {
+        "studentId": "2025318459",
+        "name": "孟祥丽",
+        "newclass": "临床25-8"
+    },
+    {
+        "studentId": "2025318469",
+        "name": "郑泽斌",
+        "newclass": "临床25-8"
+    },
+    {
+        "studentId": "2025318458",
+        "name": "蒋丽娜",
+        "newclass": "临床25-8"
+    },
+    {
+        "studentId": "2025318454",
+        "name": "黄小都",
+        "newclass": "临床25-8"
+    },
+    {
+        "studentId": "2025318518",
+        "name": "孙浩然",
+        "newclass": "临床25-8"
+    },
+    {
+        "studentId": "2025318565",
+        "name": "冀儇瑜",
+        "newclass": "临床25-11"
+    },
+    {
+        "studentId": "2025318535",
+        "name": "李浚菥",
+        "newclass": "临床25-11"
+    },
+    {
+        "studentId": "2025318564",
+        "name": "高冠锦",
+        "newclass": "临床25-11"
+    },
+    {
+        "studentId": "2025305484",
+        "name": "徐嘉艺",
+        "newclass": "临床25-11"
+    },
+    {
+        "studentId": "2025307226",
+        "name": "黄蓉",
+        "newclass": "临床25-11"
+    },
+    {
+        "studentId": "2025307318",
+        "name": "成牧霏",
+        "newclass": "临床25-7"
+    },
+    {
+        "studentId": "2025307602",
+        "name": "郝博浩",
+        "newclass": "临床25-7"
+    },
+    {
+        "studentId": "2025318792",
+        "name": "周煜轩",
+        "newclass": "临床25-7"
+    },
+    {
+        "studentId": "2025301248",
+        "name": "王为宝",
+        "newclass": "临床25-2"
+    },
+    {
+        "studentId": "2025306645",
+        "name": "聂思琦",
+        "newclass": "临床25-2"
+    },
+    {
+        "studentId": "2025307128",
+        "name": "何思宇",
+        "newclass": "临床25-5"
+    },
+    {
+        "studentId": "2025307142",
+        "name": "李壮",
+        "newclass": "临床25-5"
+    },
+    {
+        "studentId": "2025307131",
+        "name": "汪钇含",
+        "newclass": "临床25-5"
+    },
+    {
+        "studentId": "2023306906",
+        "name": "再",
+        "newclass": "临床25-4"
+    },
+    {
+        "studentId": "2025306678",
+        "name": "张佳宁",
+        "newclass": "会计学25-1"
+    },
+    {
+        "studentId": "2025307433",
+        "name": "韩闵盛",
+        "newclass": "会计学25-1"
+    },
+    {
+        "studentId": "2025307155",
+        "name": "郑一婷",
+        "newclass": "会计学25-1"
+    },
+    {
+        "studentId": "2025307248",
+        "name": "胡云泽",
+        "newclass": "会计学25-1"
+    },
+    {
+        "studentId": "2025307229",
+        "name": "罗脂刈",
+        "newclass": "会计学25-1"
+    },
+    {
+        "studentId": "2025307172",
+        "name": "郑艳",
+        "newclass": "会计学25-1"
+    },
+    {
+        "studentId": "2025307833",
+        "name": "张雨晴",
+        "newclass": "会计学25-1"
+    },
+    {
+        "studentId": "2025307209",
+        "name": "罗小琪",
+        "newclass": "会计学25-2"
+    },
+    {
+        "studentId": "2025307227",
+        "name": "阿依凯买尔·阿布都热合曼",
+        "newclass": "会计学25-2"
+    },
+    {
+        "studentId": "2025307167",
+        "name": "吴梦晶",
+        "newclass": "会计学25-2"
+    },
+    {
+        "studentId": "2025307219",
+        "name": "邱雨馨",
+        "newclass": "会计学25-2"
+    },
+    {
+        "studentId": "2025306696",
+        "name": "陈添翼",
+        "newclass": "会计学25-2"
+    },
+    {
+        "studentId": "2025307790",
+        "name": "李沛涵",
+        "newclass": "会计学25-2"
+    },
+    {
+        "studentId": "2025307225",
+        "name": "史乐怡",
+        "newclass": "会计学25-2"
+    },
+    {
+        "studentId": "2025307779",
+        "name": "马学京",
+        "newclass": "会计学25-3"
+    },
+    {
+        "studentId": "2025307406",
+        "name": "哈刘政",
+        "newclass": "会计学25-3"
+    },
+    {
+        "studentId": "2025307764",
+        "name": "周思洁",
+        "newclass": "会计学25-3"
+    },
+    {
+        "studentId": "2025307377",
+        "name": "张佳怡",
+        "newclass": "会计学25-3"
+    },
+    {
+        "studentId": "2025307188",
+        "name": "马洋",
+        "newclass": "会计学25-3"
+    },
+    {
+        "studentId": "2025307223",
+        "name": "薛旭瑞",
+        "newclass": "会计学25-3"
+    },
+    {
+        "studentId": "2025307457",
+        "name": "冯佳俊",
+        "newclass": "遥感25-1"
+    },
+    {
+        "studentId": "2025307458",
+        "name": "王明磊",
+        "newclass": "遥感25-1"
+    },
+    {
+        "studentId": "2025307461",
+        "name": "谢之然",
+        "newclass": "遥感25-1"
+    },
+    {
+        "studentId": "2025307456",
+        "name": "庞博元",
+        "newclass": "遥感25-1"
+    },
+    {
+        "studentId": "2025307445",
+        "name": "张欣瑶",
+        "newclass": "遥感25-2"
+    },
+    {
+        "studentId": "2025306666",
+        "name": "何林洁",
+        "newclass": "遥感25-2"
+    },
+    {
+        "studentId": "2025307484",
+        "name": "彭一鸣",
+        "newclass": "遥感25-2"
+    },
+    {
+        "studentId": "2025307491",
+        "name": "郭茂宏",
+        "newclass": "遥感25-2"
+    },
+    {
+        "studentId": "2025307511",
+        "name": "黄亭",
+        "newclass": "遥感25-3"
+    },
+    {
+        "studentId": "2025317984",
+        "name": "蒋蔡天好",
+        "newclass": "安全h25-1"
+    },
+    {
+        "studentId": "2025317942",
+        "name": "黄可馨",
+        "newclass": "安全h25-2"
+    },
+    {
+        "studentId": "2025317948",
+        "name": "田亮莹",
+        "newclass": "安全h25-2"
+    },
+    {
+        "studentId": "2025317981",
+        "name": "曹智芳",
+        "newclass": "安全h25-1"
+    },
+    {
+        "studentId": "2025317994",
+        "name": "杜彬",
+        "newclass": "安全h25-2"
+    },
+    {
+        "studentId": "2025300379",
+        "name": "陶本靓",
+        "newclass": "安全h25-1"
+    },
+    {
+        "studentId": "2025300233",
+        "name": "徐娜娜",
+        "newclass": "车辆工程h25-4"
+    },
+    {
+        "studentId": "2025300239",
+        "name": "陆珏",
+        "newclass": "车辆工程h25-4"
+    },
+    {
+        "studentId": "2025318605",
+        "name": "刘宇凡",
+        "newclass": "车辆工程h25-2"
+    },
+    {
+        "studentId": "2025307607",
+        "name": "谢石柱",
+        "newclass": "车辆工程h25-4"
+    },
+    {
+        "studentId": "2025318544",
+        "name": "牛宇",
+        "newclass": "车辆工程h25-4"
+    },
+    {
+        "studentId": "2025300113",
+        "name": "冯宇",
+        "newclass": "车辆工程h25-3"
+    },
+    {
+        "studentId": "2025318552",
+        "name": "李品佑",
+        "newclass": "车辆工程h25-4"
+    },
+    {
+        "studentId": "2025318407",
+        "name": "张盼盼",
+        "newclass": "车辆工程h25-3"
+    },
+    {
+        "studentId": "2025303625",
+        "name": "吴家宇",
+        "newclass": "车辆工程h25-5"
+    },
+    {
+        "studentId": "2025300625",
+        "name": "郝文硕",
+        "newclass": "车辆工程h25-4"
+    },
+    {
+        "studentId": "2025300566",
+        "name": "刘蒋鑫",
+        "newclass": "车辆工程h25-2"
+    },
+    {
+        "studentId": "2025301249",
+        "name": "李鑫",
+        "newclass": "车辆工程h25-1"
+    },
+    {
+        "studentId": "2025318473",
+        "name": "舒涵义",
+        "newclass": "车辆工程h25-4"
+    },
+    {
+        "studentId": "2025306351",
+        "name": "许骐才",
+        "newclass": "车辆工程h25-4"
+    },
+    {
+        "studentId": "2025301472",
+        "name": "郑思博",
+        "newclass": "车辆工程h25-3"
+    },
+    {
+        "studentId": "2025300494",
+        "name": "吴欣颜",
+        "newclass": "车辆工程h25-1"
+    },
+    {
+        "studentId": "2025300940",
+        "name": "高翌晨",
+        "newclass": "新能源汽车h25-2"
+    },
+    {
+        "studentId": "2025307397",
+        "name": "李勤凤",
+        "newclass": "新能源汽车h25-1"
+    },
+    {
+        "studentId": "2025306776",
+        "name": "贾静扬",
+        "newclass": "新能源汽车h25-4"
+    },
+    {
+        "studentId": "2025318600",
+        "name": "苗子桐",
+        "newclass": "新能源汽车h25-4"
+    },
+    {
+        "studentId": "2025300914",
+        "name": "徐小涛",
+        "newclass": "新能源汽车h25-1"
+    },
+    {
+        "studentId": "2025305729",
+        "name": "鲁剑",
+        "newclass": "新能源汽车h25-3"
+    },
+    {
+        "studentId": "2025307370",
+        "name": "曹倩婧",
+        "newclass": "新能源汽车h25-4"
+    },
+    {
+        "studentId": "2025300458",
+        "name": "马雯萱",
+        "newclass": "新能源汽车h25-2"
+    },
+    {
+        "studentId": "2025301262",
+        "name": "付淑妍",
+        "newclass": "新能源汽车h25-3"
+    },
+    {
+        "studentId": "2025301477",
+        "name": "李乐泽",
+        "newclass": "新能源汽车h25-2"
+    },
+    {
+        "studentId": "2025318563",
+        "name": "程小飞",
+        "newclass": "职业卫生工程h25-1"
+    },
+    {
+        "studentId": "2025318479",
+        "name": "齐佳昊",
+        "newclass": "职业卫生工程h25-1"
+    },
+    {
+        "studentId": "2025306630",
+        "name": "石德宁",
+        "newclass": "储能科学h25-2"
+    },
+    {
+        "studentId": "2025300910",
+        "name": "王希坤",
+        "newclass": "新能源h25-1"
+    },
+    {
+        "studentId": "2025300157",
+        "name": "申艳莹",
+        "newclass": "新能源h25-1"
+    },
+    {
+        "studentId": "2025318678",
+        "name": "王佳男",
+        "newclass": "新能源h25-2"
+    },
+    {
+        "studentId": "2025300739",
+        "name": "尹一涵",
+        "newclass": "新能源h25-2"
+    }
+]
