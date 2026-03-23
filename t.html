@@ -37,11 +37,6 @@
             font-weight: 600;
             letter-spacing: -0.3px;
         }
-        .update-time {
-            color: #6b5a3e;
-            font-size: clamp(12px, 3vw, 14px);
-            margin-top: 8px;
-        }
         /* 胶囊搜索区 */
         .search-container {
             display: flex;
@@ -202,7 +197,7 @@
         .tip-empty { color: #9b8570; }
         .tip-loading { color: #d4af37; }
 
-        /* ========= 分析栏目样式 ========= */
+        /* 分析栏目样式 */
         .analysis-section {
             margin-top: 48px;
             background: #fefaf0;
@@ -393,11 +388,11 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>📊 转专业情况分析系统</h1>
-        <p class="update-time">数据基于 studentInfo.json 与 Majort.json 联合展示</p>
+        <h1>转专业情况分析系统</h1>
+        <!-- 原小字已删除 -->
     </div>
 
-    <!-- 搜索区 (完全保留原风格) -->
+    <!-- 搜索区 -->
     <div class="search-container">
         <input type="text" class="search-input" id="searchInput" placeholder="输入姓名 / 学号 / 班级 查询学生">
         <button class="search-btn" id="searchBtn">搜索</button>
@@ -408,39 +403,39 @@
     <div class="tip-message tip-empty" id="emptyMsg">未找到匹配的学生信息，请更换关键词重试</div>
     <div class="tip-message tip-loading" id="loadingMsg">数据加载中，请稍后...</div>
 
-    <!-- 搜索结果区域 (学院+专业 已替换为 新班级) -->
+    <!-- 搜索结果区域 (原班级,学号,姓名,性别,新班级) -->
     <div class="result-container" id="resultContainer">
-        <div class="result-title" id="resultCount">📌 查询结果（共<span id="totalNum">0</span>条）</div>
+        <div class="result-title" id="resultCount">查询结果（共<span id="totalNum">0</span>条）</div>
         <div class="result-list" id="resultList"></div>
         <div class="pagination" id="pagination">
-            <button class="page-btn" id="prevPage" disabled>◀ 上一页</button>
+            <button class="page-btn" id="prevPage" disabled>上一页</button>
             <div class="page-info" id="pageInfo">第<span id="currentPage">1</span>页 / 共<span id="totalPage">1</span>页</div>
-            <button class="page-btn" id="nextPage" disabled>下一页 ▶</button>
+            <button class="page-btn" id="nextPage" disabled>下一页</button>
         </div>
     </div>
 
     <!-- 分析栏目 (转专业专项分析) -->
     <div class="analysis-section">
-        <div class="analysis-title">🔍 转专业流向分析</div>
+        <div class="analysis-title">转专业流向分析</div>
         <div class="analysis-controls">
             <div class="control-group">
-                <label>📌 分析维度</label>
+                <label>分析维度</label>
                 <select id="analysisType" class="analysis-select">
-                    <option value="in">➡️ 转入班级分析 (目标班级新生源)</option>
-                    <option value="out">⬅️ 转出班级分析 (原班级流出情况)</option>
+                    <option value="in">转入班级分析 (目标班级新生源)</option>
+                    <option value="out">转出班级分析 (原班级流出情况)</option>
                 </select>
             </div>
             <div class="control-group">
-                <label>🏷️ 选择 / 输入班级名称</label>
+                <label>选择 / 输入班级名称</label>
                 <input type="text" id="classSearchInput" class="analysis-input" list="classOptionsList" placeholder="例如: 计算机25-1 或 临床22-11" autocomplete="off">
                 <datalist id="classOptionsList"></datalist>
             </div>
-            <button id="analysisExecuteBtn" class="analysis-btn">📋 开始分析</button>
+            <button id="analysisExecuteBtn" class="analysis-btn">开始分析</button>
         </div>
         <!-- 右侧大框 展示分析结果 (三列卡片) -->
         <div class="analysis-result-box" id="analysisResultBox">
             <div class="analysis-result-header">
-                <h4>📋 分析结果明细</h4>
+                <h4>分析结果明细</h4>
                 <span class="analysis-result-count" id="analysisCountBadge">0 人</span>
             </div>
             <div id="analysisResultList" class="analysis-card-list">
@@ -448,11 +443,11 @@
             </div>
         </div>
     </div>
-    <footer>⚡ 支持按姓名/学号/原班级搜索 | 转专业数据基于 Majort.json 映射</footer>
+    <footer>数据基于 studentInfo.json 与 Majort.json 联合展示，分析仅包含转专业学生</footer>
 </div>
 
 <script>
-    // ---------- DOM 元素绑定 ----------
+    // DOM 元素绑定
     const dom = {
         searchInput: document.getElementById('searchInput'),
         searchBtn: document.getElementById('searchBtn'),
@@ -473,9 +468,8 @@
         analysisCountBadge: document.getElementById('analysisCountBadge')
     };
 
-    // ---------- 全局数据 ----------
-    let fullStudentList = [];         // 合并后的学生数组，包含 newClass 字段
-    let rawStudentMap = new Map();     // 备用
+    // 全局数据
+    let fullStudentList = [];         // 所有学生（包含转专业标记）
     let searchResultList = [];         // 当前搜索结果
     let currentPage = 1;
     const PAGE_SIZE = 10;
@@ -484,7 +478,7 @@
     let dataLoaded = false;
     let loadFailed = false;
 
-    // ---------- 辅助函数 ----------
+    // 辅助函数
     function hideAllTips() {
         dom.errorMsg.style.display = 'none';
         dom.emptyMsg.style.display = 'none';
@@ -510,7 +504,7 @@
         }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, c => c);
     }
 
-    // 渲染搜索结果卡片 (原班级,学号,姓名,性别,新班级 五列)
+    // 渲染搜索结果卡片 (班级,学号,姓名,性别,新班级)
     function renderSearchResults() {
         if (!searchResultList.length) {
             dom.resultContainer.style.display = 'none';
@@ -524,17 +518,16 @@
         let html = '';
         pageData.forEach((stu, idx) => {
             const globalIdx = start + idx + 1;
-            // 新班级: 已经预处理过 newClass 字段，若无转专业则为 "未转专业"
             const newClassDisplay = stu.newClass && stu.newClass !== '' ? stu.newClass : '未转专业';
             html += `
                 <div class="student-card">
                     <div class="student-index">${globalIdx}</div>
                     <div class="info-grid">
-                        <div class="info-item"><span class="info-label">🏷️ 班级</span><span class="info-value">${escapeHtml(stu.adminclass_name)}</span></div>
-                        <div class="info-item"><span class="info-label">🆔 学号</span><span class="info-value">${escapeHtml(stu.code)}</span></div>
-                        <div class="info-item"><span class="info-label">👤 姓名</span><span class="info-value">${escapeHtml(stu.name)}</span></div>
-                        <div class="info-item"><span class="info-label">⚥ 性别</span><span class="info-value">${escapeHtml(stu.gender)}</span></div>
-                        <div class="info-item"><span class="info-label">🔄 新班级</span><span class="info-value">${escapeHtml(newClassDisplay)}</span></div>
+                        <div class="info-item"><span class="info-label">班级</span><span class="info-value">${escapeHtml(stu.adminclass_name)}</span></div>
+                        <div class="info-item"><span class="info-label">学号</span><span class="info-value">${escapeHtml(stu.code)}</span></div>
+                        <div class="info-item"><span class="info-label">姓名</span><span class="info-value">${escapeHtml(stu.name)}</span></div>
+                        <div class="info-item"><span class="info-label">性别</span><span class="info-value">${escapeHtml(stu.gender)}</span></div>
+                        <div class="info-item"><span class="info-label">新班级</span><span class="info-value">${escapeHtml(newClassDisplay)}</span></div>
                     </div>
                 </div>
             `;
@@ -605,12 +598,13 @@
         }
     }
 
-    // 动态更新班级下拉框选项 (原班级 + 新班级 去重)
+    // 更新班级下拉框选项 (原班级 + 新班级 去重，仅包含有转专业记录的新班级)
     function updateClassDatalist() {
         if (!fullStudentList.length) return;
         const classSet = new Set();
         fullStudentList.forEach(stu => {
             if (stu.adminclass_name && stu.adminclass_name !== '无') classSet.add(stu.adminclass_name);
+            // 只添加实际转专业后的新班级（非“未转专业”）
             if (stu.newClass && stu.newClass !== '未转专业' && stu.newClass !== '') classSet.add(stu.newClass);
         });
         const sorted = Array.from(classSet).sort();
@@ -625,48 +619,52 @@
         }
     }
 
-    // 分析核心：转入/转出班级
+    // 分析核心：转入/转出班级，仅显示有转专业记录的学生
     function executeAnalysis() {
         if (!dataLoaded) {
-            dom.analysisResultList.innerHTML = `<div class="empty-analysis">⚠️ 数据未加载完成，请稍后重试</div>`;
+            dom.analysisResultList.innerHTML = `<div class="empty-analysis">数据未加载完成，请稍后重试</div>`;
             dom.analysisCountBadge.textContent = '0 人';
             return;
         }
         const analysisType = dom.analysisType.value; // 'in' 转入  'out' 转出
         let targetClass = dom.classSearchInput.value.trim();
         if (!targetClass) {
-            dom.analysisResultList.innerHTML = `<div class="empty-analysis">📛 请在右侧输入或选择班级名称</div>`;
+            dom.analysisResultList.innerHTML = `<div class="empty-analysis">请在右侧输入或选择班级名称</div>`;
             dom.analysisCountBadge.textContent = '0 人';
             return;
         }
+
         let matchedStudents = [];
         if (analysisType === 'in') {
-            // 转入班级分析：新班级 === targetClass
+            // 转入班级分析：新班级 === targetClass，且新班级不能是“未转专业”
             matchedStudents = fullStudentList.filter(stu => {
-                const newCls = (stu.newClass && stu.newClass !== '未转专业') ? stu.newClass : '';
-                return newCls === targetClass;
+                const newCls = stu.newClass;
+                return newCls && newCls !== '未转专业' && newCls === targetClass;
             });
         } else {
-            // 转出班级分析：原班级 === targetClass
-            matchedStudents = fullStudentList.filter(stu => stu.adminclass_name === targetClass);
+            // 转出班级分析：原班级 === targetClass，并且该学生有转专业记录（newClass不为空且不为“未转专业”）
+            matchedStudents = fullStudentList.filter(stu => {
+                return stu.adminclass_name === targetClass && stu.newClass && stu.newClass !== '未转专业' && stu.newClass !== '';
+            });
         }
-        // 生成分析结果 (三列: 姓名, 原班级, 新班级)
+
         if (matchedStudents.length === 0) {
-            dom.analysisResultList.innerHTML = `<div class="empty-analysis">✨ 没有找到相关学生，班级「${escapeHtml(targetClass)}」无${analysisType === 'in' ? '转入' : '转出'}记录</div>`;
+            dom.analysisResultList.innerHTML = `<div class="empty-analysis">没有找到转专业学生，班级「${escapeHtml(targetClass)}」无${analysisType === 'in' ? '转入' : '转出'}记录</div>`;
             dom.analysisCountBadge.textContent = '0 人';
             return;
         }
+
         dom.analysisCountBadge.textContent = `${matchedStudents.length} 人`;
         let resultHtml = '';
-        matchedStudents.forEach((stu, idx) => {
+        matchedStudents.forEach((stu) => {
             const originalClass = stu.adminclass_name || '无';
-            const newClassVal = (stu.newClass && stu.newClass !== '') ? stu.newClass : '未转专业';
+            const newClassVal = stu.newClass || '未转专业';
             resultHtml += `
                 <div class="analysis-card">
                     <div class="analysis-row">
-                        <div class="analysis-col"><span class="col-label-mobile">👤 姓名</span> ${escapeHtml(stu.name)}</div>
-                        <div class="analysis-col"><span class="col-label-mobile">📚 原班级</span> ${escapeHtml(originalClass)}</div>
-                        <div class="analysis-col"><span class="col-label-mobile">🎯 新班级</span> ${escapeHtml(newClassVal)}</div>
+                        <div class="analysis-col"><span class="col-label-mobile">姓名</span> ${escapeHtml(stu.name)}</div>
+                        <div class="analysis-col"><span class="col-label-mobile">原班级</span> ${escapeHtml(originalClass)}</div>
+                        <div class="analysis-col"><span class="col-label-mobile">新班级</span> ${escapeHtml(newClassVal)}</div>
                     </div>
                 </div>
             `;
@@ -674,7 +672,7 @@
         dom.analysisResultList.innerHTML = resultHtml;
     }
 
-    // ---------- 加载两个JSON并进行数据融合 ----------
+    // 加载两个JSON并进行数据融合
     async function loadAndMergeData() {
         showLoading(true);
         dom.resultContainer.style.display = 'none';
@@ -691,11 +689,11 @@
             let majorRaw = await majorResp.json();
             if (!Array.isArray(majorRaw)) majorRaw = [majorRaw];
 
-            // 建立 studentId -> newclass 映射 (转专业映射表)
+            // 建立 studentId -> newclass 映射
             const transferMap = new Map();
             for (const item of majorRaw) {
                 if (item.studentId && item.newclass) {
-                    transferMap.set(item.studentId, item.newclass);
+                    transferMap.set(String(item.studentId), item.newclass);
                 }
             }
 
@@ -706,28 +704,23 @@
                 if (studentCode && transferMap.has(studentCode)) {
                     newClass = transferMap.get(studentCode);
                 }
-                // 保留原始所有字段，同时添加新班级，并且删除无用的学院专业字段用于展示？但保留原始以便分析，但展示只用五个字段
                 return {
                     ...stu,
                     newClass: newClass,
-                    // 确保关键字段非空
                     adminclass_name: stu.adminclass_name || '无',
                     code: stu.code || '',
                     name: stu.name || '未知',
                     gender: stu.gender || '未知'
                 };
             });
-            console.log(`✅ 数据融合完成，总学生数: ${fullStudentList.length}`);
+            console.log(`数据融合完成，总学生数: ${fullStudentList.length}`);
             dataLoaded = true;
             loadFailed = false;
             showLoading(false);
-            // 更新班级下拉选项 (供分析使用)
             updateClassDatalist();
-            // 初始展示提示（不自动搜索）
             hideAllTips();
-            // 如果URL带参数？不需要跳转，保持干净
         } catch (err) {
-            console.error('❌ 加载失败:', err);
+            console.error('加载失败:', err);
             dataLoaded = false;
             loadFailed = true;
             showLoading(false);
@@ -737,7 +730,7 @@
         }
     }
 
-    // ---------- 事件绑定 ----------
+    // 事件绑定
     function bindEvents() {
         dom.searchBtn.addEventListener('click', () => {
             if (!dataLoaded && !loadFailed) {
@@ -764,13 +757,13 @@
         // 分析按钮
         dom.analysisExecuteBtn.addEventListener('click', () => {
             if (!dataLoaded) {
-                dom.analysisResultList.innerHTML = `<div class="empty-analysis">📀 数据尚未加载完成，请稍后...</div>`;
+                dom.analysisResultList.innerHTML = `<div class="empty-analysis">数据尚未加载完成，请稍后...</div>`;
                 dom.analysisCountBadge.textContent = '0';
                 return;
             }
             executeAnalysis();
         });
-        // 支持回车快速分析（班级输入框按回车触发）
+        // 班级输入框回车触发分析
         dom.classSearchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -779,7 +772,6 @@
         });
     }
 
-    // 页面初始化
     window.onload = () => {
         bindEvents();
         loadAndMergeData();
