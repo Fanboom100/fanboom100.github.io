@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif;
+            font-family: system-ui, "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
         }
         body {
             background-color: #f5f3ef;
@@ -23,6 +23,7 @@
             border-radius: 28px;
             padding: 28px 30px 40px;
             box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            transition: all 0.2s;
         }
         .header {
             text-align: center;
@@ -66,7 +67,7 @@
             height: calc(100% - 10px);
             width: 88px;
             background: #d4af37;
-            color: white;          /* 字体白色 */
+            color: #2c2b28;
             font-weight: 600;
             border: none;
             border-radius: 60px;
@@ -75,7 +76,7 @@
             font-size: 15px;
         }
         .search-btn:hover {
-            background: #b8860b;
+            background: #c29f2e;
             color: white;
         }
         /* 结果卡片区域 */
@@ -110,6 +111,7 @@
             border: 1px solid #efe3c9;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             position: relative;
+            transition: 0.1s;
         }
         .student-index {
             position: absolute;
@@ -202,6 +204,7 @@
             border-radius: 32px;
             padding: 24px 28px;
             border: 1px solid #eadbba;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.02);
         }
         .analysis-title {
             font-size: 20px;
@@ -237,108 +240,19 @@
             margin-bottom: 8px;
             letter-spacing: 0.5px;
         }
-        /* 改进后的班级下拉框 (参照 schedule_search 样式) */
-        .combo-box {
-            position: relative;
+        .analysis-select, .analysis-input {
             width: 100%;
-        }
-        .combo-box input {
-            width: 100%;
-            padding: 12px 100px 12px 22px;
+            padding: 12px 16px;
             border-radius: 48px;
             border: 1.5px solid #e2d5b6;
             background: white;
             font-size: 14px;
             outline: none;
-            transition: 0.15s;
-            height: 48px;
+            transition: 0.2s;
         }
-        .combo-box input:focus {
+        .analysis-select:focus, .analysis-input:focus {
             border-color: #d4af37;
-            box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
-        }
-        .clear-btn {
-            position: absolute;
-            right: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 32px;
-            height: 32px;
-            background: #e6ded0;
-            border-radius: 50%;
-            color: #5f4c2e;
-            font-size: 24px;
-            font-weight: 400;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: background 0.2s;
-        }
-        .clear-btn:hover {
-            background: #d5caba;
-        }
-        .combo-btn {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: #d4af37;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .combo-btn.rotate {
-            transform: translateY(-50%) rotate(180deg);
-        }
-        .combo-btn:hover {
-            background: #b8860b;
-        }
-        .combo-btn img {
-            width: 22px;
-            height: 22px;
-            display: block;
-            filter: brightness(0) invert(1);
-        }
-        .combo-dropdown {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #d4af37;
-            border-radius: 24px;
-            max-height: 260px;
-            overflow-y: auto;
-            z-index: 20;
-            padding: 8px 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            display: none;
-        }
-        .combo-dropdown li {
-            list-style: none;
-            cursor: pointer;
-            color: #2c1e0e;
-            transition: background 0.1s;
-            font-size: 1rem;
-            margin: 4px 8px;
-            padding: 10px 16px;
-            border-radius: 40px;
-        }
-        .combo-dropdown li:hover {
-            background: #fcf3e1;
-        }
-        .combo-dropdown .selected {
-            background: #d4af37;
-            color: white;
-            font-weight: 500;
+            box-shadow: 0 0 0 2px rgba(212,175,55,0.2);
         }
         .analysis-btn {
             background: #d4af37;
@@ -346,7 +260,7 @@
             padding: 12px 28px;
             border-radius: 48px;
             font-weight: 600;
-            color: white;           /* 字体白色 */
+            color: #2c2b28;
             cursor: pointer;
             font-size: 14px;
             transition: 0.2s;
@@ -357,12 +271,13 @@
             background: #b8860b;
             color: white;
         }
-        /* 分析结果大框 */
+        /* 分析结果大框 (卡片风格) */
         .analysis-result-box {
             background: #ffffffec;
             border-radius: 28px;
             padding: 16px 20px 24px;
             border: 1px solid #e8dcc8;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
         .analysis-result-header {
             display: flex;
@@ -399,6 +314,7 @@
             border-radius: 20px;
             padding: 16px 20px;
             border: 1px solid #f0e4ce;
+            transition: 0.1s;
         }
         .analysis-row {
             display: grid;
@@ -418,7 +334,7 @@
             color: #b48b44;
             font-weight: 500;
         }
-        /* 响应式 */
+        /* 响应式: 手机端三列改为块状但保留无边框 */
         @media (max-width: 680px) {
             .analysis-row {
                 grid-template-columns: 1fr;
@@ -461,13 +377,19 @@
             color: #b39268;
             font-size: 15px;
         }
-        /* 不再保留 footer */
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #bbaa88;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
         <h1>转专业情况分析系统</h1>
+        <!-- 原小字已删除 -->
     </div>
 
     <!-- 搜索区 -->
@@ -481,7 +403,7 @@
     <div class="tip-message tip-empty" id="emptyMsg">未找到匹配的学生信息，请更换关键词重试</div>
     <div class="tip-message tip-loading" id="loadingMsg">数据加载中，请稍后...</div>
 
-    <!-- 搜索结果区域 -->
+    <!-- 搜索结果区域 (原班级,学号,姓名,性别,新班级) -->
     <div class="result-container" id="resultContainer">
         <div class="result-title" id="resultCount">查询结果（共<span id="totalNum">0</span>条）</div>
         <div class="result-list" id="resultList"></div>
@@ -503,21 +425,14 @@
                     <option value="out">转出班级分析 (原班级流出情况)</option>
                 </select>
             </div>
-            <div class="control-group" style="flex: 1.8;">
+            <div class="control-group">
                 <label>选择 / 输入班级名称</label>
-                <!-- 改进后的班级下拉框 (参照 schedule_search) -->
-                <div class="combo-box" id="classComboContainer">
-                    <input type="text" id="classSearchInput" placeholder="例如: 计算机25-1 或 临床22-11" autocomplete="off">
-                    <div class="clear-btn" id="clearClassInputBtn">×</div>
-                    <button class="combo-btn" id="comboClassToggleBtn">
-                        <img src="schedules/Expand.svg" alt="expand">
-                    </button>
-                    <ul class="combo-dropdown" id="classComboDropdown"></ul>
-                </div>
+                <input type="text" id="classSearchInput" class="analysis-input" list="classOptionsList" placeholder="例如: 计算机25-1 或 临床22-11" autocomplete="off">
+                <datalist id="classOptionsList"></datalist>
             </div>
             <button id="analysisExecuteBtn" class="analysis-btn">开始分析</button>
         </div>
-        <!-- 分析结果大框 -->
+        <!-- 右侧大框 展示分析结果 (三列卡片) -->
         <div class="analysis-result-box" id="analysisResultBox">
             <div class="analysis-result-header">
                 <h4>分析结果明细</h4>
@@ -552,12 +467,6 @@
         analysisCountBadge: document.getElementById('analysisCountBadge')
     };
 
-    // 班级下拉框额外元素
-    const classComboContainer = document.getElementById('classComboContainer');
-    const classComboDropdown = document.getElementById('classComboDropdown');
-    const comboClassToggleBtn = document.getElementById('comboClassToggleBtn');
-    const clearClassInputBtn = document.getElementById('clearClassInputBtn');
-
     // 全局数据
     let fullStudentList = [];         // 所有学生（包含转专业标记）
     let searchResultList = [];         // 当前搜索结果
@@ -567,9 +476,6 @@
     // 加载标志
     let dataLoaded = false;
     let loadFailed = false;
-
-    // 班级下拉框选项列表 (用于分析)
-    let classOptionsList = [];   // 原班级 + 转专业新班级(去重，仅包含有转专业记录的新班级)
 
     // 辅助函数
     function hideAllTips() {
@@ -691,85 +597,26 @@
         }
     }
 
-    // 更新班级下拉框选项 (用于分析)
-    function updateClassDropdownOptions() {
+    // 更新班级下拉框选项 (原班级 + 新班级 去重，仅包含有转专业记录的新班级)
+    function updateClassDatalist() {
         if (!fullStudentList.length) return;
         const classSet = new Set();
         fullStudentList.forEach(stu => {
             if (stu.adminclass_name && stu.adminclass_name !== '无') classSet.add(stu.adminclass_name);
+            // 只添加实际转专业后的新班级（非“未转专业”）
             if (stu.newClass && stu.newClass !== '未转专业' && stu.newClass !== '') classSet.add(stu.newClass);
         });
-        classOptionsList = Array.from(classSet).sort((a,b) => a.localeCompare(b, 'zh'));
-        renderClassDropdown(dom.classSearchInput.value);
-    }
-
-    // 渲染班级下拉悬浮框
-    function renderClassDropdown(filterText = '') {
-        if (!classOptionsList.length) {
-            classComboDropdown.innerHTML = '<li style="color:#999;">无班级数据</li>';
-            return;
-        }
-        const lowerFilter = filterText.toLowerCase();
-        const filtered = classOptionsList.filter(cls => cls.toLowerCase().includes(lowerFilter));
-        if (filtered.length === 0) {
-            classComboDropdown.innerHTML = '<li style="color:#999;">无匹配班级</li>';
-            return;
-        }
-        let html = '';
-        filtered.forEach(cls => {
-            const selectedAttr = (cls === dom.classSearchInput.value) ? 'selected' : '';
-            html += `<li class="${selectedAttr}" data-class="${escapeHtml(cls)}">${escapeHtml(cls)}</li>`;
-        });
-        classComboDropdown.innerHTML = html;
-        Array.from(classComboDropdown.querySelectorAll('li[data-class]')).forEach(li => {
-            li.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const cls = li.dataset.class;
-                if (cls) {
-                    dom.classSearchInput.value = cls;
-                    toggleClearClassBtn();
-                    hideClassDropdown();
-                }
+        const sorted = Array.from(classSet).sort();
+        const datalist = document.getElementById('classOptionsList');
+        if (datalist) {
+            datalist.innerHTML = '';
+            sorted.forEach(cls => {
+                const option = document.createElement('option');
+                option.value = cls;
+                datalist.appendChild(option);
             });
-        });
+        }
     }
-
-    function showClassDropdown() {
-        if (!classOptionsList.length) return;
-        renderClassDropdown(dom.classSearchInput.value);
-        classComboDropdown.style.display = 'block';
-        comboClassToggleBtn.classList.add('rotate');
-    }
-    function hideClassDropdown() {
-        classComboDropdown.style.display = 'none';
-        comboClassToggleBtn.classList.remove('rotate');
-    }
-    function toggleClassDropdown() {
-        if (classComboDropdown.style.display === 'block') hideClassDropdown();
-        else showClassDropdown();
-    }
-    function toggleClearClassBtn() {
-        clearClassInputBtn.style.display = dom.classSearchInput.value.length > 0 ? 'flex' : 'none';
-    }
-    clearClassInputBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        dom.classSearchInput.value = '';
-        toggleClearClassBtn();
-        if (classComboDropdown.style.display === 'block') renderClassDropdown('');
-        dom.classSearchInput.focus();
-    });
-    dom.classSearchInput.addEventListener('input', function() {
-        toggleClearClassBtn();
-        if (!classOptionsList.length) return;
-        if (classComboDropdown.style.display === 'block') renderClassDropdown(this.value);
-        else showClassDropdown();
-    });
-    dom.classSearchInput.addEventListener('focus', () => { if (classOptionsList.length && classComboDropdown.style.display !== 'block') showClassDropdown(); });
-    comboClassToggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleClassDropdown(); });
-    document.addEventListener('click', (e) => {
-        if (classComboContainer && !classComboContainer.contains(e.target)) hideClassDropdown();
-    });
-    classComboDropdown.addEventListener('click', (e) => e.stopPropagation());
 
     // 分析核心：转入/转出班级，仅显示有转专业记录的学生
     function executeAnalysis() {
@@ -778,7 +625,7 @@
             dom.analysisCountBadge.textContent = '0 人';
             return;
         }
-        const analysisType = dom.analysisType.value;
+        const analysisType = dom.analysisType.value; // 'in' 转入  'out' 转出
         let targetClass = dom.classSearchInput.value.trim();
         if (!targetClass) {
             dom.analysisResultList.innerHTML = `<div class="empty-analysis">请在右侧输入或选择班级名称</div>`;
@@ -788,11 +635,13 @@
 
         let matchedStudents = [];
         if (analysisType === 'in') {
+            // 转入班级分析：新班级 === targetClass，且新班级不能是“未转专业”
             matchedStudents = fullStudentList.filter(stu => {
                 const newCls = stu.newClass;
                 return newCls && newCls !== '未转专业' && newCls === targetClass;
             });
         } else {
+            // 转出班级分析：原班级 === targetClass，并且该学生有转专业记录（newClass不为空且不为“未转专业”）
             matchedStudents = fullStudentList.filter(stu => {
                 return stu.adminclass_name === targetClass && stu.newClass && stu.newClass !== '未转专业' && stu.newClass !== '';
             });
@@ -827,16 +676,19 @@
         showLoading(true);
         dom.resultContainer.style.display = 'none';
         try {
+            // 1. 加载 studentInfo.json
             const studentResp = await fetch('studentInfo.json');
             if (!studentResp.ok) throw new Error(`无法加载 studentInfo.json (${studentResp.status})`);
             let studentsRaw = await studentResp.json();
             if (!Array.isArray(studentsRaw)) studentsRaw = [studentsRaw];
 
+            // 2. 加载 Majort.json
             const majorResp = await fetch('Majort.json');
             if (!majorResp.ok) throw new Error(`无法加载 Majort.json (${majorResp.status})`);
             let majorRaw = await majorResp.json();
             if (!Array.isArray(majorRaw)) majorRaw = [majorRaw];
 
+            // 建立 studentId -> newclass 映射
             const transferMap = new Map();
             for (const item of majorRaw) {
                 if (item.studentId && item.newclass) {
@@ -844,6 +696,7 @@
                 }
             }
 
+            // 融合数据: 为每个学生添加 newClass 字段
             fullStudentList = studentsRaw.map(stu => {
                 const studentCode = stu.code ? String(stu.code) : '';
                 let newClass = '未转专业';
@@ -863,7 +716,7 @@
             dataLoaded = true;
             loadFailed = false;
             showLoading(false);
-            updateClassDropdownOptions();
+            updateClassDatalist();
             hideAllTips();
         } catch (err) {
             console.error('加载失败:', err);
@@ -900,6 +753,7 @@
         });
         dom.prevPage.addEventListener('click', goPrev);
         dom.nextPage.addEventListener('click', goNext);
+        // 分析按钮
         dom.analysisExecuteBtn.addEventListener('click', () => {
             if (!dataLoaded) {
                 dom.analysisResultList.innerHTML = `<div class="empty-analysis">数据尚未加载完成，请稍后...</div>`;
@@ -908,14 +762,13 @@
             }
             executeAnalysis();
         });
+        // 班级输入框回车触发分析
         dom.classSearchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 if (dataLoaded) executeAnalysis();
             }
         });
-        // 初始隐藏清除按钮
-        toggleClearClassBtn();
     }
 
     window.onload = () => {
