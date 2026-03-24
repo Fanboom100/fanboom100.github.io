@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>班级课程表 · 悬浮交互</title>
+    <title>班级课程表</title>
     <style>
-        /* 样式保持不变，与上一个版本完全相同 */
         * {
             box-sizing: border-box;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif;
@@ -1230,7 +1229,7 @@
                 scheduleData = Array.isArray(scheduleJson) ? scheduleJson : [];
                 if (scheduleData.length === 0) throw new Error('排课信息为空数组');
                 buildMaps();
-                updateStatus('数据更新时间:2026.3.20');
+                updateStatus('数据更新时间:2026.3.24 22:30');
                 allClasses = extractClasses();
                 autoSyncWeek();
                 const urlClass = getUrlParam('s');
