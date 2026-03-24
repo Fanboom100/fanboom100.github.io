@@ -38578,5 +38578,65 @@
     "endSession": 11,
     "vaildWeeks": "00000000000000100000000000",
     "isScheduled": true
+  },
+  {
+    "teacherName": "",
+    "courseId": "391426",
+    "roomName": "",
+    "weekday": 0,
+    "startSession": 0,
+    "endSession": 0,
+    "vaildWeeks": "00000000000000000000000000",
+    "isScheduled": false
+  },
+  {
+    "teacherName": "",
+    "courseId": "391427",
+    "roomName": "",
+    "weekday": 0,
+    "startSession": 0,
+    "endSession": 0,
+    "vaildWeeks": "00000000000000000000000000",
+    "isScheduled": false
+  },
+  {
+    "teacherName": "蒋社想",
+    "courseId": "393424",
+    "roomName": "明理204",
+    "weekday": 4,
+    "startSession": 10,
+    "endSession": 12,
+    "vaildWeeks": "00001111111111000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "蒋社想",
+    "courseId": "393424",
+    "roomName": "明理204",
+    "weekday": 7,
+    "startSession": 10,
+    "endSession": 12,
+    "vaildWeeks": "00001111111111000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "张玉",
+    "courseId": "393426",
+    "roomName": "天工304",
+    "weekday": 2,
+    "startSession": 10,
+    "endSession": 12,
+    "vaildWeeks": "00001111111111000000000000",
+    "isScheduled": true
+  },
+  {
+    "teacherName": "",
+    "courseId": "393425",
+    "roomName": "",
+    "weekday": 0,
+    "startSession": 0,
+    "endSession": 0,
+    "vaildWeeks": "00000000000000000000000000",
+    "isScheduled": false
   }
 ]

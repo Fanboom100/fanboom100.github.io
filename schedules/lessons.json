@@ -19750,5 +19750,70 @@
         "name": "高等代数(二)",
         "class": "信计25-4",
         "teacher": "王龙"
+    },{
+        "lessonid": "391427",
+        "name": "工程制图实践",
+        "class": "",
+        "teacher": "解甜"
+    },
+    {
+        "lessonid": "393424",
+        "name": "高级语言程序设计",
+        "class": "计算机25-9",
+        "teacher": "蒋社想"
+    },
+    {
+        "lessonid": "393424",
+        "name": "高级语言程序设计",
+        "class": "计算机25-10",
+        "teacher": "蒋社想"
+    },
+    {
+        "lessonid": "393424",
+        "name": "高级语言程序设计",
+        "class": "软件工程25-5",
+        "teacher": "蒋社想"
+    },
+    {
+        "lessonid": "393425",
+        "name": "高级语言程序设计综合实训",
+        "class": "计算机25-9",
+        "teacher": "蒋社想"
+    },
+    {
+        "lessonid": "393425",
+        "name": "高级语言程序设计综合实训",
+        "class": "计算机25-10",
+        "teacher": "蒋社想"
+    },
+    {
+        "lessonid": "393425",
+        "name": "高级语言程序设计综合实训",
+        "class": "软件工程25-5",
+        "teacher": "蒋社想"
+    },
+    {
+        "lessonid": "393426",
+        "name": "Java程序设计（双语教学）",
+        "class": "计算机25-9",
+        "teacher": "张玉"
+    },
+    {
+        "lessonid": "393426",
+        "name": "Java程序设计（双语教学）",
+        "class": "计算机25-10",
+        "teacher": "张玉"
+    },
+    {
+        "lessonid": "393426",
+        "name": "Java程序设计（双语教学）",
+        "class": "软件工程25-5",
+        "teacher": "张玉"
+    },
+    {
+        "lessonid": "391426",
+        "name": "计算机绘图实践（AutoCAD）",
+        "class": "",
+        "teacher": "解甜"
     }
 ]

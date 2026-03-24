@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>班级课程表</title>
+    <title>班级课程表 · 悬浮交互</title>
     <style>
         * {
             box-sizing: border-box;
@@ -327,7 +327,6 @@
             border: 1px solid #eed2b1;
             vertical-align: top;
             padding: 8px;
-            height: 140px;
             background-color: #fffdf8;
         }
         .time-col {
@@ -393,7 +392,7 @@
             display: flex;
             align-items: baseline;
             gap: 5px;
-            margin-top: 6px;  /* 保持合适间距 */
+            margin-top: 6px;
         }
         .course-detail::before {
             content: "•";
@@ -618,25 +617,14 @@
         let selectedClass = '';
         let lessonToClasses = new Map();
 
-        const statusDiv = document.getElementById('status');
-        const weekDisplayInput = document.getElementById('weekDisplayInput');
-        const prevWeekBtn = document.getElementById('prevWeekBtn');
-        const nextWeekBtn = document.getElementById('nextWeekBtn');
-        const tbody = document.getElementById('timetableBody');
-        const comboInput = document.getElementById('classComboInput');
-        const comboBtn = document.getElementById('comboToggleBtn');
-        const comboDropdown = document.getElementById('comboDropdown');
-        const clearBtn = document.getElementById('clearInputBtn');
-        const settingsBtn = document.getElementById('settingsBtn');
-        const settingsPanel = document.getElementById('settingsPanel');
-        const queryToggle = document.getElementById('queryToggle');
-
+        // 节次定义：增加了第12节
         const SESSIONS = [
             { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40", startHour: 8, startMin: 0, endHour: 9, endMin: 40, display: "1-2节" },
             { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40", startHour: 10, startMin: 0, endHour: 11, endMin: 40, display: "3-4节" },
             { name: "5-6", start: 5, end: 6, time: "14:00 - 15:40", startHour: 14, startMin: 0, endHour: 15, endMin: 40, display: "5-6节" },
             { name: "7-8", start: 7, end: 8, time: "16:00 - 17:40", startHour: 16, startMin: 0, endHour: 17, endMin: 40, display: "7-8节" },
-            { name: "10-11", start: 10, end: 11, time: "19:20 - 21:00", startHour: 19, startMin: 20, endHour: 21, endMin: 0, display: "10-11节" }
+            { name: "10-11", start: 10, end: 11, time: "19:20 - 21:00", startHour: 19, startMin: 20, endHour: 21, endMin: 0, display: "10-11节" },
+            { name: "12", start: 12, end: 12, time: "21:10 - 21:55", startHour: 21, startMin: 10, endHour: 21, endMin: 55, display: "12节" }
         ];
         const WEEKDAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
 
@@ -649,7 +637,7 @@
             return urlParams.get(name);
         }
 
-        // 计算当前是第几周（基于学期开始日期，周一为一周开始）
+        // 计算当前是第几周
         function getCurrentWeekNumber() {
             const today = new Date();
             if (today < SEMESTER_START) return 1;
@@ -692,7 +680,6 @@
             }
         }
 
-        // 自动同步周数
         function autoSyncWeek() {
             const currentWeek = getCurrentWeekNumber();
             weekDisplayInput.value = currentWeek;
@@ -744,8 +731,10 @@
             return !(e < blockStart || s > blockEnd);
         }
 
-        function buildTimetableData(className, weekNum) {
-            const grid = Array.from({ length: 7 }, () => Array.from({ length: SESSIONS.length }, () => []));
+        // 构建合并后的课程数据
+        function buildMergedGrid(className, weekNum) {
+            // 先按原始方式填充每个节次的课程列表（不合并）
+            const rawGrid = Array.from({ length: 7 }, () => Array.from({ length: SESSIONS.length }, () => []));
             const courseIdsInClass = new Set();
             coursesData.forEach(c => {
                 if (c.class && c.class.trim() === className && c.lessonid) {
@@ -761,25 +750,71 @@
                 const courseName = courseNameMap.get(courseId) || '未知课程';
                 let teacher = sch.teacherName || '';
                 let room = sch.roomName || '';
-                // 处理 null 值：显示为“自选”
                 if (teacher === "null") teacher = '自选';
                 if (room === "null") room = '自选';
                 const courseInfo = { name: courseName, teacher, room, lessonId: courseId };
                 for (let sIdx = 0; sIdx < SESSIONS.length; sIdx++) {
                     const block = SESSIONS[sIdx];
                     if (coversSessionBlock(sch, block.start, block.end)) {
-                        grid[weekday-1][sIdx].push(courseInfo);
+                        rawGrid[weekday-1][sIdx].push(courseInfo);
                     }
                 }
             });
-            return grid;
+
+            // 合并连续节次的相同课程
+            const mergedGrid = Array.from({ length: 7 }, () => []);
+            for (let d = 0; d < 7; d++) {
+                const dayRaw = rawGrid[d];
+                // 将每个节次中的课程按课程ID聚合（同一节次可能有多门课，先保持原样，后续合并连续区间）
+                // 更简单：遍历每个节次，记录课程，然后合并连续区间
+                // 由于同一节次可能有多门课（不同教室），不能简单合并不同课程。
+                // 因此对于每个课程ID，找出它在哪些连续节次中出现，然后合并。
+                const courseMap = new Map(); // key: lessonId, value: { courseInfo, sessions: [] }
+                for (let s = 0; s < dayRaw.length; s++) {
+                    const courses = dayRaw[s];
+                    courses.forEach(c => {
+                        const lid = c.lessonId;
+                        if (!courseMap.has(lid)) {
+                            courseMap.set(lid, { info: c, sessions: [] });
+                        }
+                        courseMap.get(lid).sessions.push(s);
+                    });
+                }
+                // 按节次排序并合并连续区间
+                const mergedItems = [];
+                for (const [lid, item] of courseMap.entries()) {
+                    const sessions = item.sessions.sort((a,b) => a-b);
+                    let start = sessions[0];
+                    let end = sessions[0];
+                    for (let i = 1; i < sessions.length; i++) {
+                        if (sessions[i] === end + 1) {
+                            end = sessions[i];
+                        } else {
+                            mergedItems.push({ ...item.info, startSession: start, endSession: end, rowspan: end - start + 1 });
+                            start = sessions[i];
+                            end = sessions[i];
+                        }
+                    }
+                    mergedItems.push({ ...item.info, startSession: start, endSession: end, rowspan: end - start + 1 });
+                }
+                // 按起始节次排序
+                mergedItems.sort((a,b) => a.startSession - b.startSession);
+                // 构建合并后的网格：对于每个节次，记录从哪个索引开始
+                // 更简单：生成一个数组mergedCells，长度为SESSIONS.length，每个位置存放该节次应显示的课程（或null）
+                const mergedCells = new Array(SESSIONS.length).fill(null);
+                for (const item of mergedItems) {
+                    mergedCells[item.startSession] = item;
+                    // 后续节次标记为已占用（由rowspan处理）
+                }
+                mergedGrid[d] = mergedCells;
+            }
+            return mergedGrid;
         }
 
         function clearSelectedCards() {
             document.querySelectorAll('.course-item').forEach(card => card.classList.remove('selected'));
         }
 
-        // 渐出关闭浮窗
         function closeFloatingCard() {
             if (currentFloatingCard) {
                 const card = currentFloatingCard;
@@ -792,14 +827,12 @@
             }
         }
 
-        // 跳转学生查询（新标签页）
         function jumpToStudentSearch(className) {
             if (!className) return;
             const url = `/student_search.html?s=${encodeURIComponent(className)}`;
             window.open(url, '_blank');
         }
 
-        // 切换课表班级（本页面）
         function switchToClass(className) {
             if (!className || !allClasses.includes(className)) return;
             selectedClass = className;
@@ -812,7 +845,6 @@
             closeFloatingCard();
             if (!selectedClass) return;
 
-            // 获取当前课程对应的日期和节次信息（用于悬浮框显示）
             const baseDate = new Date(SEMESTER_START);
             const monday = new Date(baseDate);
             monday.setDate(baseDate.getDate() + (weekNum - 1) * 7);
@@ -828,16 +860,13 @@
                 allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort((a, b) => a.localeCompare(b, 'zh'));
             }
 
-            // 当前浮窗选中的班级（初始为当前课表班级）
             let currentSelectedLessonClass = selectedClass;
 
-            // 生成班级网格 HTML，每个班级可点击切换
-            // 当前课程班级（selectedClass）始终加粗；当前选中的班级（currentSelectedLessonClass）额外加 selected 类（背景高亮）
             function renderClassGrid() {
                 if (!allClassesForLesson.length) return '<div class="class-grid">无</div>';
                 const items = allClassesForLesson.map(cls => {
-                    const isOriginal = (cls === selectedClass);        // 原始课程班级，始终加粗
-                    const isSelected = (cls === currentSelectedLessonClass); // 用户点击选中的班级
+                    const isOriginal = (cls === selectedClass);
+                    const isSelected = (cls === currentSelectedLessonClass);
                     let displayClass = '';
                     if (isOriginal) displayClass = `<strong>${escapeHtml(cls)}</strong>`;
                     else displayClass = escapeHtml(cls);
@@ -865,14 +894,13 @@
                 <button class="floating-btn" id="queryStudentBtn">查询该班学生</button>
                 <button class="floating-btn" id="queryScheduleBtn">查询该班课程表</button>
                 <div class="same-class-info">
-                    <div style="margin-bottom: 6px;">同课程班级：</div>
+                    <div style="margin-bottom: 6px;">该课程班级：</div>
                     <div id="classGridContainer">${renderClassGrid()}</div>
                 </div>
             `;
             document.body.appendChild(div);
             currentFloatingCard = div;
 
-            // 定位
             let left = rect.right + 8 + scrollLeft;
             let top = rect.top + scrollTop;
             const cardWidth = div.offsetWidth;
@@ -886,19 +914,17 @@
             div.style.left = left + 'px';
             div.style.top = top + 'px';
 
-            // 刷新班级网格并重新绑定事件
             function refreshClassGrid() {
                 const container = div.querySelector('#classGridContainer');
                 if (container) {
                     container.innerHTML = renderClassGrid();
-                    // 重新绑定班级点击事件
                     container.querySelectorAll('.class-item').forEach(el => {
                         el.addEventListener('click', (e) => {
                             e.stopPropagation();
                             const cls = el.dataset.class;
                             if (cls && cls !== currentSelectedLessonClass) {
                                 currentSelectedLessonClass = cls;
-                                refreshClassGrid(); // 重新渲染以更新选中样式
+                                refreshClassGrid();
                                 attachButtonEvents();
                             }
                         });
@@ -945,7 +971,9 @@
                 tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:40px;">请选择一个班级</td></tr>';
                 return;
             }
-            const grid = buildTimetableData(className, weekNum);
+            const mergedGrid = buildMergedGrid(className, weekNum); // 每星期是一个数组，每个元素为课程对象或null
+
+            // 计算日期行
             const baseDate = new Date(SEMESTER_START);
             const monday = new Date(baseDate);
             monday.setDate(baseDate.getDate() + (weekNum - 1) * 7);
@@ -963,32 +991,80 @@
                     headers[i].innerHTML = `${WEEKDAYS[i-1]}<br><span style="font-size:0.75rem; font-weight:normal; color:#7c613a;">${dates[i-1]}</span>`;
                 }
             }
+
+            // 生成表格体，使用 rowspan 合并
             let html = '';
             for (let row = 0; row < SESSIONS.length; row++) {
                 const session = SESSIONS[row];
                 html += '<tr>';
                 html += `<td class="time-col">${session.name}<br><span style="font-size:0.75rem;">${session.time}</span></td>`;
                 for (let day = 0; day < 7; day++) {
-                    const courses = grid[day][row];
-                    html += '<td>';
-                    if (courses.length === 0) {
-                        html += '<div class="empty-cell">—</div>';
-                    } else {
-                        courses.forEach(c => {
-                            let details = '';
-                            if (c.room && c.room !== '') details += `<div class="course-detail">教室：${c.room}</div>`;
-                            if (c.teacher && c.teacher !== '') details += `<div class="course-detail">教师：${c.teacher}</div>`;
-                            html += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}" data-weekday="${day}" data-session="${row}" data-week="${weekNum}">`;
-                            html += `<div class="course-name">${escapeHtml(c.name)}</div>`;
-                            html += details;
-                            html += `</div>`;
-                        });
+                    const item = mergedGrid[day][row];
+                    if (item && item.startSession === row) {
+                        // 该节次是该课程的起始节次，输出 td，设置 rowspan
+                        const rowspan = item.rowspan;
+                        const c = item;
+                        let details = '';
+                        if (c.room && c.room !== '') details += `<div class="course-detail">教室：${c.room}</div>`;
+                        if (c.teacher && c.teacher !== '') details += `<div class="course-detail">教师：${c.teacher}</div>`;
+                        html += `<td rowspan="${rowspan}" style="vertical-align:top;">`;
+                        html += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}" data-weekday="${day}" data-session="${row}" data-week="${weekNum}">`;
+                        html += `<div class="course-name">${escapeHtml(c.name)}</div>`;
+                        html += details;
+                        html += `</div>`;
+                        html += `</td>`;
+                    } else if (!item || item.startSession !== row) {
+                        // 该节次没有被任何课程作为起始，且不是合并的后续节次（因为合并的后续节次由 rowspan 占据，不输出 td）
+                        // 需要检查是否被前面的 rowspan 占用：如果前一个单元格已经通过 rowspan 覆盖，此处不应该有 td，但表格结构中我们只输出起始，所以这里不输出任何 td，但需要保持列数一致。
+                        // 注意：因为我们在输出起始时已经用了 rowspan，后续行不会再有这个单元格，所以这里应该跳过（不输出 td），但必须保证每一行有相同数量的列。
+                        // 由于我们已经输出起始，后续行在该列不会有单元格，所以必须用条件跳过。但HTML表格中，如果某一列被rowspan占据，后续行该列不应该再出现td。
+                        // 因此我们在这里需要判断是否应该跳过。我们通过检查该行该列是否有课程起始来决定是否输出td，如果没有起始，且不是被合并的部分，则输出空td（或者不输出，但会导致列数不对）。
+                        // 实际上，当有rowspan时，后续行该列位置不应该有任何td，所以我们必须确保跳过这些位置。
+                        // 简便方法：我们只输出起始的td，对于非起始的位置，什么都不输出，但这样会导致行内列数缺失。因此我们需要在每一行记录哪些列已经被rowspan覆盖。
+                        // 使用一个二维数组记录每一行每一列是否应该输出。在遍历过程中，对于每个起始，将后续rowspan-1行的对应列标记为已占用。
+                        // 因此我们重构渲染逻辑：先构建一个二维标记，然后根据标记决定是否输出td。
                     }
-                    html += '</td>';
                 }
                 html += '</tr>';
             }
-            tbody.innerHTML = html;
+
+            // 改进渲染：使用标记数组
+            // 重新生成更可靠
+            const occupied = Array.from({ length: SESSIONS.length }, () => Array(7).fill(false));
+            let newHtml = '';
+            for (let row = 0; row < SESSIONS.length; row++) {
+                newHtml += '<tr>';
+                newHtml += `<td class="time-col">${SESSIONS[row].name}<br><span style="font-size:0.75rem;">${SESSIONS[row].time}</span></td>`;
+                for (let day = 0; day < 7; day++) {
+                    if (occupied[row][day]) {
+                        // 该位置已被前面行的rowspan占据，跳过输出
+                        continue;
+                    }
+                    const item = mergedGrid[day][row];
+                    if (item && item.startSession === row) {
+                        const rowspan = item.rowspan;
+                        // 标记后续行的对应列
+                        for (let r = row + 1; r < row + rowspan && r < SESSIONS.length; r++) {
+                            occupied[r][day] = true;
+                        }
+                        const c = item;
+                        let details = '';
+                        if (c.room && c.room !== '') details += `<div class="course-detail">教室：${c.room}</div>`;
+                        if (c.teacher && c.teacher !== '') details += `<div class="course-detail">教师：${c.teacher}</div>`;
+                        newHtml += `<td rowspan="${rowspan}" style="vertical-align:top;">`;
+                        newHtml += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}" data-weekday="${day}" data-session="${row}" data-week="${weekNum}">`;
+                        newHtml += `<div class="course-name">${escapeHtml(c.name)}</div>`;
+                        newHtml += details;
+                        newHtml += `</div>`;
+                        newHtml += `</td>`;
+                    } else {
+                        // 空单元格
+                        newHtml += '<td><div class="empty-cell">—</div></td>';
+                    }
+                }
+                newHtml += '</tr>';
+            }
+            tbody.innerHTML = newHtml;
             attachCourseEvents();
             highlightCurrentTime();
         }
@@ -1210,6 +1286,19 @@
                 comboDropdown.innerHTML = '';
             }
         }
+
+        const statusDiv = document.getElementById('status');
+        const weekDisplayInput = document.getElementById('weekDisplayInput');
+        const prevWeekBtn = document.getElementById('prevWeekBtn');
+        const nextWeekBtn = document.getElementById('nextWeekBtn');
+        const tbody = document.getElementById('timetableBody');
+        const comboInput = document.getElementById('classComboInput');
+        const comboBtn = document.getElementById('comboToggleBtn');
+        const comboDropdown = document.getElementById('comboDropdown');
+        const clearBtn = document.getElementById('clearInputBtn');
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingsPanel = document.getElementById('settingsPanel');
+        const queryToggle = document.getElementById('queryToggle');
 
         const initHeaders = document.querySelectorAll('#weekHeaders th');
         for (let i = 1; i <= 7; i++) if (initHeaders[i]) initHeaders[i].innerHTML = WEEKDAYS[i-1];
