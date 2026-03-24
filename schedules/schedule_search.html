@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>班级课程表</title>
+    <title>班级课程表 · 悬浮交互</title>
     <style>
+        /* 样式保持不变，与上一个版本完全相同 */
         * {
             box-sizing: border-box;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif;
@@ -606,18 +607,34 @@
 </div>
 <script>
     (function() {
-        // ---------- 学期开始时间（可手动修改，格式：年,月,日，注意月从0开始）----------
-        const SEMESTER_START = new Date(2026, 2, 2);  // 2026年3月2日，周一
-        // ---------------------------------------------------------------------
+        // ---------- 学期开始时间 ----------
+        const SEMESTER_START = new Date(2026, 2, 2);
 
+        // ---------- DOM 元素声明（统一在顶部）----------
+        const statusDiv = document.getElementById('status');
+        const weekDisplayInput = document.getElementById('weekDisplayInput');
+        const prevWeekBtn = document.getElementById('prevWeekBtn');
+        const nextWeekBtn = document.getElementById('nextWeekBtn');
+        const tbody = document.getElementById('timetableBody');
+        const comboInput = document.getElementById('classComboInput');
+        const comboBtn = document.getElementById('comboToggleBtn');
+        const comboDropdown = document.getElementById('comboDropdown');
+        const clearBtn = document.getElementById('clearInputBtn');
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingsPanel = document.getElementById('settingsPanel');
+        const queryToggle = document.getElementById('queryToggle');
+
+        // ---------- 全局变量 ----------
         let coursesData = [];
         let scheduleData = [];
         let courseNameMap = new Map();
         let allClasses = [];
         let selectedClass = '';
         let lessonToClasses = new Map();
+        let enableQuery = false;
+        let currentFloatingCard = null;
 
-        // 节次定义：增加了第12节
+        // 节次定义
         const SESSIONS = [
             { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40", startHour: 8, startMin: 0, endHour: 9, endMin: 40, display: "1-2节" },
             { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40", startHour: 10, startMin: 0, endHour: 11, endMin: 40, display: "3-4节" },
@@ -628,16 +645,12 @@
         ];
         const WEEKDAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
 
-        let enableQuery = false;
-        let currentFloatingCard = null;
-
-        // 获取 URL 参数
+        // ---------- 辅助函数 ----------
         function getUrlParam(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
         }
 
-        // 计算当前是第几周
         function getCurrentWeekNumber() {
             const today = new Date();
             if (today < SEMESTER_START) return 1;
@@ -647,7 +660,6 @@
             return Math.min(weekNum, 26);
         }
 
-        // 高亮当前时间对应的表头
         function highlightCurrentTime() {
             document.querySelectorAll('#weekHeaders th, .time-col').forEach(el => {
                 el.classList.remove('current-highlight');
@@ -733,7 +745,6 @@
 
         // 构建合并后的课程数据
         function buildMergedGrid(className, weekNum) {
-            // 先按原始方式填充每个节次的课程列表（不合并）
             const rawGrid = Array.from({ length: 7 }, () => Array.from({ length: SESSIONS.length }, () => []));
             const courseIdsInClass = new Set();
             coursesData.forEach(c => {
@@ -761,15 +772,10 @@
                 }
             });
 
-            // 合并连续节次的相同课程
             const mergedGrid = Array.from({ length: 7 }, () => []);
             for (let d = 0; d < 7; d++) {
                 const dayRaw = rawGrid[d];
-                // 将每个节次中的课程按课程ID聚合（同一节次可能有多门课，先保持原样，后续合并连续区间）
-                // 更简单：遍历每个节次，记录课程，然后合并连续区间
-                // 由于同一节次可能有多门课（不同教室），不能简单合并不同课程。
-                // 因此对于每个课程ID，找出它在哪些连续节次中出现，然后合并。
-                const courseMap = new Map(); // key: lessonId, value: { courseInfo, sessions: [] }
+                const courseMap = new Map();
                 for (let s = 0; s < dayRaw.length; s++) {
                     const courses = dayRaw[s];
                     courses.forEach(c => {
@@ -780,7 +786,6 @@
                         courseMap.get(lid).sessions.push(s);
                     });
                 }
-                // 按节次排序并合并连续区间
                 const mergedItems = [];
                 for (const [lid, item] of courseMap.entries()) {
                     const sessions = item.sessions.sort((a,b) => a-b);
@@ -797,14 +802,10 @@
                     }
                     mergedItems.push({ ...item.info, startSession: start, endSession: end, rowspan: end - start + 1 });
                 }
-                // 按起始节次排序
                 mergedItems.sort((a,b) => a.startSession - b.startSession);
-                // 构建合并后的网格：对于每个节次，记录从哪个索引开始
-                // 更简单：生成一个数组mergedCells，长度为SESSIONS.length，每个位置存放该节次应显示的课程（或null）
                 const mergedCells = new Array(SESSIONS.length).fill(null);
                 for (const item of mergedItems) {
                     mergedCells[item.startSession] = item;
-                    // 后续节次标记为已占用（由rowspan处理）
                 }
                 mergedGrid[d] = mergedCells;
             }
@@ -971,9 +972,8 @@
                 tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:40px;">请选择一个班级</td></tr>';
                 return;
             }
-            const mergedGrid = buildMergedGrid(className, weekNum); // 每星期是一个数组，每个元素为课程对象或null
+            const mergedGrid = buildMergedGrid(className, weekNum);
 
-            // 计算日期行
             const baseDate = new Date(SEMESTER_START);
             const monday = new Date(baseDate);
             monday.setDate(baseDate.getDate() + (weekNum - 1) * 7);
@@ -992,58 +992,16 @@
                 }
             }
 
-            // 生成表格体，使用 rowspan 合并
-            let html = '';
-            for (let row = 0; row < SESSIONS.length; row++) {
-                const session = SESSIONS[row];
-                html += '<tr>';
-                html += `<td class="time-col">${session.name}<br><span style="font-size:0.75rem;">${session.time}</span></td>`;
-                for (let day = 0; day < 7; day++) {
-                    const item = mergedGrid[day][row];
-                    if (item && item.startSession === row) {
-                        // 该节次是该课程的起始节次，输出 td，设置 rowspan
-                        const rowspan = item.rowspan;
-                        const c = item;
-                        let details = '';
-                        if (c.room && c.room !== '') details += `<div class="course-detail">教室：${c.room}</div>`;
-                        if (c.teacher && c.teacher !== '') details += `<div class="course-detail">教师：${c.teacher}</div>`;
-                        html += `<td rowspan="${rowspan}" style="vertical-align:top;">`;
-                        html += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}" data-weekday="${day}" data-session="${row}" data-week="${weekNum}">`;
-                        html += `<div class="course-name">${escapeHtml(c.name)}</div>`;
-                        html += details;
-                        html += `</div>`;
-                        html += `</td>`;
-                    } else if (!item || item.startSession !== row) {
-                        // 该节次没有被任何课程作为起始，且不是合并的后续节次（因为合并的后续节次由 rowspan 占据，不输出 td）
-                        // 需要检查是否被前面的 rowspan 占用：如果前一个单元格已经通过 rowspan 覆盖，此处不应该有 td，但表格结构中我们只输出起始，所以这里不输出任何 td，但需要保持列数一致。
-                        // 注意：因为我们在输出起始时已经用了 rowspan，后续行不会再有这个单元格，所以这里应该跳过（不输出 td），但必须保证每一行有相同数量的列。
-                        // 由于我们已经输出起始，后续行在该列不会有单元格，所以必须用条件跳过。但HTML表格中，如果某一列被rowspan占据，后续行该列不应该再出现td。
-                        // 因此我们在这里需要判断是否应该跳过。我们通过检查该行该列是否有课程起始来决定是否输出td，如果没有起始，且不是被合并的部分，则输出空td（或者不输出，但会导致列数不对）。
-                        // 实际上，当有rowspan时，后续行该列位置不应该有任何td，所以我们必须确保跳过这些位置。
-                        // 简便方法：我们只输出起始的td，对于非起始的位置，什么都不输出，但这样会导致行内列数缺失。因此我们需要在每一行记录哪些列已经被rowspan覆盖。
-                        // 使用一个二维数组记录每一行每一列是否应该输出。在遍历过程中，对于每个起始，将后续rowspan-1行的对应列标记为已占用。
-                        // 因此我们重构渲染逻辑：先构建一个二维标记，然后根据标记决定是否输出td。
-                    }
-                }
-                html += '</tr>';
-            }
-
-            // 改进渲染：使用标记数组
-            // 重新生成更可靠
             const occupied = Array.from({ length: SESSIONS.length }, () => Array(7).fill(false));
             let newHtml = '';
             for (let row = 0; row < SESSIONS.length; row++) {
                 newHtml += '<tr>';
                 newHtml += `<td class="time-col">${SESSIONS[row].name}<br><span style="font-size:0.75rem;">${SESSIONS[row].time}</span></td>`;
                 for (let day = 0; day < 7; day++) {
-                    if (occupied[row][day]) {
-                        // 该位置已被前面行的rowspan占据，跳过输出
-                        continue;
-                    }
+                    if (occupied[row][day]) continue;
                     const item = mergedGrid[day][row];
                     if (item && item.startSession === row) {
                         const rowspan = item.rowspan;
-                        // 标记后续行的对应列
                         for (let r = row + 1; r < row + rowspan && r < SESSIONS.length; r++) {
                             occupied[r][day] = true;
                         }
@@ -1058,7 +1016,6 @@
                         newHtml += `</div>`;
                         newHtml += `</td>`;
                     } else {
-                        // 空单元格
                         newHtml += '<td><div class="empty-cell">—</div></td>';
                     }
                 }
@@ -1146,6 +1103,7 @@
                 });
             });
         }
+
         function showDropdown() {
             if (!allClasses.length) return;
             renderDropdown(comboInput.value);
@@ -1163,6 +1121,7 @@
         function toggleClearBtn() {
             clearBtn.style.display = comboInput.value.length > 0 ? 'flex' : 'none';
         }
+
         clearBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             comboInput.value = '';
@@ -1286,19 +1245,6 @@
                 comboDropdown.innerHTML = '';
             }
         }
-
-        const statusDiv = document.getElementById('status');
-        const weekDisplayInput = document.getElementById('weekDisplayInput');
-        const prevWeekBtn = document.getElementById('prevWeekBtn');
-        const nextWeekBtn = document.getElementById('nextWeekBtn');
-        const tbody = document.getElementById('timetableBody');
-        const comboInput = document.getElementById('classComboInput');
-        const comboBtn = document.getElementById('comboToggleBtn');
-        const comboDropdown = document.getElementById('comboDropdown');
-        const clearBtn = document.getElementById('clearInputBtn');
-        const settingsBtn = document.getElementById('settingsBtn');
-        const settingsPanel = document.getElementById('settingsPanel');
-        const queryToggle = document.getElementById('queryToggle');
 
         const initHeaders = document.querySelectorAll('#weekHeaders th');
         for (let i = 1; i <= 7; i++) if (initHeaders[i]) initHeaders[i].innerHTML = WEEKDAYS[i-1];
