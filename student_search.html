@@ -126,7 +126,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 20px 15px;
-            align-items: center;
+            align-items: start;
             padding-left: 40px;
         }
         .info-item {
@@ -143,6 +143,13 @@
             color: #333;
             font-size: 17px;
             word-break: break-all;
+            line-height: 1.4;
+        }
+        .info-value > div {
+            margin-bottom: 4px;
+        }
+        .info-value > div:last-child {
+            margin-bottom: 0;
         }
         .pagination {
             display: flex;
@@ -290,10 +297,10 @@
         .clickable-class {
             cursor: pointer;
             display: inline-block;
-            border-radius: 8px;          /* 圆角矩形 */
+            border-radius: 8px;
             padding: 2px 6px;
             margin: -2px -6px;
-            transition: background 0.1s ease; /* 快速消失 */
+            transition: background 0.1s ease;
         }
         .clickable-class:hover {
             background: #f0e5d2;
@@ -331,7 +338,7 @@
     <div class="container">
         <div class="header">
             <h1>学生信息查询系统</h1>
-            <p class="update-time">数据更新时间：2026.3.16 23:10</p>
+            <p class="update-time">数据更新时间：2026.4.1 21:50</p>
         </div>
         <div class="search-container">
             <input type="text" class="search-input" id="searchInput" placeholder="输入关键词查询">
@@ -346,7 +353,7 @@
         </button>
         <div id="settingsPanel" class="settings-panel">
             <div class="toggle-switch">
-                <span class="toggle-label">点击班级名称跳转课程表</span> <!-- 修改后的文案 -->
+                <span class="toggle-label">启用点击班级名称跳转课程表</span>
                 <label class="switch">
                     <input type="checkbox" id="classClickToggle">
                     <span class="slider"></span>
@@ -458,10 +465,50 @@
         function jumpToSchedule(className) {
             if (!className) return;
             const targetUrl = `https://fanboom100.github.io/schedules/schedule_search.html?s=${encodeURIComponent(className)}`;
-            window.open(targetUrl, '_blank');  // 新标签页打开
+            window.open(targetUrl, '_blank');
         }
 
-        // 渲染（班级字段支持可点击）
+        // ---------- 字段渲染函数 ----------
+        function renderClass(student, enableClick) {
+            const newClass = student.n_adminclass_name || '无';
+            const oldClass = student.s_adminclass_name || '无';
+            if (newClass === oldClass) {
+                const display = escapeHtml(newClass);
+                if (enableClick && newClass !== '无') {
+                    return `<span class="clickable-class" data-classname="${escapeHtml(newClass)}">${display}</span>`;
+                }
+                return display;
+            } else {
+                // 两行：第一行新班级（可点击），第二行原班级（不可点击）
+                let firstLine = escapeHtml(newClass);
+                if (enableClick && newClass !== '无') {
+                    firstLine = `<span class="clickable-class" data-classname="${escapeHtml(newClass)}">${firstLine}</span>`;
+                }
+                return `<div>${firstLine}</div><div>${escapeHtml(oldClass)}</div>`;
+            }
+        }
+
+        function renderDepartment(student) {
+            const newDept = student.n_depart_name || '无';
+            const oldDept = student.s_depart_name || '无';
+            if (newDept === oldDept) {
+                return escapeHtml(newDept);
+            } else {
+                return `<div>${escapeHtml(newDept)}</div><div>${escapeHtml(oldDept)}</div>`;
+            }
+        }
+
+        function renderMajor(student) {
+            const newMajor = student.n_major_name || '无';
+            const oldMajor = student.s_major_name || '无';
+            if (newMajor === oldMajor) {
+                return escapeHtml(newMajor);
+            } else {
+                return `<div>${escapeHtml(newMajor)}</div><div>${escapeHtml(oldMajor)}</div>`;
+            }
+        }
+
+        // 渲染当前页
         function renderCurrentPage() {
             if (!searchResult.length) return;
 
@@ -469,29 +516,32 @@
             const endIndex = startIndex + PAGE_SIZE;
             const currentData = searchResult.slice(startIndex, endIndex);
 
-            const infoMap = [
-                { label: '班级', key: 'adminclass_name' },
+            // 定义显示顺序和渲染方式
+            const fields = [
+                { label: '班级', render: (s) => renderClass(s, enableClassClick) },
                 { label: '学号', key: 'code' },
                 { label: '姓名', key: 'name' },
                 { label: '性别', key: 'gender' },
-                { label: '学院', key: 'depart_name' },
-                { label: '专业', key: 'major_name' }
+                { label: '学院', render: renderDepartment },
+                { label: '专业', render: renderMajor }
             ];
 
             let htmlBuffer = '';
             currentData.forEach((student, idx) => {
                 const globalIndex = (currentPageNum - 1) * PAGE_SIZE + idx + 1;
                 let infoHtml = '';
-                infoMap.forEach(item => {
-                    const rawValue = student[item.key] !== undefined && student[item.key] !== null ? student[item.key] : '无';
-                    let displayValue = escapeHtml(rawValue);
-                    if (item.key === 'adminclass_name' && enableClassClick && rawValue !== '无' && rawValue) {
-                        displayValue = `<span class="clickable-class" data-classname="${escapeHtml(rawValue)}">${displayValue}</span>`;
+                fields.forEach(field => {
+                    let valueHtml = '';
+                    if (field.render) {
+                        valueHtml = field.render(student);
+                    } else if (field.key) {
+                        const raw = student[field.key] !== undefined && student[field.key] !== null ? student[field.key] : '无';
+                        valueHtml = escapeHtml(raw);
                     }
                     infoHtml += `
                         <div class="info-item">
-                            <span class="info-label">${item.label}</span>
-                            <span class="info-value">${displayValue}</span>
+                            <span class="info-label">${field.label}</span>
+                            <div class="info-value">${valueHtml}</div>
                         </div>
                     `;
                 });
@@ -506,6 +556,7 @@
             el.currentPage.textContent = currentPageNum;
             el.totalPage.textContent = Math.ceil(searchResult.length / PAGE_SIZE);
 
+            // 绑定可点击班级事件（仅当开关开启时）
             if (enableClassClick) {
                 document.querySelectorAll('.clickable-class').forEach(elem => {
                     elem.addEventListener('click', (e) => {
@@ -517,7 +568,7 @@
             }
         }
 
-        // 搜索逻辑
+        // 搜索逻辑（保持不变，因为 Object.values 会遍历新字段）
         function performSearch() {
             if (!isDataLoaded) {
                 hideAllTips();
