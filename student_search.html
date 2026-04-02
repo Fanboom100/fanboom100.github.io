@@ -145,6 +145,14 @@
             word-break: break-all;
             line-height: 1.4;
         }
+        /* 小标题样式（用于原班级/原学院/原专业） */
+        .sub-label {
+            color: #888;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 8px;
+            margin-bottom: 2px;
+        }
         .info-value > div {
             margin-bottom: 4px;
         }
@@ -338,7 +346,7 @@
     <div class="container">
         <div class="header">
             <h1>学生信息查询系统</h1>
-            <p class="update-time">数据更新时间：2026.4.1 21:50</p>
+            <p class="update-time">数据更新时间：2026.4.1</p>
         </div>
         <div class="search-container">
             <input type="text" class="search-input" id="searchInput" placeholder="输入关键词查询">
@@ -468,43 +476,50 @@
             window.open(targetUrl, '_blank');
         }
 
-        // ---------- 字段渲染函数 ----------
+        // ---------- 字段渲染函数（新要求）----------
         function renderClass(student, enableClick) {
             const newClass = student.n_adminclass_name || '无';
             const oldClass = student.s_adminclass_name || '无';
+            
+            // 显示新班级（可能可点击）
+            let newClassHtml = escapeHtml(newClass);
+            if (enableClick && newClass !== '无') {
+                newClassHtml = `<span class="clickable-class" data-classname="${escapeHtml(newClass)}">${newClassHtml}</span>`;
+            }
+            
             if (newClass === oldClass) {
-                const display = escapeHtml(newClass);
-                if (enableClick && newClass !== '无') {
-                    return `<span class="clickable-class" data-classname="${escapeHtml(newClass)}">${display}</span>`;
-                }
-                return display;
+                return `<div>${newClassHtml}</div>`;
             } else {
-                // 两行：第一行新班级（可点击），第二行原班级（不可点击）
-                let firstLine = escapeHtml(newClass);
-                if (enableClick && newClass !== '无') {
-                    firstLine = `<span class="clickable-class" data-classname="${escapeHtml(newClass)}">${firstLine}</span>`;
-                }
-                return `<div>${firstLine}</div><div>${escapeHtml(oldClass)}</div>`;
+                // 新班级 + 小标题 + 原班级
+                return `<div>${newClassHtml}</div>
+                        <div class="sub-label">原班级</div>
+                        <div>${escapeHtml(oldClass)}</div>`;
             }
         }
 
         function renderDepartment(student) {
             const newDept = student.n_depart_name || '无';
             const oldDept = student.s_depart_name || '无';
+            const newDeptHtml = escapeHtml(newDept);
             if (newDept === oldDept) {
-                return escapeHtml(newDept);
+                return `<div>${newDeptHtml}</div>`;
             } else {
-                return `<div>${escapeHtml(newDept)}</div><div>${escapeHtml(oldDept)}</div>`;
+                return `<div>${newDeptHtml}</div>
+                        <div class="sub-label">原学院</div>
+                        <div>${escapeHtml(oldDept)}</div>`;
             }
         }
 
         function renderMajor(student) {
             const newMajor = student.n_major_name || '无';
             const oldMajor = student.s_major_name || '无';
+            const newMajorHtml = escapeHtml(newMajor);
             if (newMajor === oldMajor) {
-                return escapeHtml(newMajor);
+                return `<div>${newMajorHtml}</div>`;
             } else {
-                return `<div>${escapeHtml(newMajor)}</div><div>${escapeHtml(oldMajor)}</div>`;
+                return `<div>${newMajorHtml}</div>
+                        <div class="sub-label">原专业</div>
+                        <div>${escapeHtml(oldMajor)}</div>`;
             }
         }
 
@@ -516,7 +531,6 @@
             const endIndex = startIndex + PAGE_SIZE;
             const currentData = searchResult.slice(startIndex, endIndex);
 
-            // 定义显示顺序和渲染方式
             const fields = [
                 { label: '班级', render: (s) => renderClass(s, enableClassClick) },
                 { label: '学号', key: 'code' },
@@ -568,7 +582,7 @@
             }
         }
 
-        // 搜索逻辑（保持不变，因为 Object.values 会遍历新字段）
+        // 搜索逻辑（保持不变）
         function performSearch() {
             if (!isDataLoaded) {
                 hideAllTips();
