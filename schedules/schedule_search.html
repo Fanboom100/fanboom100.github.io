@@ -178,13 +178,15 @@
             border-radius: 24px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             padding: 16px 20px;
-            min-width: 220px;
+            min-width: 240px;
             z-index: 30;
             border: 1px solid #d4af37;
             display: none;
+            flex-direction: column;
+            gap: 12px;
         }
         .settings-panel.show {
-            display: block;
+            display: flex;
         }
         .toggle-switch {
             display: flex;
@@ -235,6 +237,22 @@
         }
         input:checked + .slider:before {
             transform: translateX(24px);
+        }
+        .export-ics-btn {
+            background: #d4af37;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            width: 100%;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+        .export-ics-btn:hover {
+            background: #b8860b;
         }
         .week-control-center {
             display: flex;
@@ -567,6 +585,7 @@
                         <span class="slider"></span>
                     </label>
                 </div>
+                <button class="export-ics-btn" id="exportIcsBtn">📅 导出课程表 (.ics)</button>
             </div>
         </div>
     </div>
@@ -576,7 +595,7 @@
         </button>
         <div class="week-display-box">
             <span>第</span>
-            <input type="text" id="weekDisplayInput" value="3" inputmode="numeric" pattern="\d*">
+            <input type="text" id="weekDisplayInput" value="" inputmode="numeric" pattern="\d*" placeholder="周">
             <span>周</span>
         </div>
         <button class="week-nav-btn" id="nextWeekBtn">
@@ -607,9 +626,30 @@
 <script>
     (function() {
         // ---------- 学期开始时间 ----------
-        const SEMESTER_START = new Date(2026, 2, 2);
+        const SEMESTER_START = new Date(2026, 2, 2);  // 2026年3月2日，周一
 
-        // ---------- DOM 元素声明（统一在顶部）----------
+        let coursesData = [];
+        let scheduleData = [];
+        let courseNameMap = new Map();
+        let allClasses = [];
+        let selectedClass = '';
+        let lessonToClasses = new Map();
+
+        // 节次定义（增加第12节）
+        const SESSIONS = [
+            { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40", startHour: 8, startMin: 0, endHour: 9, endMin: 40, display: "1-2节" },
+            { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40", startHour: 10, startMin: 0, endHour: 11, endMin: 40, display: "3-4节" },
+            { name: "5-6", start: 5, end: 6, time: "14:00 - 15:40", startHour: 14, startMin: 0, endHour: 15, endMin: 40, display: "5-6节" },
+            { name: "7-8", start: 7, end: 8, time: "16:00 - 17:40", startHour: 16, startMin: 0, endHour: 17, endMin: 40, display: "7-8节" },
+            { name: "10-11", start: 10, end: 11, time: "19:20 - 21:00", startHour: 19, startMin: 20, endHour: 21, endMin: 0, display: "10-11节" },
+            { name: "12", start: 12, end: 12, time: "21:10 - 21:55", startHour: 21, startMin: 10, endHour: 21, endMin: 55, display: "12节" }
+        ];
+        const WEEKDAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+
+        let enableQuery = false;
+        let currentFloatingCard = null;
+
+        // DOM 元素
         const statusDiv = document.getElementById('status');
         const weekDisplayInput = document.getElementById('weekDisplayInput');
         const prevWeekBtn = document.getElementById('prevWeekBtn');
@@ -622,34 +662,23 @@
         const settingsBtn = document.getElementById('settingsBtn');
         const settingsPanel = document.getElementById('settingsPanel');
         const queryToggle = document.getElementById('queryToggle');
+        const exportIcsBtn = document.getElementById('exportIcsBtn');
 
-        // ---------- 全局变量 ----------
-        let coursesData = [];
-        let scheduleData = [];
-        let courseNameMap = new Map();
-        let allClasses = [];
-        let selectedClass = '';
-        let lessonToClasses = new Map();
-        let enableQuery = false;
-        let currentFloatingCard = null;
+        // 自然排序函数
+        function naturalSort(a, b) {
+            const aNum = parseInt(a.match(/\d+/)?.[0] || '0');
+            const bNum = parseInt(b.match(/\d+/)?.[0] || '0');
+            if (aNum !== bNum) return aNum - bNum;
+            return a.localeCompare(b);
+        }
 
-        // 节次定义
-        const SESSIONS = [
-            { name: "1-2", start: 1, end: 2, time: "8:00 - 9:40", startHour: 8, startMin: 0, endHour: 9, endMin: 40, display: "1-2节" },
-            { name: "3-4", start: 3, end: 4, time: "10:00 - 11:40", startHour: 10, startMin: 0, endHour: 11, endMin: 40, display: "3-4节" },
-            { name: "5-6", start: 5, end: 6, time: "14:00 - 15:40", startHour: 14, startMin: 0, endHour: 15, endMin: 40, display: "5-6节" },
-            { name: "7-8", start: 7, end: 8, time: "16:00 - 17:40", startHour: 16, startMin: 0, endHour: 17, endMin: 40, display: "7-8节" },
-            { name: "10-11", start: 10, end: 11, time: "19:20 - 21:00", startHour: 19, startMin: 20, endHour: 21, endMin: 0, display: "10-11节" },
-            { name: "12", start: 12, end: 12, time: "21:10 - 21:55", startHour: 21, startMin: 10, endHour: 21, endMin: 55, display: "12节" }
-        ];
-        const WEEKDAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
-
-        // ---------- 辅助函数 ----------
+        // 获取 URL 参数
         function getUrlParam(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
         }
 
+        // 计算当前是第几周
         function getCurrentWeekNumber() {
             const today = new Date();
             if (today < SEMESTER_START) return 1;
@@ -659,6 +688,7 @@
             return Math.min(weekNum, 26);
         }
 
+        // 高亮当前时间对应的表头
         function highlightCurrentTime() {
             document.querySelectorAll('#weekHeaders th, .time-col').forEach(el => {
                 el.classList.remove('current-highlight');
@@ -710,7 +740,7 @@
                     if (cls) classSet.add(cls);
                 }
             });
-            return Array.from(classSet).sort((a,b) => a.localeCompare(b, 'zh'));
+            return Array.from(classSet).sort(naturalSort);
         }
 
         function buildMaps() {
@@ -727,11 +757,15 @@
                     lessonToClasses.get(lid).add(cls);
                 }
             });
+            for (const [lid, classSet] of lessonToClasses.entries()) {
+                const sorted = Array.from(classSet).sort(naturalSort);
+                lessonToClasses.set(lid, new Set(sorted));
+            }
         }
 
         function isValidForWeek(scheduleItem, weekNum) {
-            if (!scheduleItem.vaildWeeks) return false;
-            const weeksStr = String(scheduleItem.vaildWeeks);
+            if (!scheduleItem.validWeeks) return false;
+            const weeksStr = String(scheduleItem.validWeeks);
             if (weeksStr.length < weekNum) return false;
             return weeksStr.charAt(weekNum - 1) === '1';
         }
@@ -742,7 +776,7 @@
             return !(e < blockStart || s > blockEnd);
         }
 
-        // 构建合并后的课程数据
+        // 构建合并后的课程数据（用于显示）
         function buildMergedGrid(className, weekNum) {
             const rawGrid = Array.from({ length: 7 }, () => Array.from({ length: SESSIONS.length }, () => []));
             const courseIdsInClass = new Set();
@@ -841,7 +875,16 @@
             renderDropdown(comboInput.value);
         }
 
-        function showFloatingCard(cardElement, lessonId, courseName, sessionIndex, weekdayIndex, weekNum) {
+        function getSessionDisplay(startIdx, endIdx) {
+            if (startIdx === endIdx) {
+                return SESSIONS[startIdx].display;
+            }
+            const startName = SESSIONS[startIdx].display.split('-')[0];
+            const endName = SESSIONS[endIdx].display.split('-')[1] || SESSIONS[endIdx].display;
+            return `${startName}-${endName}节`;
+        }
+
+        function showFloatingCard(cardElement, lessonId, courseName, startSessionIdx, endSessionIdx, weekdayIndex, weekNum) {
             closeFloatingCard();
             if (!selectedClass) return;
 
@@ -852,12 +895,12 @@
             targetDate.setDate(monday.getDate() + weekdayIndex);
             const month = targetDate.getMonth() + 1;
             const day = targetDate.getDate();
-            const sessionDisplay = SESSIONS[sessionIndex].display;
+            const sessionDisplay = getSessionDisplay(startSessionIdx, endSessionIdx);
             const dateSessionStr = `${month}.${day}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${sessionDisplay}`;
 
             let allClassesForLesson = [];
             if (lessonToClasses.has(lessonId)) {
-                allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort((a, b) => a.localeCompare(b, 'zh'));
+                allClassesForLesson = Array.from(lessonToClasses.get(lessonId)).sort(naturalSort);
             }
 
             let currentSelectedLessonClass = selectedClass;
@@ -894,7 +937,7 @@
                 <button class="floating-btn" id="queryStudentBtn">查询该班学生</button>
                 <button class="floating-btn" id="queryScheduleBtn">查询该班课程表</button>
                 <div class="same-class-info">
-                    <div style="margin-bottom: 6px;">该课程班级：</div>
+                    <div style="margin-bottom: 6px;">同课程班级：</div>
                     <div id="classGridContainer">${renderClassGrid()}</div>
                 </div>
             `;
@@ -997,7 +1040,9 @@
                 newHtml += '<tr>';
                 newHtml += `<td class="time-col">${SESSIONS[row].name}<br><span style="font-size:0.75rem;">${SESSIONS[row].time}</span></td>`;
                 for (let day = 0; day < 7; day++) {
-                    if (occupied[row][day]) continue;
+                    if (occupied[row][day]) {
+                        continue;
+                    }
                     const item = mergedGrid[day][row];
                     if (item && item.startSession === row) {
                         const rowspan = item.rowspan;
@@ -1009,7 +1054,7 @@
                         if (c.room && c.room !== '') details += `<div class="course-detail">教室：${c.room}</div>`;
                         if (c.teacher && c.teacher !== '') details += `<div class="course-detail">教师：${c.teacher}</div>`;
                         newHtml += `<td rowspan="${rowspan}" style="vertical-align:top;">`;
-                        newHtml += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}" data-weekday="${day}" data-session="${row}" data-week="${weekNum}">`;
+                        newHtml += `<div class="course-item" data-lessonid="${c.lessonId}" data-coursename="${escapeHtml(c.name)}" data-startsession="${c.startSession}" data-endsession="${c.endSession}" data-weekday="${day}" data-week="${weekNum}">`;
                         newHtml += `<div class="course-name">${escapeHtml(c.name)}</div>`;
                         newHtml += details;
                         newHtml += `</div>`;
@@ -1039,14 +1084,15 @@
                 card.parentNode.replaceChild(newCard, card);
                 const lessonId = newCard.dataset.lessonid;
                 const courseName = newCard.dataset.coursename;
+                const startSession = parseInt(newCard.dataset.startsession, 10);
+                const endSession = parseInt(newCard.dataset.endsession, 10);
                 const weekday = parseInt(newCard.dataset.weekday, 10);
-                const sessionIdx = parseInt(newCard.dataset.session, 10);
                 const weekNum = parseInt(newCard.dataset.week, 10);
                 if (!lessonId) return;
                 if (enableQuery) {
                     newCard.addEventListener('click', (e) => {
                         e.stopPropagation();
-                        showFloatingCard(newCard, lessonId, courseName, sessionIdx, weekday, weekNum);
+                        showFloatingCard(newCard, lessonId, courseName, startSession, endSession, weekday, weekNum);
                     });
                 } else {
                     newCard.addEventListener('click', (e) => {
@@ -1102,7 +1148,6 @@
                 });
             });
         }
-
         function showDropdown() {
             if (!allClasses.length) return;
             renderDropdown(comboInput.value);
@@ -1120,7 +1165,6 @@
         function toggleClearBtn() {
             clearBtn.style.display = comboInput.value.length > 0 ? 'flex' : 'none';
         }
-
         clearBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             comboInput.value = '';
@@ -1192,6 +1236,130 @@
             }
         });
 
+        // ---------- ICS 导出功能 ----------
+        function formatICSDate(date) {
+            // 返回 UTC 时间格式 YYYYMMDDTHHMMSSZ
+            const year = date.getUTCFullYear();
+            const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+            const day = date.getUTCDate().toString().padStart(2, '0');
+            const hour = date.getUTCHours().toString().padStart(2, '0');
+            const minute = date.getUTCMinutes().toString().padStart(2, '0');
+            const second = date.getUTCSeconds().toString().padStart(2, '0');
+            return `${year}${month}${day}T${hour}${minute}${second}Z`;
+        }
+
+        function exportToICS() {
+            if (!selectedClass) {
+                alert('请先选择一个班级');
+                return;
+            }
+            // 收集该班级所有课程的所有有效周次事件
+            const courseIdsInClass = new Set();
+            coursesData.forEach(c => {
+                if (c.class && c.class.trim() === selectedClass && c.lessonid) {
+                    courseIdsInClass.add(String(c.lessonid));
+                }
+            });
+            if (courseIdsInClass.size === 0) {
+                alert('当前班级没有课程数据');
+                return;
+            }
+
+            const events = []; // 存储每个 VEVENT 的字符串
+
+            for (const sch of scheduleData) {
+                const courseId = String(sch.courseId);
+                if (!courseIdsInClass.has(courseId)) continue;
+                const validWeeksStr = sch.validWeeks;
+                if (!validWeeksStr) continue;
+                const weekday = sch.weekday; // 1-7 周一=1
+                const startSess = sch.startSession;
+                const endSess = sch.endSession;
+                // 获取该课程的具体信息
+                const courseName = courseNameMap.get(courseId) || '未知课程';
+                let teacher = sch.teacherName || '';
+                let room = sch.roomName || '';
+                if (teacher === "null") teacher = '';
+                if (room === "null") room = '';
+                // 获取上课时间（开始和结束）
+                const startTime = SESSIONS.find(s => s.start === startSess);
+                const endTime = SESSIONS.find(s => s.end === endSess);
+                if (!startTime || !endTime) continue;
+                const startHour = startTime.startHour;
+                const startMin = startTime.startMin;
+                const endHour = endTime.endHour;
+                const endMin = endTime.endMin;
+
+                // 遍历每一周
+                for (let w = 0; w < validWeeksStr.length; w++) {
+                    if (validWeeksStr[w] !== '1') continue;
+                    const weekNum = w + 1;
+                    // 计算该周周一的日期
+                    const monday = new Date(SEMESTER_START);
+                    monday.setDate(SEMESTER_START.getDate() + (weekNum - 1) * 7);
+                    // 计算该课程当天的日期
+                    const eventDate = new Date(monday);
+                    eventDate.setDate(monday.getDate() + (weekday - 1));
+                    // 设置开始时间和结束时间（本地时间，转换为UTC）
+                    const startDateTime = new Date(eventDate);
+                    startDateTime.setHours(startHour, startMin, 0, 0);
+                    const endDateTime = new Date(eventDate);
+                    endDateTime.setHours(endHour, endMin, 0, 0);
+                    // 转换为UTC
+                    const dtstartUTC = new Date(startDateTime.getTime() - (startDateTime.getTimezoneOffset() * 60000));
+                    const dtendUTC = new Date(endDateTime.getTime() - (endDateTime.getTimezoneOffset() * 60000));
+                    const dtstartStr = formatICSDate(dtstartUTC);
+                    const dtendStr = formatICSDate(dtendUTC);
+                    
+                    let summary = courseName;
+                    let location = room ? room : '';
+                    let description = teacher ? `教师：${teacher}` : '';
+                    if (location && description) description += `\n地点：${location}`;
+                    else if (location) description = `地点：${location}`;
+                    
+                    const vevent = [
+                        'BEGIN:VEVENT',
+                        `SUMMARY:${summary}`,
+                        `DTSTART:${dtstartStr}`,
+                        `DTEND:${dtendStr}`,
+                        location ? `LOCATION:${location}` : '',
+                        description ? `DESCRIPTION:${description}` : '',
+                        'END:VEVENT'
+                    ].filter(line => line !== '').join('\r\n');
+                    events.push(vevent);
+                }
+            }
+
+            if (events.length === 0) {
+                alert('没有找到有效的课程安排');
+                return;
+            }
+
+            const icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//课程表//CN//EN',
+                'CALSCALE:GREGORIAN',
+                'METHOD:PUBLISH',
+                'X-WR-CALNAME:' + selectedClass + ' 课程表',
+                'X-WR-TIMEZONE:Asia/Shanghai',
+                ...events,
+                'END:VCALENDAR'
+            ].join('\r\n');
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.href = url;
+            link.download = `${selectedClass}_课程表.ics`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        exportIcsBtn.addEventListener('click', exportToICS);
+
         function initCombo(initialClass = null) {
             if (allClasses.length > 0) {
                 if (initialClass && allClasses.includes(initialClass)) {
@@ -1229,7 +1397,7 @@
                 scheduleData = Array.isArray(scheduleJson) ? scheduleJson : [];
                 if (scheduleData.length === 0) throw new Error('排课信息为空数组');
                 buildMaps();
-                updateStatus('数据更新时间:2026.3.24 22:30');
+                updateStatus('数据更新时间:2026.3.20');
                 allClasses = extractClasses();
                 autoSyncWeek();
                 const urlClass = getUrlParam('s');
