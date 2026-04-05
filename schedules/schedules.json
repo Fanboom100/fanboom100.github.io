@@ -38638,5 +38638,25 @@
     "endSession": 0,
     "validWeeks": "00000000000000000000000000",
     "isScheduled": false
+  },
+  {
+    "teacherName": "李强",
+    "courseId": "393515",
+    "roomName": "天工北202",
+    "weekday": 5,
+    "startSession": 10,
+    "endSession": 12,
+    "validWeeks": "00001111111100000000000000",
+    "isScheduled": true
+  },  
+  {
+    "teacherName": "李强",
+    "courseId": "393515",
+    "roomName": "天工北202",
+    "weekday": 7,
+    "startSession": 6,
+    "endSession": 8,
+    "validWeeks": "00001111111100000000000000",
+    "isScheduled": true
   }
 ]
